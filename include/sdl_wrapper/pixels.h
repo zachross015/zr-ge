@@ -9,6 +9,11 @@ namespace zr {
     /*! \enum PixelFormat
      *
      *  Enumeration of pixel formats
+     *
+     *  @todo Extract this to its own class-ish. There are alot of member
+     *  functions specifically dealing with this, so it will be alot simpler if
+     *  we have this as its own class and make pixel_type, pixel_order, and
+     *  pixel_layout consquences of said class.
      */
     enum class pixel_format { 
         unknown = SDL_PIXELFORMAT_UNKNOWN,

@@ -792,6 +792,16 @@ sdl_wrapper/display_mode.h
 SDL.h
 -
 
+/home/zachary/projects/game-engine/src/sdl_wrapper/blend_mode.cpp
+sdl_wrapper/blend_mode.h
+-
+
+/home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp
+sdl_wrapper/display_mode.h
+-
+SDL.h
+-
+
 /home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp
 sdl_wrapper/renderer.h
 -

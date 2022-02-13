@@ -88,7 +88,7 @@ namespace zr {
 
             /** Tells the renderer which color to switch to.
              *
-             * The renderer can someone be imagined as someone drawing in a
+             * The renderer can be imagined as someone drawing in a
              * coloring book with a certain color of crayon. Until told that
              * they should switch to a different color, they will continue to
              * color absolutely EVERYTHING in that color. That is why we have to

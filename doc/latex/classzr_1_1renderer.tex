@@ -4,58 +4,60 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classzr_1_1renderer_a9c92b731323b34123c217cc216578d0c}{renderer}} (const \mbox{\hyperlink{classzr_1_1window}{window}} \&w, const std\+::vector$<$ renderer\+\_\+state $>$ \&rs=\{\}, int index=-\/1)
-\item 
+\begin{DoxyCompactList}\small\item\em Support for the S\+DL renderer init with stronger typing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}\label{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}} 
 virtual \mbox{\hyperlink{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}{$\sim$renderer}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Deconstructs the renderer. \end{DoxyCompactList}\item 
 blend\+\_\+mode \mbox{\hyperlink{classzr_1_1renderer_a112198ad37eef60c6ef13268e92aa5c4}{get\+\_\+blend\+\_\+mode}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the blend mode used for drawing operations. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}{set\+\_\+blend\+\_\+mode}} (const blend\+\_\+mode \&bm)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the blend mode used for drawing operations. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structzr_1_1color}{color}} \mbox{\hyperlink{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}{get\+\_\+draw\+\_\+color}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the the current color that this renderer is drawing in. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a8a7093e4fbc38f037085f84e15d4715a}{set\+\_\+draw\+\_\+color}} (const \mbox{\hyperlink{structzr_1_1color}{color}} \&c)
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the renderer which color to switch to. \end{DoxyCompactList}\item 
 arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1renderer_aba93f7e2c2dcc15b66021f94bd9828c8}{get\+\_\+output\+\_\+size}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Return the size of the rendering window. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a17d54d638b489ff5125893873533f7fd}{clear}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Resets all pixels in the render to the current draw color. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}{draw\+\_\+lines}} (const arma\+::\+Mat$<$ int $>$ \&lines)
-\item 
+\begin{DoxyCompactList}\small\item\em Draws the specified series of lines to this renderer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_ac4880dbbc4c703ba7d8b82df46379845}{draw\+\_\+points}} (const arma\+::\+Mat$<$ int $>$ \&points)
-\item 
+\begin{DoxyCompactList}\small\item\em Draws the specified series of points to this renderer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a0b3c7ad0fef00b738668ac3a7d5d7345}{draw\+\_\+rects}} (const arma\+::\+Mat$<$ int $>$ \&rects)
-\item 
+\begin{DoxyCompactList}\small\item\em Draws the specified series of rectangles to this renderer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a34e1332cc07346a864a5937afe8834a7}{fill\+\_\+rects}} (const arma\+::\+Mat$<$ int $>$ \&rects)
-\item 
+\begin{DoxyCompactList}\small\item\em Draws the specified series of rectangles to this renderer, filling them in with this renderer\textquotesingle{}s draw color. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}\label{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}} 
 void \mbox{\hyperlink{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}{present}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sends the information in this renderer to the window it\textquotesingle{}s connected to. \end{DoxyCompactList}\item 
 arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1renderer_a1a93b15028f2bc27b2051bc912a70b4b}{get\+\_\+clip\+\_\+rect}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the clip rectangle for the current target. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a43901bc197ee5f4343a05b8d7f1534d3}{set\+\_\+clip\+\_\+rect}} (const arma\+::\+Col$<$ int $>$ \&cr)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the clip rectangle for rendering on the specified target. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classzr_1_1renderer_aa53b7e1ef05450aa609b044f30f0f402}{integer\+\_\+scales\+\_\+are\+\_\+forced}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get whether integer scales are forced for resolution-\/independent rendering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a853761a5436cbde1d21b33095753c54a}{set\+\_\+force\+\_\+integer\+\_\+scales}} (bool tf)
-\item 
+\begin{DoxyCompactList}\small\item\em Set whether integer scales are forced for resolution-\/independent rendering. \end{DoxyCompactList}\item 
 arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1renderer_aeddb8869b3a9319f2204d49bc01a157f}{get\+\_\+logical\+\_\+size}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get device independent resolution for rendering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a432e8d37f2713d3bc629f4c18d34394a}{set\+\_\+logical\+\_\+size}} (const arma\+::\+Col$<$ int $>$ \&ls)
-\item 
+\begin{DoxyCompactList}\small\item\em Set device independent resolution for rendering. \end{DoxyCompactList}\item 
 arma\+::\+Col$<$ float $>$ \mbox{\hyperlink{classzr_1_1renderer_a06aa9deb9653dbeab67d1ab46c663810}{get\+\_\+scale}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the drawing scale for the current target. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a58a97696110f7049dba12dfe6e65e9d8}{set\+\_\+scale}} (const arma\+::\+Col$<$ float $>$ \&s)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the drawing scale for the current target. \end{DoxyCompactList}\item 
 arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1renderer_a8e8baa7221789ce60e5b59770973b00b}{get\+\_\+viewport}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the drawing area for the current target. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_aa8a9ad5c6403619107677bcc5a2fa94b}{set\+\_\+viewport}} (const arma\+::\+Col$<$ int $>$ \&vp)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the drawing area for the current target. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classzr_1_1renderer_a5d255c4f265665412ed8e4a9bf3cc8da}{is\+\_\+clipping\+\_\+enabled}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get whether clipping is enabled on this renderer. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1renderer_a235158cefa7f60b738129a5011ba4661}\label{classzr_1_1renderer_a235158cefa7f60b738129a5011ba4661}} 
 void {\bfseries read\+\_\+pixels} (const arma\+::\+Col$<$ int $>$ \&vp, const pixel\+\_\+format \&format, void $\ast$pixels, int pitch)
 \item 
 bool \mbox{\hyperlink{classzr_1_1renderer_a35a644f8857d4c57ca672fed3eda37b9}{is\+\_\+target\+\_\+supported}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Determine whether this renderer supports the use of render targets. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -65,7 +67,9 @@ bool \mbox{\hyperlink{classzr_1_1renderer_a35a644f8857d4c57ca672fed3eda37b9}{is\
 \doxysubsubsection{\texorpdfstring{renderer()}{renderer()}}
 {\footnotesize\ttfamily zr\+::renderer\+::renderer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classzr_1_1window}{window}} \&}]{w,  }\item[{const std\+::vector$<$ renderer\+\_\+state $>$ \&}]{rs = {\ttfamily \{\}},  }\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})}
 
-Support for the S\+DL renderer init with stronger typing.
+
+
+Support for the S\+DL renderer init with stronger typing. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -81,13 +85,7 @@ Support for the S\+DL renderer init with stronger typing.
 {\em \mbox{\hyperlink{structzr_1_1sdl__exception}{sdl\+\_\+exception}}} & Error when creating the renderer. \\
 \hline
 \end{DoxyExceptions}
-\mbox{\Hypertarget{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}\label{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}} 
-\index{zr::renderer@{zr::renderer}!````~renderer@{$\sim$renderer}}
-\index{````~renderer@{$\sim$renderer}!zr::renderer@{zr::renderer}}
-\doxysubsubsection{\texorpdfstring{$\sim$renderer()}{~renderer()}}
-{\footnotesize\ttfamily virtual zr\+::renderer\+::$\sim$renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Deconstructs the renderer. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classzr_1_1renderer_a17d54d638b489ff5125893873533f7fd}\label{classzr_1_1renderer_a17d54d638b489ff5125893873533f7fd}} 
@@ -96,13 +94,19 @@ Deconstructs the renderer.
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Resets all pixels in the render to the current draw color. See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}\label{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}} 
+
+
+Resets all pixels in the render to the current draw color. 
+
+See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}\label{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}} 
 \index{zr::renderer@{zr::renderer}!draw\_lines@{draw\_lines}}
 \index{draw\_lines@{draw\_lines}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{draw\_lines()}{draw\_lines()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+lines (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{lines }\end{DoxyParamCaption})}
 
-Draws the specified series of lines to this renderer.
+
+
+Draws the specified series of lines to this renderer. 
 
 The lines are sequentially read from the given matrix, meaning there needs to be 2 columns per row s.\+t. the first column (index 0) is the x coordinate and the second column (index 1) is the y coordinate of each point in the sequence of lines.
 
@@ -125,7 +129,9 @@ The lines are sequentially read from the given matrix, meaning there needs to be
 \doxysubsubsection{\texorpdfstring{draw\_points()}{draw\_points()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+points (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{points }\end{DoxyParamCaption})}
 
-Draws the specified series of points to this renderer.
+
+
+Draws the specified series of points to this renderer. 
 
 The points are sequentially read from the given matrix, meaning there needs to be 2 columns per row s.\+t. the first column (index 0) is the x coordinate and the second column (index 1) is the y coordinate of each point.
 
@@ -148,7 +154,9 @@ The points are sequentially read from the given matrix, meaning there needs to b
 \doxysubsubsection{\texorpdfstring{draw\_rects()}{draw\_rects()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{rects }\end{DoxyParamCaption})}
 
-Draws the specified series of rectangles to this renderer.
+
+
+Draws the specified series of rectangles to this renderer. 
 
 The rectangles are sequentially read from the given matrix, meaning there needs to be 4 columns per row s.\+t. the first column (index 0) is the x coordinate, the second column (index 1) is the y coordinate, the third column (index 2) is the width, and the fourth column (index 3) is the height.
 
@@ -172,7 +180,9 @@ The rectangles are sequentially read from the given matrix, meaning there needs 
 \doxysubsubsection{\texorpdfstring{fill\_rects()}{fill\_rects()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::fill\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{rects }\end{DoxyParamCaption})}
 
-Draws the specified series of rectangles to this renderer, filling them in with this renderer\textquotesingle{}s draw color.
+
+
+Draws the specified series of rectangles to this renderer, filling them in with this renderer\textquotesingle{}s draw color. 
 
 The rectangles are sequentially read from the given matrix, meaning there needs to be 4 columns per row s.\+t. the first column (index 0) is the x coordinate, the second column (index 1) is the y coordinate, the third column (index 2) is the width, and the fourth column (index 3) is the height.
 
@@ -196,7 +206,9 @@ The rectangles are sequentially read from the given matrix, meaning there needs 
 \doxysubsubsection{\texorpdfstring{get\_blend\_mode()}{get\_blend\_mode()}}
 {\footnotesize\ttfamily blend\+\_\+mode zr\+::renderer\+::get\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get the blend mode used for drawing operations.
+
+
+Get the blend mode used for drawing operations. 
 
 
 \begin{DoxyExceptions}{Exceptions}
@@ -212,20 +224,24 @@ Associate blend mode.
 \doxysubsubsection{\texorpdfstring{get\_clip\_rect()}{get\_clip\_rect()}}
 {\footnotesize\ttfamily arma\+::\+Col$<$int$>$ zr\+::renderer\+::get\+\_\+clip\+\_\+rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get the clip rectangle for the current target.
+
+
+Get the clip rectangle for the current target. 
 
 \begin{DoxyReturn}{Returns}
 Column vector filled with the current clipping area (x, y, w, h) or an empy rectangle if clipping is disabled.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}\label{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}} 
 \index{zr::renderer@{zr::renderer}!get\_draw\_color@{get\_draw\_color}}
 \index{get\_draw\_color@{get\_draw\_color}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{get\_draw\_color()}{get\_draw\_color()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structzr_1_1color}{color}} zr\+::renderer\+::get\+\_\+draw\+\_\+color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Gets the the current color that this renderer is drawing in.
+
+
+Gets the the current color that this renderer is drawing in. 
 
 \begin{DoxyReturn}{Returns}
 The color this renderer is using to draw. 
@@ -236,7 +252,9 @@ The color this renderer is using to draw.
 \doxysubsubsection{\texorpdfstring{get\_logical\_size()}{get\_logical\_size()}}
 {\footnotesize\ttfamily arma\+::\+Col$<$int$>$ zr\+::renderer\+::get\+\_\+logical\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get device independent resolution for rendering.
+
+
+Get device independent resolution for rendering. 
 
 \begin{DoxyRemark}{Remarks}
 May return 0 for both if renderer has never had its logical size set by S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size and never had a render target set.
@@ -250,7 +268,9 @@ May return 0 for both if renderer has never had its logical size set by S\+D\+L\
 \doxysubsubsection{\texorpdfstring{get\_output\_size()}{get\_output\_size()}}
 {\footnotesize\ttfamily arma\+::\+Col$<$int$>$ zr\+::renderer\+::get\+\_\+output\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Return the size of the rendering window.
+
+
+Return the size of the rendering window. 
 
 \begin{DoxyReturn}{Returns}
 Column vector containing the width (index 0) and height (index 1). 
@@ -261,7 +281,9 @@ Column vector containing the width (index 0) and height (index 1).
 \doxysubsubsection{\texorpdfstring{get\_scale()}{get\_scale()}}
 {\footnotesize\ttfamily arma\+::\+Col$<$float$>$ zr\+::renderer\+::get\+\_\+scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get the drawing scale for the current target.
+
+
+Get the drawing scale for the current target. 
 
 \begin{DoxyReturn}{Returns}
 2D Drawing scale for the target (x, y) 
@@ -272,7 +294,9 @@ Get the drawing scale for the current target.
 \doxysubsubsection{\texorpdfstring{get\_viewport()}{get\_viewport()}}
 {\footnotesize\ttfamily arma\+::\+Col$<$int$>$ zr\+::renderer\+::get\+\_\+viewport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get the drawing area for the current target.
+
+
+Get the drawing area for the current target. 
 
 \begin{DoxyReturn}{Returns}
 2D Drawing area for the target (x, y) 
@@ -283,7 +307,9 @@ Get the drawing area for the current target.
 \doxysubsubsection{\texorpdfstring{integer\_scales\_are\_forced()}{integer\_scales\_are\_forced()}}
 {\footnotesize\ttfamily bool zr\+::renderer\+::integer\+\_\+scales\+\_\+are\+\_\+forced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get whether integer scales are forced for resolution-\/independent rendering.
+
+
+Get whether integer scales are forced for resolution-\/independent rendering. 
 
 \begin{DoxyReturn}{Returns}
 true if they are forced, false otherwise. 
@@ -294,7 +320,9 @@ true if they are forced, false otherwise.
 \doxysubsubsection{\texorpdfstring{is\_clipping\_enabled()}{is\_clipping\_enabled()}}
 {\footnotesize\ttfamily bool zr\+::renderer\+::is\+\_\+clipping\+\_\+enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get whether clipping is enabled on this renderer.
+
+
+Get whether clipping is enabled on this renderer. 
 
 \begin{DoxyReturn}{Returns}
 true if clipping is enabled, false otherwise. 
@@ -305,24 +333,22 @@ true if clipping is enabled, false otherwise.
 \doxysubsubsection{\texorpdfstring{is\_target\_supported()}{is\_target\_supported()}}
 {\footnotesize\ttfamily bool zr\+::renderer\+::is\+\_\+target\+\_\+supported (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Determine whether this renderer supports the use of render targets.
+
+
+Determine whether this renderer supports the use of render targets. 
 
 \begin{DoxyReturn}{Returns}
 true if this supports render targets, false otherwise. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}\label{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}} 
-\index{zr::renderer@{zr::renderer}!present@{present}}
-\index{present@{present}!zr::renderer@{zr::renderer}}
-\doxysubsubsection{\texorpdfstring{present()}{present()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::present (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Sends the information in this renderer to the window it\textquotesingle{}s connected to. \mbox{\Hypertarget{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}\label{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}} 
+\mbox{\Hypertarget{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}\label{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}} 
 \index{zr::renderer@{zr::renderer}!set\_blend\_mode@{set\_blend\_mode}}
 \index{set\_blend\_mode@{set\_blend\_mode}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{set\_blend\_mode()}{set\_blend\_mode()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}\item[{const blend\+\_\+mode \&}]{bm }\end{DoxyParamCaption})}
 
-Set the blend mode used for drawing operations.
+
+
+Set the blend mode used for drawing operations. 
 
 
 \begin{DoxyExceptions}{Exceptions}
@@ -340,7 +366,9 @@ Set the blend mode used for drawing operations.
 \doxysubsubsection{\texorpdfstring{set\_clip\_rect()}{set\_clip\_rect()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+clip\+\_\+rect (\begin{DoxyParamCaption}\item[{const arma\+::\+Col$<$ int $>$ \&}]{cr }\end{DoxyParamCaption})}
 
-Set the clip rectangle for rendering on the specified target.
+
+
+Set the clip rectangle for rendering on the specified target. 
 
 
 \begin{DoxyExceptions}{Exceptions}
@@ -358,9 +386,11 @@ Set the clip rectangle for rendering on the specified target.
 \doxysubsubsection{\texorpdfstring{set\_draw\_color()}{set\_draw\_color()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+draw\+\_\+color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzr_1_1color}{color}} \&}]{c }\end{DoxyParamCaption})}
 
-Tells the renderer which color to switch to.
 
-The renderer can someone be imagined as someone drawing in a coloring book with a certain color of crayon. Until told that they should switch to a different color, they will continue to color absolutely E\+V\+E\+R\+Y\+T\+H\+I\+NG in that color. That is why we have to tell the renderer to switch whenever we want color changes.
+
+Tells the renderer which color to switch to. 
+
+The renderer can be imagined as someone drawing in a coloring book with a certain color of crayon. Until told that they should switch to a different color, they will continue to color absolutely E\+V\+E\+R\+Y\+T\+H\+I\+NG in that color. That is why we have to tell the renderer to switch whenever we want color changes.
 
 
 \begin{DoxyParams}{Parameters}
@@ -373,7 +403,9 @@ The renderer can someone be imagined as someone drawing in a coloring book with 
 \doxysubsubsection{\texorpdfstring{set\_force\_integer\_scales()}{set\_force\_integer\_scales()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+force\+\_\+integer\+\_\+scales (\begin{DoxyParamCaption}\item[{bool}]{tf }\end{DoxyParamCaption})}
 
-Set whether integer scales are forced for resolution-\/independent rendering.
+
+
+Set whether integer scales are forced for resolution-\/independent rendering. 
 
 
 \begin{DoxyExceptions}{Exceptions}
@@ -391,7 +423,9 @@ Set whether integer scales are forced for resolution-\/independent rendering.
 \doxysubsubsection{\texorpdfstring{set\_logical\_size()}{set\_logical\_size()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+logical\+\_\+size (\begin{DoxyParamCaption}\item[{const arma\+::\+Col$<$ int $>$ \&}]{ls }\end{DoxyParamCaption})}
 
-Set device independent resolution for rendering.
+
+
+Set device independent resolution for rendering. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -404,7 +438,9 @@ Set device independent resolution for rendering.
 \doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{const arma\+::\+Col$<$ float $>$ \&}]{s }\end{DoxyParamCaption})}
 
-Set the drawing scale for the current target.
+
+
+Set the drawing scale for the current target. 
 
 
 \begin{DoxyExceptions}{Exceptions}
@@ -422,7 +458,9 @@ Set the drawing scale for the current target.
 \doxysubsubsection{\texorpdfstring{set\_viewport()}{set\_viewport()}}
 {\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+viewport (\begin{DoxyParamCaption}\item[{const arma\+::\+Col$<$ int $>$ \&}]{vp }\end{DoxyParamCaption})}
 
-Set the drawing area for the current target.
+
+
+Set the drawing area for the current target. 
 
 
 \begin{DoxyExceptions}{Exceptions}

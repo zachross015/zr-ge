@@ -2,6 +2,11 @@
 \label{structzr_1_1input__exception}\index{zr::input\_exception@{zr::input\_exception}}
 
 
+Class of exceptions dealing with input errors that occur in the codebase.  
+
+
+
+
 {\ttfamily \#include $<$exceptions.\+h$>$}
 
 
@@ -30,7 +35,9 @@ std\+::string {\bfseries message}
 
 
 \doxysubsection{Detailed Description}
-Class of exceptions dealing with input errors that occur in the codebase. So far, these primarily deal with errors in matrix dimensionality; however, this can be extended much further if need be. 
+Class of exceptions dealing with input errors that occur in the codebase. 
+
+So far, these primarily deal with errors in matrix dimensionality; however, this can be extended much further if need be. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

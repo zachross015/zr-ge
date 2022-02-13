@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.13)
+
+set(CMAKE_BUILD_TYPE Debug)
+
+# Project Name
+project(GameEngine VERSION 1.0)
+
+# Libaries
+add_subdirectory(lib)
+add_subdirectory(include)
+add_subdirectory(src)
+
+# Input all the cpp files
+file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp" "src/sdl_wrapper/*.cpp")
+
+# Input all the includes
+include_directories(include)
+
+# Executable
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo SDL2)

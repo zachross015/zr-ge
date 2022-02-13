@@ -1,0 +1,5 @@
+--recurse=yes
+--exclude=build
+--exclude=docs
+--exclude=lib
+--exclude=tests

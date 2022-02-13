@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['get_5fblend_5fmode_73',['get_blend_mode',['../classzr_1_1renderer.html#a112198ad37eef60c6ef13268e92aa5c4',1,'zr::renderer']]],
+  ['get_5fborders_5fsize_74',['get_borders_size',['../classzr_1_1window.html#ade7c8ac28fe36ae519894a6a44f97ec3',1,'zr::window']]],
+  ['get_5fclip_5frect_75',['get_clip_rect',['../classzr_1_1renderer.html#a1a93b15028f2bc27b2051bc912a70b4b',1,'zr::renderer']]],
+  ['get_5fdisplay_5findex_76',['get_display_index',['../classzr_1_1window.html#a0bc83e8b3f344cb1d59e665913e6db80',1,'zr::window']]],
+  ['get_5fdisplay_5fmode_77',['get_display_mode',['../classzr_1_1window.html#af0d874e70300a606afae47afd17f5437',1,'zr::window']]],
+  ['get_5fdraw_5fcolor_78',['get_draw_color',['../classzr_1_1renderer.html#a0cb127e7471a24f884de13b4761ebcfb',1,'zr::renderer']]],
+  ['get_5fid_79',['get_id',['../classzr_1_1window.html#a95ccf6c2e84f0dc17b1e39ef9fb25dbd',1,'zr::window']]],
+  ['get_5flogical_5fsize_80',['get_logical_size',['../classzr_1_1renderer.html#aeddb8869b3a9319f2204d49bc01a157f',1,'zr::renderer']]],
+  ['get_5fmax_5fsize_81',['get_max_size',['../classzr_1_1window.html#a2cda852929c29550bf358adc473fa9e6',1,'zr::window']]],
+  ['get_5fmin_5fsize_82',['get_min_size',['../classzr_1_1window.html#a60a796394842a9bb1d404db078062d5e',1,'zr::window']]],
+  ['get_5fopacity_83',['get_opacity',['../classzr_1_1window.html#a1bd9698271e3612cb2c8a81db2fc4c2f',1,'zr::window']]],
+  ['get_5foutput_5fsize_84',['get_output_size',['../classzr_1_1renderer.html#aba93f7e2c2dcc15b66021f94bd9828c8',1,'zr::renderer']]],
+  ['get_5fpos_85',['get_pos',['../classzr_1_1window.html#a5c81812c9f9df5993930dada2869d67e',1,'zr::window']]],
+  ['get_5fscale_86',['get_scale',['../classzr_1_1renderer.html#a06aa9deb9653dbeab67d1ab46c663810',1,'zr::renderer']]],
+  ['get_5fsize_87',['get_size',['../classzr_1_1window.html#a0624a96857df43e625a08bec91045a80',1,'zr::window']]],
+  ['get_5fstates_88',['get_states',['../classzr_1_1window.html#abc002da1bdf9b4c9dbd70b1845d67717',1,'zr::window']]],
+  ['get_5ftitle_89',['get_title',['../classzr_1_1window.html#a3caf079fd66b1f26cc9600f965a8d4be',1,'zr::window']]],
+  ['get_5fviewport_90',['get_viewport',['../classzr_1_1renderer.html#a8e8baa7221789ce60e5b59770973b00b',1,'zr::renderer']]]
+];

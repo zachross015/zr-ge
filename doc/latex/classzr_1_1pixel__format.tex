@@ -1,0 +1,194 @@
+\hypertarget{classzr_1_1pixel__format}{}\doxysection{zr\+::pixel\+\_\+format Class Reference}
+\label{classzr_1_1pixel__format}\index{zr::pixel\_format@{zr::pixel\_format}}
+
+
+Read only class which provides information on pixel formats and associated values.  
+
+
+
+
+{\ttfamily \#include $<$pixel\+\_\+format.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzr_1_1pixel__format_a4e7d6fdf2c1afc789b13639952e2a821}{pixel\+\_\+format}} (pixel\+\_\+format\+\_\+specifier f)
+\begin{DoxyCompactList}\small\item\em Constructs the pixel format for quick querys dealing with pixel information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}\label{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}} 
+\mbox{\hyperlink{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}{$\sim$pixel\+\_\+format}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor for the pixel format. \end{DoxyCompactList}\item 
+pixel\+\_\+format\+\_\+specifier \mbox{\hyperlink{classzr_1_1pixel__format_a92d5598e901bd419f3fa36d656021c28}{get\+\_\+format\+\_\+specifier}} ()
+\begin{DoxyCompactList}\small\item\em Format specifier this pixel format was initialized to. \end{DoxyCompactList}\item 
+pixel\+\_\+type \mbox{\hyperlink{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}{get\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Pixel type for this pixel format. \end{DoxyCompactList}\item 
+pixel\+\_\+layout \mbox{\hyperlink{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}{get\+\_\+layout}} ()
+\begin{DoxyCompactList}\small\item\em Pixel layout specifically for packed pixel formats. \end{DoxyCompactList}\item 
+pixel\+\_\+order \mbox{\hyperlink{classzr_1_1pixel__format_a0c938a3a1df787ace1759d56fd3724eb}{get\+\_\+order}} ()
+\begin{DoxyCompactList}\small\item\em Pixel ordering for this pixel format. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classzr_1_1pixel__format_abdc6fa8c3345df732a3cb8cd8c846599}{get\+\_\+bits\+\_\+per\+\_\+pixel}} ()
+\begin{DoxyCompactList}\small\item\em Number of bits per pixel are allowed in this pixel format. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classzr_1_1pixel__format_aeed877148ebc64d6ed1f30d2ac754ac9}{get\+\_\+bytes\+\_\+per\+\_\+pixel}} ()
+\begin{DoxyCompactList}\small\item\em Number of bytes per pixel are allowed in this format. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzr_1_1pixel__format_a104d2b92e82b25b6b0530159ab024190}{format\+\_\+is\+\_\+indexed}} ()
+\begin{DoxyCompactList}\small\item\em Whether or not this format is one of the indexed pixel formats (i.\+e. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzr_1_1pixel__format_a6bbb9d49d1da54cb4b44f697a762a252}{format\+\_\+is\+\_\+alpha}} ()
+\begin{DoxyCompactList}\small\item\em Whether this format contains an alpha channel. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzr_1_1pixel__format_a2af4c0f54d9c9fdbd993564a9e4f69e9}{format\+\_\+is\+\_\+fourcc}} ()
+\begin{DoxyCompactList}\small\item\em Whether this format represents a unique format (e.\+g. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Read only class which provides information on pixel formats and associated values. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]A great abstraction which will be necessary down the line is converting from a color to a specific \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}. \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a4e7d6fdf2c1afc789b13639952e2a821}\label{classzr_1_1pixel__format_a4e7d6fdf2c1afc789b13639952e2a821}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!pixel\_format@{pixel\_format}}
+\index{pixel\_format@{pixel\_format}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{pixel\_format()}{pixel\_format()}}
+{\footnotesize\ttfamily zr\+::pixel\+\_\+format\+::pixel\+\_\+format (\begin{DoxyParamCaption}\item[{pixel\+\_\+format\+\_\+specifier}]{f }\end{DoxyParamCaption})}
+
+
+
+Constructs the pixel format for quick querys dealing with pixel information. 
+
+Pixel formats determine a number of things, primarily to do with how textures are colored and how data is translated to the screen. This constructor coagulates all the information dealing with the pixel, allowing for quick access.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The format specifier for this pixel format. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a6bbb9d49d1da54cb4b44f697a762a252}\label{classzr_1_1pixel__format_a6bbb9d49d1da54cb4b44f697a762a252}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!format\_is\_alpha@{format\_is\_alpha}}
+\index{format\_is\_alpha@{format\_is\_alpha}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{format\_is\_alpha()}{format\_is\_alpha()}}
+{\footnotesize\ttfamily bool zr\+::pixel\+\_\+format\+::format\+\_\+is\+\_\+alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Whether this format contains an alpha channel. 
+
+\begin{DoxyReturn}{Returns}
+True if this format contains an alpha channel, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a2af4c0f54d9c9fdbd993564a9e4f69e9}\label{classzr_1_1pixel__format_a2af4c0f54d9c9fdbd993564a9e4f69e9}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!format\_is\_fourcc@{format\_is\_fourcc}}
+\index{format\_is\_fourcc@{format\_is\_fourcc}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{format\_is\_fourcc()}{format\_is\_fourcc()}}
+{\footnotesize\ttfamily bool zr\+::pixel\+\_\+format\+::format\+\_\+is\+\_\+fourcc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Whether this format represents a unique format (e.\+g. 
+
+Y\+UV formats)
+
+\begin{DoxyReturn}{Returns}
+True if this format is a unique format, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a104d2b92e82b25b6b0530159ab024190}\label{classzr_1_1pixel__format_a104d2b92e82b25b6b0530159ab024190}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!format\_is\_indexed@{format\_is\_indexed}}
+\index{format\_is\_indexed@{format\_is\_indexed}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{format\_is\_indexed()}{format\_is\_indexed()}}
+{\footnotesize\ttfamily bool zr\+::pixel\+\_\+format\+::format\+\_\+is\+\_\+indexed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Whether or not this format is one of the indexed pixel formats (i.\+e. 
+
+reads from a color table).
+
+\begin{DoxyReturn}{Returns}
+True if it is indexed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_abdc6fa8c3345df732a3cb8cd8c846599}\label{classzr_1_1pixel__format_abdc6fa8c3345df732a3cb8cd8c846599}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_bits\_per\_pixel@{get\_bits\_per\_pixel}}
+\index{get\_bits\_per\_pixel@{get\_bits\_per\_pixel}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_bits\_per\_pixel()}{get\_bits\_per\_pixel()}}
+{\footnotesize\ttfamily char zr\+::pixel\+\_\+format\+::get\+\_\+bits\+\_\+per\+\_\+pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Number of bits per pixel are allowed in this pixel format. 
+
+\begin{DoxyReturn}{Returns}
+The number of bits. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_aeed877148ebc64d6ed1f30d2ac754ac9}\label{classzr_1_1pixel__format_aeed877148ebc64d6ed1f30d2ac754ac9}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_bytes\_per\_pixel@{get\_bytes\_per\_pixel}}
+\index{get\_bytes\_per\_pixel@{get\_bytes\_per\_pixel}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_per\_pixel()}{get\_bytes\_per\_pixel()}}
+{\footnotesize\ttfamily char zr\+::pixel\+\_\+format\+::get\+\_\+bytes\+\_\+per\+\_\+pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Number of bytes per pixel are allowed in this format. 
+
+\begin{DoxyReturn}{Returns}
+The number of bytes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a92d5598e901bd419f3fa36d656021c28}\label{classzr_1_1pixel__format_a92d5598e901bd419f3fa36d656021c28}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_format\_specifier@{get\_format\_specifier}}
+\index{get\_format\_specifier@{get\_format\_specifier}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_format\_specifier()}{get\_format\_specifier()}}
+{\footnotesize\ttfamily pixel\+\_\+format\+\_\+specifier zr\+::pixel\+\_\+format\+::get\+\_\+format\+\_\+specifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Format specifier this pixel format was initialized to. 
+
+\begin{DoxyReturn}{Returns}
+The format specifier (i.\+e. the wrapped S\+D\+L\+\_\+\+Pixel\+Format\+Enum) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}\label{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_layout@{get\_layout}}
+\index{get\_layout@{get\_layout}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_layout()}{get\_layout()}}
+{\footnotesize\ttfamily pixel\+\_\+layout zr\+::pixel\+\_\+format\+::get\+\_\+layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pixel layout specifically for packed pixel formats. 
+
+Different layouts specify how, within packed pixel formats, how the underlying datatype is structured. E.\+g. a packed layout with 4444 has 4 bytes of the datatype contributed to each color component, whereas under a layout of 5551, thee first three components get 5 bytes while the last pixel only has one byte. \mbox{\Hypertarget{classzr_1_1pixel__format_a0c938a3a1df787ace1759d56fd3724eb}\label{classzr_1_1pixel__format_a0c938a3a1df787ace1759d56fd3724eb}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_order@{get\_order}}
+\index{get\_order@{get\_order}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_order()}{get\_order()}}
+{\footnotesize\ttfamily pixel\+\_\+order zr\+::pixel\+\_\+format\+::get\+\_\+order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pixel ordering for this pixel format. 
+
+Different pixel layouts specify the order in which different values appear in the pixel structure. E.\+g. an R\+GB format has the order as red, green, then blue, while a B\+GR format has the order blue, green, red.
+
+\begin{DoxyReturn}{Returns}
+The pixel ordering (i.\+e. the wrapped S\+D\+L\+\_\+\+P\+I\+X\+E\+L\+O\+R\+D\+ER macro) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}\label{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}} 
+\index{zr::pixel\_format@{zr::pixel\_format}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!zr::pixel\_format@{zr::pixel\_format}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily pixel\+\_\+type zr\+::pixel\+\_\+format\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pixel type for this pixel format. 
+
+Different pixel types specify the size of the data in a pixel array, along with how the information in this array is packed together. E.\+g. an array pixel type stores pixel information in an array while packed stores them in a singular value.
+
+\begin{DoxyReturn}{Returns}
+The pixel type (i.\+e. the wrapped S\+D\+L\+\_\+\+P\+I\+X\+E\+L\+T\+Y\+PE macro) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/zachary/\+Documents/\+Projects/game-\/engine/include/sdl\+\_\+wrapper/pixel\+\_\+format.\+h\end{DoxyCompactItemize}

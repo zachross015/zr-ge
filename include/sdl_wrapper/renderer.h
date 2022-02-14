@@ -133,7 +133,7 @@ namespace zr {
              * coordinates while the rows should be the entries.
              *
              */
-            void draw_lines(const arma::Mat<int>& lines);
+            void draw_lines(const arma::Mat<float>& lines);
 
             
             /** Draws the specified series of points to this renderer. 
@@ -151,7 +151,7 @@ namespace zr {
              * @param points Matrix consisting of the sequential ordering for
              * which the points should be drawn.
              */
-            void draw_points(const arma::Mat<int>& points);
+            void draw_points(const arma::Mat<float>& points);
 
 
             /** Draws the specified series of rectangles to this renderer. 
@@ -170,7 +170,7 @@ namespace zr {
              * @param rects Matrix consisting of the sequential ordering for
              * which the rectangles should be drawn.              
              */
-            void draw_rects(const arma::Mat<int>& rects);
+            void draw_rects(const arma::Mat<float>& rects);
 
   
             /** Draws the specified series of rectangles to this renderer,
@@ -190,7 +190,7 @@ namespace zr {
              * @param rects Matrix consisting of the sequential ordering for
              * which the rectangles should be drawn.              
              */
-            void fill_rects(const arma::Mat<int>& rects);
+            void fill_rects(const arma::Mat<float>& rects);
 
 
             /** Sends the information in this renderer to the window it's

@@ -1,31 +1,22 @@
 #ifndef DISPLAY_MODE_H
 #define DISPLAY_MODE_H
 
-#include "pixels.h"
+#include "pixel_format.h"
+#include "../size.h"
 
 namespace zr {
 
     // Read only class which delivers information about the display mode.
     // Wrapper for https://wiki.libsdl.org/SDL_DisplayMode
-    class display_mode {
+    // @todo Make not read only and make a struct. Windows can be altered by changing display mode
+    // information, which right now is impossible to do.
+    class display_mode : public size<int> {
         private:
-
-            // Underlying pixel format value
-            unsigned int uv;
 
             // Information that can be retrieved given a pixel format. Display
             // mode is unlikely to change, and so these values will be
             // relatively constant once init.
             pixel_format pf;
-            pixel_type pt;
-            pixel_order po;
-            pixel_layout pl;
-
-            // Width 
-            int w;
-
-            // Height
-            int h;
 
             // Refresh Rate
             int rr;
@@ -34,24 +25,41 @@ namespace zr {
             void* dd;
 
         public:
+
+            /** Constructor for the display mode struture. Contains the
+             * information for how the window or display is being...displayed.
+             *
+             * @param dm The SDL_DisplayMode.
+             */
             display_mode(SDL_DisplayMode dm);
+
+
+            /** Deconstructor for this class.
+             */
             virtual ~display_mode();
 
+
+            /** Gets the pixel format associated with this display.
+             *
+             * @return The pixel format this display uses.
+             */
             pixel_format get_pixel_format();
-            pixel_type get_pixel_type();
-            pixel_order get_pixel_order();
-            pixel_layout get_pixel_layout();
 
-            int get_width();
-            int get_height();
+
+            /** Gets the refresh rate of this display.
+             *
+             * @return An integer with this display's refresh rate.
+             */
             int get_refresh_rate();
-            void* get_driver_data();
 
-            int get_bits_per_pixel();
-            int get_bytes_per_pixel();
-            bool is_format_indexed();
-            bool is_format_alpha();
-            bool is_format_fourcc();
+
+            /** Get the driver data associated with this window. This should not
+             * be tampered with outside of using this to initialize other
+             * windows.
+             *
+             * @return void* Containing the driver data.
+             */
+            void* get_driver_data();
     };
 
 } /* zr */ 

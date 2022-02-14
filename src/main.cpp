@@ -16,7 +16,6 @@ int main(int argc, char* argv[]) {
 
     zr::window window = zr::window("Hello", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, { zr::opengl, zr::resizable });
     window.set_title("Hello world");
-    window.set_bordered(false);
 
     zr::renderer renderer = zr::renderer(window, {zr::accelerated});
 
@@ -37,9 +36,9 @@ int main(int argc, char* argv[]) {
         renderer.set_draw_color({ 255, 255, 255, 255 });
 
         // Generate the random lines
-        auto size = window.get_size();
-        arma::mat A(100, 2, arma::fill::randu);
-        arma::Mat<int> B = arma::conv_to<arma::Mat<int> >::from(A * arma::diagmat(size));
+        auto size = arma::conv_to<arma::fmat>::from(window.get_size());
+        arma::fmat A(100, 2, arma::fill::randu);
+        arma::fmat B = A * arma::diagmat(size);
 
         renderer.draw_lines(B);
 

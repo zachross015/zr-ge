@@ -20,13 +20,13 @@ arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1renderer_aba93f7e2c2dcc15b6
 \begin{DoxyCompactList}\small\item\em Return the size of the rendering window. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1renderer_a17d54d638b489ff5125893873533f7fd}{clear}} ()
 \begin{DoxyCompactList}\small\item\em Resets all pixels in the render to the current draw color. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}{draw\+\_\+lines}} (const arma\+::\+Mat$<$ int $>$ \&lines)
+void \mbox{\hyperlink{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}{draw\+\_\+lines}} (const arma\+::\+Mat$<$ float $>$ \&lines)
 \begin{DoxyCompactList}\small\item\em Draws the specified series of lines to this renderer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classzr_1_1renderer_ac4880dbbc4c703ba7d8b82df46379845}{draw\+\_\+points}} (const arma\+::\+Mat$<$ int $>$ \&points)
+void \mbox{\hyperlink{classzr_1_1renderer_a39abd3e9998e66da10af82328ea10b74}{draw\+\_\+points}} (const arma\+::\+Mat$<$ float $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Draws the specified series of points to this renderer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classzr_1_1renderer_a0b3c7ad0fef00b738668ac3a7d5d7345}{draw\+\_\+rects}} (const arma\+::\+Mat$<$ int $>$ \&rects)
+void \mbox{\hyperlink{classzr_1_1renderer_a99483cdc6fa5ae68180ac5a07c776d93}{draw\+\_\+rects}} (const arma\+::\+Mat$<$ float $>$ \&rects)
 \begin{DoxyCompactList}\small\item\em Draws the specified series of rectangles to this renderer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classzr_1_1renderer_a34e1332cc07346a864a5937afe8834a7}{fill\+\_\+rects}} (const arma\+::\+Mat$<$ int $>$ \&rects)
+void \mbox{\hyperlink{classzr_1_1renderer_a3f8cab381d2b32b0bbe701bcb26ebcd7}{fill\+\_\+rects}} (const arma\+::\+Mat$<$ float $>$ \&rects)
 \begin{DoxyCompactList}\small\item\em Draws the specified series of rectangles to this renderer, filling them in with this renderer\textquotesingle{}s draw color. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}\label{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}} 
 void \mbox{\hyperlink{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}{present}} ()
@@ -54,7 +54,7 @@ void \mbox{\hyperlink{classzr_1_1renderer_aa8a9ad5c6403619107677bcc5a2fa94b}{set
 bool \mbox{\hyperlink{classzr_1_1renderer_a5d255c4f265665412ed8e4a9bf3cc8da}{is\+\_\+clipping\+\_\+enabled}} ()
 \begin{DoxyCompactList}\small\item\em Get whether clipping is enabled on this renderer. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1renderer_a235158cefa7f60b738129a5011ba4661}\label{classzr_1_1renderer_a235158cefa7f60b738129a5011ba4661}} 
-void {\bfseries read\+\_\+pixels} (const arma\+::\+Col$<$ int $>$ \&vp, const pixel\+\_\+format \&format, void $\ast$pixels, int pitch)
+void {\bfseries read\+\_\+pixels} (const arma\+::\+Col$<$ int $>$ \&vp, const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \&format, void $\ast$pixels, int pitch)
 \item 
 bool \mbox{\hyperlink{classzr_1_1renderer_a35a644f8857d4c57ca672fed3eda37b9}{is\+\_\+target\+\_\+supported}} ()
 \begin{DoxyCompactList}\small\item\em Determine whether this renderer supports the use of render targets. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -98,11 +98,11 @@ Support for the S\+DL renderer init with stronger typing.
 
 Resets all pixels in the render to the current draw color. 
 
-See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}\label{classzr_1_1renderer_a01036bc467fe5c791872de99ccccfd6b}} 
+See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}\label{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}} 
 \index{zr::renderer@{zr::renderer}!draw\_lines@{draw\_lines}}
 \index{draw\_lines@{draw\_lines}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{draw\_lines()}{draw\_lines()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+lines (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{lines }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+lines (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ float $>$ \&}]{lines }\end{DoxyParamCaption})}
 
 
 
@@ -123,11 +123,11 @@ The lines are sequentially read from the given matrix, meaning there needs to be
 {\em lines} & Matrix consisting of the sequential ordering for which the lines should be formed. E.\+g. if there were four entries, we should have that the lines are formed by (0) -\/ (1), (1) -\/ (2), and finally (2) -\/ (3). The columns should be the xy coordinates while the rows should be the entries. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classzr_1_1renderer_ac4880dbbc4c703ba7d8b82df46379845}\label{classzr_1_1renderer_ac4880dbbc4c703ba7d8b82df46379845}} 
+\mbox{\Hypertarget{classzr_1_1renderer_a39abd3e9998e66da10af82328ea10b74}\label{classzr_1_1renderer_a39abd3e9998e66da10af82328ea10b74}} 
 \index{zr::renderer@{zr::renderer}!draw\_points@{draw\_points}}
 \index{draw\_points@{draw\_points}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{draw\_points()}{draw\_points()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+points (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{points }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+points (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ float $>$ \&}]{points }\end{DoxyParamCaption})}
 
 
 
@@ -148,11 +148,11 @@ The points are sequentially read from the given matrix, meaning there needs to b
 {\em points} & Matrix consisting of the sequential ordering for which the points should be drawn. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classzr_1_1renderer_a0b3c7ad0fef00b738668ac3a7d5d7345}\label{classzr_1_1renderer_a0b3c7ad0fef00b738668ac3a7d5d7345}} 
+\mbox{\Hypertarget{classzr_1_1renderer_a99483cdc6fa5ae68180ac5a07c776d93}\label{classzr_1_1renderer_a99483cdc6fa5ae68180ac5a07c776d93}} 
 \index{zr::renderer@{zr::renderer}!draw\_rects@{draw\_rects}}
 \index{draw\_rects@{draw\_rects}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{draw\_rects()}{draw\_rects()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{rects }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void zr\+::renderer\+::draw\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ float $>$ \&}]{rects }\end{DoxyParamCaption})}
 
 
 
@@ -174,11 +174,11 @@ The rectangles are sequentially read from the given matrix, meaning there needs 
  \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classzr_1_1renderer_a34e1332cc07346a864a5937afe8834a7}\label{classzr_1_1renderer_a34e1332cc07346a864a5937afe8834a7}} 
+\mbox{\Hypertarget{classzr_1_1renderer_a3f8cab381d2b32b0bbe701bcb26ebcd7}\label{classzr_1_1renderer_a3f8cab381d2b32b0bbe701bcb26ebcd7}} 
 \index{zr::renderer@{zr::renderer}!fill\_rects@{fill\_rects}}
 \index{fill\_rects@{fill\_rects}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{fill\_rects()}{fill\_rects()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::fill\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ int $>$ \&}]{rects }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void zr\+::renderer\+::fill\+\_\+rects (\begin{DoxyParamCaption}\item[{const arma\+::\+Mat$<$ float $>$ \&}]{rects }\end{DoxyParamCaption})}
 
 
 
@@ -232,7 +232,7 @@ Get the clip rectangle for the current target.
 Column vector filled with the current clipping area (x, y, w, h) or an empy rectangle if clipping is disabled.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}\label{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}} 
 \index{zr::renderer@{zr::renderer}!get\_draw\_color@{get\_draw\_color}}
 \index{get\_draw\_color@{get\_draw\_color}!zr::renderer@{zr::renderer}}

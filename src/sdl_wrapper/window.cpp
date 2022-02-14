@@ -172,7 +172,7 @@ namespace zr {
 
     void window::set_display_mode(display_mode dm) {
         SDL_DisplayMode mode;
-        mode.format = static_cast<std::underlying_type<pixel_format>::type>(dm.get_pixel_format());
+        mode.format = static_cast<SDL_PixelFormatEnum>(dm.get_pixel_format().get_format_specifier());
         mode.w = dm.get_width();
         mode.h = dm.get_height();
         mode.refresh_rate = dm.get_refresh_rate();

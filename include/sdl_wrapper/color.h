@@ -4,6 +4,8 @@
 namespace zr {
 
     /** Structure containing the rgba values for colors.
+     *
+     * @todo Create default color palettes.
      */
     struct color {
         unsigned char r;

@@ -25,10 +25,12 @@ ostream
 ../include/sdl_wrapper/color.h
 
 ../include/sdl_wrapper/display_mode.h
-pixels.h
-../include/sdl_wrapper/pixels.h
+pixel_format.h
+../include/sdl_wrapper/pixel_format.h
+../size.h
+../include/size.h
 
-../include/sdl_wrapper/pixels.h
+../include/sdl_wrapper/pixel_format.h
 ostream
 -
 SDL.h
@@ -57,6 +59,8 @@ armadillo
 -
 display_mode.h
 ../include/sdl_wrapper/display_mode.h
+
+../include/size.h
 
 ../include/util.h
 vector
@@ -787,16 +791,6 @@ sdl_wrapper/window.h
 -
 sdl_wrapper/renderer.h
 -
-sdl_wrapper/display_mode.h
--
-SDL.h
--
-
-/home/zachary/projects/game-engine/src/sdl_wrapper/blend_mode.cpp
-sdl_wrapper/blend_mode.h
--
-
-/home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp
 sdl_wrapper/display_mode.h
 -
 SDL.h

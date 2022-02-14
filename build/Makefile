@@ -316,6 +316,33 @@ src/sdl_wrapper/display_mode.cpp.s:
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.s
 .PHONY : src/sdl_wrapper/display_mode.cpp.s
 
+src/sdl_wrapper/pixel_format.o: src/sdl_wrapper/pixel_format.cpp.o
+
+.PHONY : src/sdl_wrapper/pixel_format.o
+
+# target to build an object file
+src/sdl_wrapper/pixel_format.cpp.o:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o
+.PHONY : src/sdl_wrapper/pixel_format.cpp.o
+
+src/sdl_wrapper/pixel_format.i: src/sdl_wrapper/pixel_format.cpp.i
+
+.PHONY : src/sdl_wrapper/pixel_format.i
+
+# target to preprocess a source file
+src/sdl_wrapper/pixel_format.cpp.i:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.i
+.PHONY : src/sdl_wrapper/pixel_format.cpp.i
+
+src/sdl_wrapper/pixel_format.s: src/sdl_wrapper/pixel_format.cpp.s
+
+.PHONY : src/sdl_wrapper/pixel_format.s
+
+# target to generate assembly for a file
+src/sdl_wrapper/pixel_format.cpp.s:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.s
+.PHONY : src/sdl_wrapper/pixel_format.cpp.s
+
 src/sdl_wrapper/renderer.o: src/sdl_wrapper/renderer.cpp.o
 
 .PHONY : src/sdl_wrapper/renderer.o
@@ -369,6 +396,33 @@ src/sdl_wrapper/sdl_exception.s: src/sdl_wrapper/sdl_exception.cpp.s
 src/sdl_wrapper/sdl_exception.cpp.s:
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.s
 .PHONY : src/sdl_wrapper/sdl_exception.cpp.s
+
+src/sdl_wrapper/texture.o: src/sdl_wrapper/texture.cpp.o
+
+.PHONY : src/sdl_wrapper/texture.o
+
+# target to build an object file
+src/sdl_wrapper/texture.cpp.o:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o
+.PHONY : src/sdl_wrapper/texture.cpp.o
+
+src/sdl_wrapper/texture.i: src/sdl_wrapper/texture.cpp.i
+
+.PHONY : src/sdl_wrapper/texture.i
+
+# target to preprocess a source file
+src/sdl_wrapper/texture.cpp.i:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.i
+.PHONY : src/sdl_wrapper/texture.cpp.i
+
+src/sdl_wrapper/texture.s: src/sdl_wrapper/texture.cpp.s
+
+.PHONY : src/sdl_wrapper/texture.s
+
+# target to generate assembly for a file
+src/sdl_wrapper/texture.cpp.s:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.s
+.PHONY : src/sdl_wrapper/texture.cpp.s
 
 src/sdl_wrapper/window.o: src/sdl_wrapper/window.cpp.o
 
@@ -451,12 +505,18 @@ help:
 	@echo "... src/sdl_wrapper/display_mode.o"
 	@echo "... src/sdl_wrapper/display_mode.i"
 	@echo "... src/sdl_wrapper/display_mode.s"
+	@echo "... src/sdl_wrapper/pixel_format.o"
+	@echo "... src/sdl_wrapper/pixel_format.i"
+	@echo "... src/sdl_wrapper/pixel_format.s"
 	@echo "... src/sdl_wrapper/renderer.o"
 	@echo "... src/sdl_wrapper/renderer.i"
 	@echo "... src/sdl_wrapper/renderer.s"
 	@echo "... src/sdl_wrapper/sdl_exception.o"
 	@echo "... src/sdl_wrapper/sdl_exception.i"
 	@echo "... src/sdl_wrapper/sdl_exception.s"
+	@echo "... src/sdl_wrapper/texture.o"
+	@echo "... src/sdl_wrapper/texture.i"
+	@echo "... src/sdl_wrapper/texture.s"
 	@echo "... src/sdl_wrapper/window.o"
 	@echo "... src/sdl_wrapper/window.i"
 	@echo "... src/sdl_wrapper/window.s"

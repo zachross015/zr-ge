@@ -17,8 +17,10 @@ file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/zachary/projects/game-engine/src
 set(OLD_GLOB
   "/home/zachary/projects/game-engine/src/sdl_wrapper/blend_mode.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp"
+  "/home/zachary/projects/game-engine/src/sdl_wrapper/pixel_format.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/sdl_exception.cpp"
+  "/home/zachary/projects/game-engine/src/sdl_wrapper/texture.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/window.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

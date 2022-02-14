@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sdl_5fexception_66',['sdl_exception',['../structzr_1_1sdl__exception.html',1,'zr']]]
+  ['renderer_91',['renderer',['../classzr_1_1renderer.html',1,'zr']]]
 ];

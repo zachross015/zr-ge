@@ -94,58 +94,58 @@ namespace zr {
     } 
 
 
-    void renderer::draw_lines(const arma::Mat<int>& lines) {
+    void renderer::draw_lines(const arma::Mat<float>& lines) {
         if (lines.n_rows < 2 || lines.n_cols != 2) {
             throw input_exception("[renderer::draw_lines] Incorrect dimensions of input were provided. (Necessary: >=2 x 2 | Provided: " + std::to_string(lines.n_rows) + " x " + std::to_string(lines.n_cols) + ")");
         }
-        SDL_Point points[lines.n_rows];
+        SDL_FPoint points[lines.n_rows];
         for(int i = 0; i < lines.n_rows; i++) {
             points[i] = { lines(i, 0), lines(i, 1) };
         }
-        if(SDL_RenderDrawLines(r, points, lines.n_rows)) {
+        if(SDL_RenderDrawLinesF(r, points, lines.n_rows)) {
             throw sdl_exception("[renderer::draw_lines] TODO: Make this more descriptive (2)."); 
         }
     }
 
 
-    void renderer::draw_points(const arma::Mat<int>& points) {
+    void renderer::draw_points(const arma::Mat<float>& points) {
         if (points.n_rows < 1 || points.n_cols != 2) {
             throw input_exception("[renderer::draw_points] Incorrect dimensions of input were provided. (Necessary: >=1 x 2 | Provided: " + std::to_string(points.n_rows) + " x " + std::to_string(points.n_cols) + ")");
         }
-        SDL_Point sdl_points[points.n_rows];
+        SDL_FPoint sdl_points[points.n_rows];
         for(int i = 0; i < points.n_rows; i++) {
             sdl_points[i] = { points(i, 0), points(i, 1) };
         }
-        if(SDL_RenderDrawPoints(r, sdl_points, points.n_rows)) {
+        if(SDL_RenderDrawPointsF(r, sdl_points, points.n_rows)) {
             throw sdl_exception("[renderer::draw_points] TODO: Make this more descriptive (2)."); 
         }
     }
 
 
-    void renderer::draw_rects(const arma::Mat<int>& rects) {
+    void renderer::draw_rects(const arma::Mat<float>& rects) {
         if (rects.n_rows < 1 || rects.n_cols != 4) {
             throw input_exception("[renderer::draw_rects] Incorrect dimensions of input were provided. (Necessary: >=1 x 4 | Provided: " + std::to_string(rects.n_rows) + " x " + std::to_string(rects.n_cols) + ")");
         }
-        SDL_Rect sdl_rects[rects.n_rows];
+        SDL_FRect sdl_rects[rects.n_rows];
         for(int i = 0; i < rects.n_rows; i++) {
             sdl_rects[i] = { rects(i, 0), rects(i, 1), rects(i, 2), rects(i, 3) };
         }
-        if(SDL_RenderDrawRects(r, sdl_rects, rects.n_rows)) {
+        if(SDL_RenderDrawRectsF(r, sdl_rects, rects.n_rows)) {
             throw sdl_exception("[renderer::draw_rects] TODO: Make this more descriptive (2)."); 
         }
 
     }
 
 
-    void renderer::fill_rects(const arma::Mat<int>& rects) {
+    void renderer::fill_rects(const arma::Mat<float>& rects) {
         if (rects.n_rows < 1 || rects.n_cols != 4) {
             throw input_exception("[renderer::fill_rects] Incorrect dimensions of input were provided. (Necessary: >=1 x 4 | Provided: " + std::to_string(rects.n_rows) + " x " + std::to_string(rects.n_cols) + ")");
         }
-        SDL_Rect sdl_rects[rects.n_rows];
+        SDL_FRect sdl_rects[rects.n_rows];
         for(int i = 0; i < rects.n_rows; i++) {
             sdl_rects[i] = { rects(i, 0), rects(i, 1), rects(i, 2), rects(i, 3) };
         }
-        if(SDL_RenderFillRects(r, sdl_rects, rects.n_rows)) {
+        if(SDL_RenderFillRectsF(r, sdl_rects, rects.n_rows)) {
             throw sdl_exception("[renderer::draw_rects] TODO: Make this more descriptive (2)."); 
         }
 

@@ -73,37 +73,54 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IMMUTABLE_SIZE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define IMMUTABLE_SIZE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>zr {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1immutable__size.html">immutable_size</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keyword">const</span> T w, h;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;armadillo&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;exceptions.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>zr {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1immutable__size.html">immutable_size</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">   19</a></span>&#160;            <a class="code" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">immutable_size</a>(T width, T height) : w(width), h(height) {};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">   24</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">~immutable_size</a>() {};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">   31</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">get_width</a>() { <span class="keywordflow">return</span> w; };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">   38</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">get_height</a>() { <span class="keywordflow">return</span> h; };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">/* zr  */</span> </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IMMUTABLE_SIZE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keyword">const</span> arma::Col&lt;T&gt; s;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">   26</a></span>&#160;            <a class="code" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">immutable_size</a>(T width, T height) : s({width, height}) {};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a421f134348c4584a1674fd3f60523bb8">   38</a></span>&#160;            <a class="code" href="classzr_1_1immutable__size.html#a421f134348c4584a1674fd3f60523bb8">immutable_size</a>(arma::Col&lt;T&gt; <a class="code" href="classzr_1_1size.html">size</a>) : s(<a class="code" href="classzr_1_1size.html">size</a>) { </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="classzr_1_1size.html">size</a>.n_rows != 2) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="structzr_1_1input__exception.html">input_exception</a>(<span class="stringliteral">&quot;[immutable_size::imutable_size] Invalid input dimensions for immutable size. Must have exactly two elements for width and height in that order.&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">   47</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">~immutable_size</a>() {};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">   54</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">get_width</a>() { <span class="keywordflow">return</span> s(0); };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">   61</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">get_height</a>() { <span class="keywordflow">return</span> s(1); };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classzr_1_1immutable__size.html#aa458fa9c44d9b744ac666c3c805e8536">   68</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> arma::Col&lt;T&gt;&amp; <a class="code" href="classzr_1_1immutable__size.html#aa458fa9c44d9b744ac666c3c805e8536">get_size</a>() { <span class="keywordflow">return</span> s; };</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">/* zr  */</span> </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IMMUTABLE_SIZE_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasszr_1_1immutable__size_html_a41375df4bfc881269c16250716ac0fe4"><div class="ttname"><a href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">zr::immutable_size::get_height</a></div><div class="ttdeci">virtual const T &amp; get_height()</div><div class="ttdoc">Gets the height this class is storing.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:38</div></div>
-<div class="ttc" id="aclasszr_1_1immutable__size_html_ab26f49d67bc5b8c3fac428c33f97e336"><div class="ttname"><a href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">zr::immutable_size::get_width</a></div><div class="ttdeci">virtual const T &amp; get_width()</div><div class="ttdoc">Gets the width this class is storing.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:31</div></div>
-<div class="ttc" id="aclasszr_1_1immutable__size_html"><div class="ttname"><a href="classzr_1_1immutable__size.html">zr::immutable_size</a></div><div class="ttdoc">Class template for a size construct that is immutable once initalized.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:10</div></div>
-<div class="ttc" id="aclasszr_1_1immutable__size_html_a44dd486f4fd482d1ac38a452b5de7394"><div class="ttname"><a href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">zr::immutable_size::~immutable_size</a></div><div class="ttdeci">virtual ~immutable_size()</div><div class="ttdoc">Deconstructor for the size getter.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:24</div></div>
-<div class="ttc" id="aclasszr_1_1immutable__size_html_a48def2628db32b65e4761c5b05c5a2d9"><div class="ttname"><a href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">zr::immutable_size::immutable_size</a></div><div class="ttdeci">immutable_size(T width, T height)</div><div class="ttdoc">Constructor for the size getter.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:19</div></div>
+<div class="ttc" id="astructzr_1_1input__exception_html"><div class="ttname"><a href="structzr_1_1input__exception.html">zr::input_exception</a></div><div class="ttdoc">Class of exceptions dealing with input errors that occur in the codebase.</div><div class="ttdef"><b>Definition:</b> exceptions.h:35</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_a41375df4bfc881269c16250716ac0fe4"><div class="ttname"><a href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">zr::immutable_size::get_height</a></div><div class="ttdeci">virtual const T &amp; get_height()</div><div class="ttdoc">Gets the height this class is storing.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:61</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_ab26f49d67bc5b8c3fac428c33f97e336"><div class="ttname"><a href="classzr_1_1immutable__size.html#ab26f49d67bc5b8c3fac428c33f97e336">zr::immutable_size::get_width</a></div><div class="ttdeci">virtual const T &amp; get_width()</div><div class="ttdoc">Gets the width this class is storing.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:54</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_aa458fa9c44d9b744ac666c3c805e8536"><div class="ttname"><a href="classzr_1_1immutable__size.html#aa458fa9c44d9b744ac666c3c805e8536">zr::immutable_size::get_size</a></div><div class="ttdeci">virtual const arma::Col&lt; T &gt; &amp; get_size()</div><div class="ttdoc">Gets the size this class is storing.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:68</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html"><div class="ttname"><a href="classzr_1_1immutable__size.html">zr::immutable_size</a></div><div class="ttdoc">Class template for a size construct that is immutable once initalized.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:13</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_a44dd486f4fd482d1ac38a452b5de7394"><div class="ttname"><a href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">zr::immutable_size::~immutable_size</a></div><div class="ttdeci">virtual ~immutable_size()</div><div class="ttdoc">Deconstructor for the size getter.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:47</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_a421f134348c4584a1674fd3f60523bb8"><div class="ttname"><a href="classzr_1_1immutable__size.html#a421f134348c4584a1674fd3f60523bb8">zr::immutable_size::immutable_size</a></div><div class="ttdeci">immutable_size(arma::Col&lt; T &gt; size)</div><div class="ttdoc">Constructor for immutable_size given a column vector containing two elements.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:38</div></div>
+<div class="ttc" id="aclasszr_1_1size_html"><div class="ttname"><a href="classzr_1_1size.html">zr::size</a></div><div class="ttdoc">Class template for a size construct that is mutable once initalized.</div><div class="ttdef"><b>Definition:</b> size.h:13</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html_a48def2628db32b65e4761c5b05c5a2d9"><div class="ttname"><a href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">zr::immutable_size::immutable_size</a></div><div class="ttdeci">immutable_size(T width, T height)</div><div class="ttdoc">Default constructor for an immutable sizing given a width and height.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:26</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

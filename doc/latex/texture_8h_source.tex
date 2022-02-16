@@ -1,0 +1,100 @@
+\hypertarget{texture_8h_source}{}\doxysection{texture.\+h}
+\label{texture_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/texture.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/texture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TEXTURE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TEXTURE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}renderer.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}pixel\_format.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{blend__mode_8h}{blend\_mode.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../immutable\_size.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace  }zr \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{enum class} texture\_access \{}
+\DoxyCodeLine{13         static\_access = SDL\_TEXTUREACCESS\_STATIC,}
+\DoxyCodeLine{14         streaming\_access = SDL\_TEXTUREACCESS\_STREAMING,}
+\DoxyCodeLine{15         target\_access = SDL\_TEXTUREACCESS\_TARGET}
+\DoxyCodeLine{16     \};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{enum class} texture\_modulate \{}
+\DoxyCodeLine{20         \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629a334c4a4c42fdb79d7ebc3e73b517e6f8}{none}} = SDL\_TEXTUREMODULATE\_NONE,}
+\DoxyCodeLine{21         color = SDL\_TEXTUREMODULATE\_COLOR,}
+\DoxyCodeLine{22         alpha = SDL\_TEXTUREMODULATE\_ALPHA }
+\DoxyCodeLine{23     \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{enum class} texture\_scaling\_method \{}
+\DoxyCodeLine{27         nearest\_pixel\_sampling,}
+\DoxyCodeLine{28         linear\_filtering,}
+\DoxyCodeLine{29         anisotropic\_filtering}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{37     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1texture}{texture}} : \textcolor{keyword}{public} \mbox{\hyperlink{classzr_1_1immutable__size}{immutable\_size}}<int> \{}
+\DoxyCodeLine{38         \textcolor{keyword}{private}:}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1renderer}{renderer}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\_format}} pf;}
+\DoxyCodeLine{43         texture\_access ta;}
+\DoxyCodeLine{44         SDL\_Texture* t;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \textcolor{keyword}{public}:}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{70             \mbox{\hyperlink{classzr_1_1texture_a90bc21e25a2889400253763294280924}{texture}}(\textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1renderer}{renderer}}\& \mbox{\hyperlink{classzr_1_1renderer}{renderer}}, }
+\DoxyCodeLine{71                     \textcolor{keyword}{const} pixel\_format\_specifier\& pixel\_format\_specifier, }
+\DoxyCodeLine{72                     \textcolor{keyword}{const} texture\_access\& texture\_access, }
+\DoxyCodeLine{73                     \textcolor{keyword}{const} arma::Col<int>\& \mbox{\hyperlink{classzr_1_1size}{size}});}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 }
+\DoxyCodeLine{78             \textcolor{keyword}{virtual} \mbox{\hyperlink{classzr_1_1texture_af8f1240da1ebec52bca896b3cfff884c}{\string~texture}}();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{87             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \mbox{\hyperlink{classzr_1_1texture_a97d2e3e5efc5d7220005431910bcfdf3}{get\_alpha}}();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{106             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1texture_a7cd285670896a3d646d075b9e5a1c0cb}{set\_alpha}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} alpha);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{115             \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\_mode}} \mbox{\hyperlink{classzr_1_1texture_a9fd0ed6421d2c850dc3153d0e2d22866}{get\_blend\_mode}}();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{124             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1texture_a15d544ae6e3a603a2255755406368600}{set\_blend\_mode}}(\textcolor{keyword}{const} \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\_mode}}\& bm);}
+\DoxyCodeLine{125             }
+\DoxyCodeLine{126 }
+\DoxyCodeLine{138             \mbox{\hyperlink{structzr_1_1color}{color}} \mbox{\hyperlink{classzr_1_1texture_a6b1635827466882d2321a3e069fed0b4}{get\_color\_overlay}}();}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 }
+\DoxyCodeLine{156             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1texture_a4e8b4e61c04447d3a94979e83a010927}{set\_color\_overlay}}(\textcolor{keyword}{const} \mbox{\hyperlink{structzr_1_1color}{color}}\& c);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 }
+\DoxyCodeLine{169             \textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\_format}}\& \mbox{\hyperlink{classzr_1_1texture_aee8c0582b3f93304a66faecbd7c508a5}{get\_pixel\_format}}();}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{178             \textcolor{keyword}{const} texture\_access\& \mbox{\hyperlink{classzr_1_1texture_a436cfe897abf7d5222898fe9529931d6}{get\_texture\_access}}();}
+\DoxyCodeLine{179             }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181             \textcolor{comment}{// TODO: The following still need to be implemented. It might be}}
+\DoxyCodeLine{182             \textcolor{comment}{// more useful to separate this class into classes deriving from the}}
+\DoxyCodeLine{183             \textcolor{comment}{// different texture access classes since those can not be changed}}
+\DoxyCodeLine{184             \textcolor{comment}{// once initialized. This is mainly bc lock/unlock can only be used}}
+\DoxyCodeLine{185             \textcolor{comment}{// with streaming access, so it is kind of pointless to include the}}
+\DoxyCodeLine{186             \textcolor{comment}{// method for all three.}}
+\DoxyCodeLine{187             \textcolor{comment}{//}}
+\DoxyCodeLine{188             \textcolor{comment}{// void bind\_to\_opengl();}}
+\DoxyCodeLine{189             \textcolor{comment}{// void unbind\_from\_opengl();}}
+\DoxyCodeLine{190             \textcolor{comment}{// void lock();}}
+\DoxyCodeLine{191             \textcolor{comment}{// void unlock();}}
+\DoxyCodeLine{192             \textcolor{comment}{//}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \} \textcolor{comment}{/*  zr  */} }
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TEXTURE\_H */}\textcolor{preprocessor}{  }}
+
+\end{DoxyCode}

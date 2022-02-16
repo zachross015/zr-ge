@@ -83,18 +83,18 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zachary/projects/game-engine/src/sdl_wrapper/blend_mode.cpp -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.s
 
-CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o: CMakeFiles/GameEngine.dir/flags.make
-CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o: ../src/sdl_wrapper/display_mode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o: CMakeFiles/GameEngine.dir/flags.make
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o: ../src/sdl_wrapper/display_mode_config.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode_config.cpp
 
-CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp > CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.i
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode_config.cpp > CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.i
 
-CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode.cpp -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.s
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zachary/projects/game-engine/src/sdl_wrapper/display_mode_config.cpp -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.s
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o: ../src/sdl_wrapper/pixel_format.cpp
@@ -178,7 +178,7 @@ CMakeFiles/GameEngine.dir/src/util.cpp.s: cmake_force
 GameEngine_OBJECTS = \
 "CMakeFiles/GameEngine.dir/src/main.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.o" \
-"CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o" \
+"CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o" \
@@ -191,7 +191,7 @@ GameEngine_EXTERNAL_OBJECTS =
 
 GameEngine: CMakeFiles/GameEngine.dir/src/main.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.o
-GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o
+GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o

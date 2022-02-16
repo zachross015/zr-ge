@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['pixel_5fformat_144',['pixel_format',['../classzr_1_1pixel__format.html#a4e7d6fdf2c1afc789b13639952e2a821',1,'zr::pixel_format']]],
-  ['present_145',['present',['../classzr_1_1renderer.html#a518caa521171702dd48f04770530bd21',1,'zr::renderer']]]
+  ['make_5ffullscreen_163',['make_fullscreen',['../classzr_1_1window.html#a0a3ddeea5960d0a88b26658e9f63180f',1,'zr::window']]],
+  ['maximize_164',['maximize',['../classzr_1_1window.html#ab71727b1930acc6696cf9d2d4a8004f5',1,'zr::window']]],
+  ['minimize_165',['minimize',['../classzr_1_1window.html#a98d596268b898ef7975f0ca56cb01f6d',1,'zr::window']]]
 ];

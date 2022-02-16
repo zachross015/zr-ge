@@ -5,7 +5,8 @@
 #include <exceptions.h>
 #include <sdl_wrapper/window.h>
 #include <sdl_wrapper/renderer.h>
-#include <sdl_wrapper/display_mode.h>
+#include <sdl_wrapper/texture.h>
+#include <sdl_wrapper/display_mode_config.h>
 
 #include <SDL.h>
 
@@ -16,8 +17,14 @@ int main(int argc, char* argv[]) {
 
     zr::window window = zr::window("Hello", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, { zr::opengl, zr::resizable });
     window.set_title("Hello world");
+    window.set_width(1600);
+    window.set_height(900);
 
     zr::renderer renderer = zr::renderer(window, {zr::accelerated});
+    zr::texture texture = zr::texture(renderer, 
+            zr::pixel_format_specifier::rgba_8888, 
+            zr::texture_access::target_access, 
+            {SCREEN_WIDTH, SCREEN_HEIGHT});
 
     int gameover = 0;
     SDL_Event event;
@@ -30,6 +37,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
+        renderer.set_target(texture);
         renderer.set_draw_color({ 0, 0, 0, 255 });
         renderer.clear();
 
@@ -42,6 +50,8 @@ int main(int argc, char* argv[]) {
 
         renderer.draw_lines(B);
 
+        renderer.clear_target();
+        renderer.copy(texture);
         renderer.present();
     }
 

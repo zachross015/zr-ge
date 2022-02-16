@@ -289,32 +289,32 @@ src/sdl_wrapper/blend_mode.cpp.s:
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.s
 .PHONY : src/sdl_wrapper/blend_mode.cpp.s
 
-src/sdl_wrapper/display_mode.o: src/sdl_wrapper/display_mode.cpp.o
+src/sdl_wrapper/display_mode_config.o: src/sdl_wrapper/display_mode_config.cpp.o
 
-.PHONY : src/sdl_wrapper/display_mode.o
+.PHONY : src/sdl_wrapper/display_mode_config.o
 
 # target to build an object file
-src/sdl_wrapper/display_mode.cpp.o:
-	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o
-.PHONY : src/sdl_wrapper/display_mode.cpp.o
+src/sdl_wrapper/display_mode_config.cpp.o:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o
+.PHONY : src/sdl_wrapper/display_mode_config.cpp.o
 
-src/sdl_wrapper/display_mode.i: src/sdl_wrapper/display_mode.cpp.i
+src/sdl_wrapper/display_mode_config.i: src/sdl_wrapper/display_mode_config.cpp.i
 
-.PHONY : src/sdl_wrapper/display_mode.i
+.PHONY : src/sdl_wrapper/display_mode_config.i
 
 # target to preprocess a source file
-src/sdl_wrapper/display_mode.cpp.i:
-	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.i
-.PHONY : src/sdl_wrapper/display_mode.cpp.i
+src/sdl_wrapper/display_mode_config.cpp.i:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.i
+.PHONY : src/sdl_wrapper/display_mode_config.cpp.i
 
-src/sdl_wrapper/display_mode.s: src/sdl_wrapper/display_mode.cpp.s
+src/sdl_wrapper/display_mode_config.s: src/sdl_wrapper/display_mode_config.cpp.s
 
-.PHONY : src/sdl_wrapper/display_mode.s
+.PHONY : src/sdl_wrapper/display_mode_config.s
 
 # target to generate assembly for a file
-src/sdl_wrapper/display_mode.cpp.s:
-	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.s
-.PHONY : src/sdl_wrapper/display_mode.cpp.s
+src/sdl_wrapper/display_mode_config.cpp.s:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.s
+.PHONY : src/sdl_wrapper/display_mode_config.cpp.s
 
 src/sdl_wrapper/pixel_format.o: src/sdl_wrapper/pixel_format.cpp.o
 
@@ -502,9 +502,9 @@ help:
 	@echo "... src/sdl_wrapper/blend_mode.o"
 	@echo "... src/sdl_wrapper/blend_mode.i"
 	@echo "... src/sdl_wrapper/blend_mode.s"
-	@echo "... src/sdl_wrapper/display_mode.o"
-	@echo "... src/sdl_wrapper/display_mode.i"
-	@echo "... src/sdl_wrapper/display_mode.s"
+	@echo "... src/sdl_wrapper/display_mode_config.o"
+	@echo "... src/sdl_wrapper/display_mode_config.i"
+	@echo "... src/sdl_wrapper/display_mode_config.s"
 	@echo "... src/sdl_wrapper/pixel_format.o"
 	@echo "... src/sdl_wrapper/pixel_format.i"
 	@echo "... src/sdl_wrapper/pixel_format.s"

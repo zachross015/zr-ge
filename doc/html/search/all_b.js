@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['window_79',['window',['../classzr_1_1window.html',1,'zr::window'],['../classzr_1_1window.html#af631c1e426b3b7f8738fe58fb0832c26',1,'zr::window::window(std::string title, int x, int y, int width, int height, int flags)'],['../classzr_1_1window.html#a7fcaed871af530cbb3b376ddc8804a02',1,'zr::window::window(std::string title, int x, int y, int width, int height, const std::vector&lt; window_state &gt; &amp;states={})'],['../classzr_1_1window.html#a0e3b351d6b944c6ab625b77c2df68f26',1,'zr::window::window(std::string title, int width, int height, const std::vector&lt; window_state &gt; &amp;states={})'],['../classzr_1_1window.html#a51f9d8149433d2cd309195f1d0567299',1,'zr::window::window(int width, int height, const std::vector&lt; window_state &gt; &amp;states={})']]]
+  ['raise_60',['raise',['../classzr_1_1window.html#aaf9b71ab2dd5224465d240894974e40a',1,'zr::window']]],
+  ['release_5fmouse_61',['release_mouse',['../classzr_1_1window.html#a515865f00bfdf1f2e8ba6f17f01e4d23',1,'zr::window']]],
+  ['renderer_62',['renderer',['../classzr_1_1renderer.html',1,'zr::renderer'],['../classzr_1_1renderer.html#a9c92b731323b34123c217cc216578d0c',1,'zr::renderer::renderer()']]],
+  ['restore_63',['restore',['../classzr_1_1window.html#a9c5a6f4d0d1a58ae977917b21c861443',1,'zr::window']]]
 ];

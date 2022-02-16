@@ -1,0 +1,177 @@
+\hypertarget{pixel__format_8h_source}{}\doxysection{pixel\+\_\+format.\+h}
+\label{pixel__format_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/pixel\_format.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/pixel\_format.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PIXELS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PIXELS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{13     \textcolor{keyword}{enum class} pixel\_format\_specifier \{ }
+\DoxyCodeLine{14         unknown = SDL\_PIXELFORMAT\_UNKNOWN,}
+\DoxyCodeLine{15         index\_1\_lsb = SDL\_PIXELFORMAT\_INDEX1LSB,}
+\DoxyCodeLine{16         index\_1\_msb = SDL\_PIXELFORMAT\_INDEX1MSB,}
+\DoxyCodeLine{17         index\_4\_lsb = SDL\_PIXELFORMAT\_INDEX4LSB,}
+\DoxyCodeLine{18         index\_4\_msb = SDL\_PIXELFORMAT\_INDEX4MSB,}
+\DoxyCodeLine{19         index\_8 = SDL\_PIXELFORMAT\_INDEX8,}
+\DoxyCodeLine{20         rgb\_332 = SDL\_PIXELFORMAT\_RGB332,}
+\DoxyCodeLine{21         rgb\_444 = SDL\_PIXELFORMAT\_RGB444,}
+\DoxyCodeLine{22         rgb\_555 = SDL\_PIXELFORMAT\_RGB555,}
+\DoxyCodeLine{23         bgr\_555 = SDL\_PIXELFORMAT\_BGR555,}
+\DoxyCodeLine{24         argb\_4444 = SDL\_PIXELFORMAT\_ARGB4444,}
+\DoxyCodeLine{25         rgba\_4444 = SDL\_PIXELFORMAT\_RGBA4444,}
+\DoxyCodeLine{26         abgr\_4444 = SDL\_PIXELFORMAT\_ABGR4444,}
+\DoxyCodeLine{27         bgra\_4444 = SDL\_PIXELFORMAT\_BGRA4444,}
+\DoxyCodeLine{28         argb\_1555 = SDL\_PIXELFORMAT\_ARGB1555,}
+\DoxyCodeLine{29         rgba\_5551 = SDL\_PIXELFORMAT\_RGBA5551,}
+\DoxyCodeLine{30         abgr\_1555 = SDL\_PIXELFORMAT\_ABGR1555,}
+\DoxyCodeLine{31         bgra\_5551 = SDL\_PIXELFORMAT\_BGRA5551,}
+\DoxyCodeLine{32         rgb\_565 = SDL\_PIXELFORMAT\_RGB565,}
+\DoxyCodeLine{33         bgr\_565 = SDL\_PIXELFORMAT\_BGR565,}
+\DoxyCodeLine{34         rgb\_24 = SDL\_PIXELFORMAT\_RGB24,}
+\DoxyCodeLine{35         bgr\_24 = SDL\_PIXELFORMAT\_BGR24,}
+\DoxyCodeLine{36         rgb\_888 = SDL\_PIXELFORMAT\_RGB888,}
+\DoxyCodeLine{37         rgb\_x8888 = SDL\_PIXELFORMAT\_RGBX8888,}
+\DoxyCodeLine{38         bgr\_888 = SDL\_PIXELFORMAT\_BGR888,}
+\DoxyCodeLine{39         bgr\_x8888 = SDL\_PIXELFORMAT\_BGRX8888,}
+\DoxyCodeLine{40         argb\_8888 = SDL\_PIXELFORMAT\_ARGB8888,}
+\DoxyCodeLine{41         rgba\_8888 = SDL\_PIXELFORMAT\_RGBA8888,}
+\DoxyCodeLine{42         abgr\_8888 = SDL\_PIXELFORMAT\_ABGR8888,}
+\DoxyCodeLine{43         bgra\_8888 = SDL\_PIXELFORMAT\_BGRA8888,}
+\DoxyCodeLine{44         argb\_2101010 = SDL\_PIXELFORMAT\_ARGB2101010, }
+\DoxyCodeLine{45         yv12 = SDL\_PIXELFORMAT\_YV12,}
+\DoxyCodeLine{46         iyuv = SDL\_PIXELFORMAT\_IYUV,}
+\DoxyCodeLine{47         yuy2 = SDL\_PIXELFORMAT\_YUY2,}
+\DoxyCodeLine{48         uyvy = SDL\_PIXELFORMAT\_UYVY,}
+\DoxyCodeLine{49         yvyu = SDL\_PIXELFORMAT\_YVYU,}
+\DoxyCodeLine{50         nv12 = SDL\_PIXELFORMAT\_NV12,}
+\DoxyCodeLine{51         nv21 = SDL\_PIXELFORMAT\_NV21}
+\DoxyCodeLine{52     \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     \textcolor{keyword}{enum class} pixel\_type \{ }
+\DoxyCodeLine{59         unknown = SDL\_PIXELTYPE\_UNKNOWN,}
+\DoxyCodeLine{60         index\_1 = SDL\_PIXELTYPE\_INDEX1,}
+\DoxyCodeLine{61         index\_4 = SDL\_PIXELTYPE\_INDEX4,}
+\DoxyCodeLine{62         index\_8 = SDL\_PIXELTYPE\_INDEX8,}
+\DoxyCodeLine{63         packed\_8 = SDL\_PIXELTYPE\_PACKED8,}
+\DoxyCodeLine{64         packed\_16 = SDL\_PIXELTYPE\_PACKED16,}
+\DoxyCodeLine{65         packed\_32 = SDL\_PIXELTYPE\_PACKED32,}
+\DoxyCodeLine{66         array\_u8 = SDL\_PIXELTYPE\_ARRAYU8,}
+\DoxyCodeLine{67         array\_u16 = SDL\_PIXELTYPE\_ARRAYU16,}
+\DoxyCodeLine{68         array\_u32 = SDL\_PIXELTYPE\_ARRAYU32,}
+\DoxyCodeLine{69         array\_f16 = SDL\_PIXELTYPE\_ARRAYF16,}
+\DoxyCodeLine{70         array\_f32 = SDL\_PIXELTYPE\_ARRAYF32}
+\DoxyCodeLine{71     \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{enum class} pixel\_order \{}
+\DoxyCodeLine{74         bitmap\_none = SDL\_BITMAPORDER\_NONE,}
+\DoxyCodeLine{75         bitmap\_4321 = SDL\_BITMAPORDER\_4321,}
+\DoxyCodeLine{76         bitmap\_1234 = SDL\_BITMAPORDER\_1234,}
+\DoxyCodeLine{77         packed\_none = SDL\_PACKEDORDER\_NONE,}
+\DoxyCodeLine{78         packed\_xrgb = SDL\_PACKEDORDER\_XRGB,}
+\DoxyCodeLine{79         packed\_rgbx = SDL\_PACKEDORDER\_RGBX,}
+\DoxyCodeLine{80         packed\_argb = SDL\_PACKEDORDER\_ARGB,}
+\DoxyCodeLine{81         packed\_rgba = SDL\_PACKEDORDER\_RGBA,}
+\DoxyCodeLine{82         packed\_xbgr = SDL\_PACKEDORDER\_XBGR,}
+\DoxyCodeLine{83         packed\_bgrx = SDL\_PACKEDORDER\_BGRX,}
+\DoxyCodeLine{84         packed\_abgr = SDL\_PACKEDORDER\_ABGR,}
+\DoxyCodeLine{85         packed\_bgra = SDL\_PACKEDORDER\_BGRA,}
+\DoxyCodeLine{86         array\_none = SDL\_ARRAYORDER\_NONE,}
+\DoxyCodeLine{87         array\_rgb = SDL\_ARRAYORDER\_RGB,}
+\DoxyCodeLine{88         array\_rgba = SDL\_ARRAYORDER\_RGBA,}
+\DoxyCodeLine{89         array\_argb = SDL\_ARRAYORDER\_ARGB,}
+\DoxyCodeLine{90         array\_bgr = SDL\_ARRAYORDER\_BGR,}
+\DoxyCodeLine{91         array\_bgra = SDL\_ARRAYORDER\_BGRA,}
+\DoxyCodeLine{92         array\_abgr = SDL\_ARRAYORDER\_ABGR,}
+\DoxyCodeLine{93     \};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{99     \textcolor{keyword}{enum class} pixel\_layout \{ }
+\DoxyCodeLine{100         packed\_none = SDL\_PACKEDLAYOUT\_NONE,}
+\DoxyCodeLine{101         packed\_332 = SDL\_PACKEDLAYOUT\_332,}
+\DoxyCodeLine{102         packed\_4444 = SDL\_PACKEDLAYOUT\_4444,}
+\DoxyCodeLine{103         packed\_1555 = SDL\_PACKEDLAYOUT\_1555,}
+\DoxyCodeLine{104         packed\_5551 = SDL\_PACKEDLAYOUT\_5551,}
+\DoxyCodeLine{105         packed\_565 = SDL\_PACKEDLAYOUT\_565,}
+\DoxyCodeLine{106         packed\_8888 = SDL\_PACKEDLAYOUT\_8888,}
+\DoxyCodeLine{107         packed\_2101010 = SDL\_PACKEDLAYOUT\_2101010,}
+\DoxyCodeLine{108         packed\_1010102 = SDL\_PACKEDLAYOUT\_1010102}
+\DoxyCodeLine{109     \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{124     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1pixel__format}{pixel\_format}} \{}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         \textcolor{keyword}{private}: }
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128             \textcolor{comment}{// Format specifier connected to the underlying type of pixel format}}
+\DoxyCodeLine{129             \textcolor{comment}{// values}}
+\DoxyCodeLine{130             pixel\_format\_specifier f;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132             \textcolor{comment}{// Pixel type connected to the underlying pixel type}}
+\DoxyCodeLine{133             pixel\_type t;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135             \textcolor{comment}{// Pixel order enumeration connected to the underlying pixel}}
+\DoxyCodeLine{136             \textcolor{comment}{// ordering}}
+\DoxyCodeLine{137             pixel\_order o;}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139             \textcolor{comment}{// Pixel layout enumeration connected to the underlying pizel layout}}
+\DoxyCodeLine{140             \textcolor{comment}{// description.}}
+\DoxyCodeLine{141             pixel\_layout l;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143             \textcolor{comment}{// Bits per pixel}}
+\DoxyCodeLine{144             \textcolor{keywordtype}{char} bpp;}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146             \textcolor{comment}{// Bytes per pixel}}
+\DoxyCodeLine{147             \textcolor{keywordtype}{char} Bpp;}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149             \textcolor{comment}{// Is pixel format indexed}}
+\DoxyCodeLine{150             \textcolor{keywordtype}{bool} ipfi;}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152             \textcolor{comment}{// Is pixel format alpha}}
+\DoxyCodeLine{153             \textcolor{keywordtype}{bool} ipfa;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155             \textcolor{comment}{// Is pixel format four cc}}
+\DoxyCodeLine{156             \textcolor{keywordtype}{bool} ip4cc;}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158         \textcolor{keyword}{public}:}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{170             \mbox{\hyperlink{classzr_1_1pixel__format_a4e7d6fdf2c1afc789b13639952e2a821}{pixel\_format}}(pixel\_format\_specifier f);}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{175             \mbox{\hyperlink{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}{\string~pixel\_format}}();}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{182             pixel\_format\_specifier \mbox{\hyperlink{classzr_1_1pixel__format_a92d5598e901bd419f3fa36d656021c28}{get\_format\_specifier}}();}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 }
+\DoxyCodeLine{194             pixel\_type \mbox{\hyperlink{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}{get\_type}}();}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 }
+\DoxyCodeLine{206             pixel\_layout \mbox{\hyperlink{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}{get\_layout}}();}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208             }
+\DoxyCodeLine{218             pixel\_order \mbox{\hyperlink{classzr_1_1pixel__format_a0c938a3a1df787ace1759d56fd3724eb}{get\_order}}();}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 }
+\DoxyCodeLine{225             \textcolor{keywordtype}{char} \mbox{\hyperlink{classzr_1_1pixel__format_abdc6fa8c3345df732a3cb8cd8c846599}{get\_bits\_per\_pixel}}();}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 }
+\DoxyCodeLine{232             \textcolor{keywordtype}{char} \mbox{\hyperlink{classzr_1_1pixel__format_aeed877148ebc64d6ed1f30d2ac754ac9}{get\_bytes\_per\_pixel}}();}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 }
+\DoxyCodeLine{240             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1pixel__format_a104d2b92e82b25b6b0530159ab024190}{format\_is\_indexed}}();}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 }
+\DoxyCodeLine{248             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1pixel__format_a6bbb9d49d1da54cb4b44f697a762a252}{format\_is\_alpha}}();}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 }
+\DoxyCodeLine{256             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1pixel__format_a2af4c0f54d9c9fdbd993564a9e4f69e9}{format\_is\_fourcc}}();}
+\DoxyCodeLine{257     \};}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \} \textcolor{comment}{/* zr  */} }
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PIXELS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,56 @@
+\hypertarget{size_8h_source}{}\doxysection{size.\+h}
+\label{size_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/size.h@{/home/zachary/Documents/Projects/game-\/engine/include/size.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SIZE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SIZE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <armadillo>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}exceptions.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12     \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{13     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1size}{size}} \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         \textcolor{keyword}{private}:}
+\DoxyCodeLine{16             arma::Col<T> s;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keyword}{public}:}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{26             \mbox{\hyperlink{classzr_1_1size_ace3d6dd667ad30534c8d7012bd2b9d51}{size}}(T width, T height) : s(\{width, height\}) \{\};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{38             \mbox{\hyperlink{classzr_1_1size_a9076f8f0163404366ef5404a11a34ac3}{size}}(arma::Col<T> \mbox{\hyperlink{classzr_1_1size}{size}}) : s(\mbox{\hyperlink{classzr_1_1size}{size}}) \{ }
+\DoxyCodeLine{39                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{classzr_1_1size}{size}}.n\_rows != 2) \{}
+\DoxyCodeLine{40                     \textcolor{keywordflow}{throw} \mbox{\hyperlink{structzr_1_1input__exception}{input\_exception}}(\textcolor{stringliteral}{"{}[mutable\_size::mutable\_size] Invalid input dimensions for mutable size. Must have exactly two elements for width and height in that order."{}});}
+\DoxyCodeLine{41                 \}}
+\DoxyCodeLine{42             \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{47             \textcolor{keyword}{virtual} \mbox{\hyperlink{classzr_1_1size_ac073743065f4f1444e6f1bfc76a0a933}{\string~size}}() \{\};}
+\DoxyCodeLine{48             }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{54             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1size_a96824321939b0b95931cc31bc0219ac6}{set\_width}}(\textcolor{keyword}{const} T\& width) \{ s(0) = width; \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61             \textcolor{keyword}{virtual} \textcolor{keyword}{const} T\& \mbox{\hyperlink{classzr_1_1size_a26adca9f975ddd9a4030a4e0904c1db7}{get\_width}}() \{ \textcolor{keywordflow}{return} s(0); \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1size_aad997f470565e73b33f436a3878b6a7c}{set\_height}}(\textcolor{keyword}{const} T\& height) \{ s(1) = height; \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{75             \textcolor{keyword}{virtual} \textcolor{keyword}{const} T\& \mbox{\hyperlink{classzr_1_1size_aadc8d3627af0a47fd63657a7aab7cc15}{get\_height}}() \{ \textcolor{keywordflow}{return} s(1); \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1size_a13daf006da3d025c4c2eed34437d3e7f}{set\_size}}(\textcolor{keyword}{const} arma::Col<T>\& \mbox{\hyperlink{classzr_1_1size}{size}}) \{ s = \mbox{\hyperlink{classzr_1_1size_ace3d6dd667ad30534c8d7012bd2b9d51}{size}}; \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{89             \textcolor{keyword}{virtual} \textcolor{keyword}{const} arma::Col<T>\& \mbox{\hyperlink{classzr_1_1size_ab37979124774040199813c66d5317c52}{get\_size}}() \{ \textcolor{keywordflow}{return} s; \};}
+\DoxyCodeLine{90     \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \} \textcolor{comment}{/* zr  */} }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SIZE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

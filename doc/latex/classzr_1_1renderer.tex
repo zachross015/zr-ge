@@ -8,9 +8,9 @@
 \mbox{\Hypertarget{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}\label{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}} 
 virtual \mbox{\hyperlink{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}{$\sim$renderer}} ()
 \begin{DoxyCompactList}\small\item\em Deconstructs the renderer. \end{DoxyCompactList}\item 
-blend\+\_\+mode \mbox{\hyperlink{classzr_1_1renderer_a112198ad37eef60c6ef13268e92aa5c4}{get\+\_\+blend\+\_\+mode}} ()
+\mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\+\_\+mode}} \mbox{\hyperlink{classzr_1_1renderer_a112198ad37eef60c6ef13268e92aa5c4}{get\+\_\+blend\+\_\+mode}} ()
 \begin{DoxyCompactList}\small\item\em Get the blend mode used for drawing operations. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}{set\+\_\+blend\+\_\+mode}} (const blend\+\_\+mode \&bm)
+void \mbox{\hyperlink{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}{set\+\_\+blend\+\_\+mode}} (const \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\+\_\+mode}} \&bm)
 \begin{DoxyCompactList}\small\item\em Set the blend mode used for drawing operations. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structzr_1_1color}{color}} \mbox{\hyperlink{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}{get\+\_\+draw\+\_\+color}} ()
 \begin{DoxyCompactList}\small\item\em Gets the the current color that this renderer is drawing in. \end{DoxyCompactList}\item 
@@ -57,7 +57,24 @@ bool \mbox{\hyperlink{classzr_1_1renderer_a5d255c4f265665412ed8e4a9bf3cc8da}{is\
 void {\bfseries read\+\_\+pixels} (const arma\+::\+Col$<$ int $>$ \&vp, const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \&format, void $\ast$pixels, int pitch)
 \item 
 bool \mbox{\hyperlink{classzr_1_1renderer_a35a644f8857d4c57ca672fed3eda37b9}{is\+\_\+target\+\_\+supported}} ()
-\begin{DoxyCompactList}\small\item\em Determine whether this renderer supports the use of render targets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Determine whether this renderer supports the use of render targets. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzr_1_1renderer_a05ac43c5c1b8081976c89b19f53c5a3c}\label{classzr_1_1renderer_a05ac43c5c1b8081976c89b19f53c5a3c}} 
+void {\bfseries set\+\_\+target} (const \mbox{\hyperlink{classzr_1_1texture}{texture}} \&t)
+\item 
+void \mbox{\hyperlink{classzr_1_1renderer_a2491df48330b3c0d15d1e440817ddbeb}{clear\+\_\+target}} ()
+\item 
+\mbox{\Hypertarget{classzr_1_1renderer_af5018f5954575baf3d39897f24d7950d}\label{classzr_1_1renderer_af5018f5954575baf3d39897f24d7950d}} 
+void {\bfseries copy} (const \mbox{\hyperlink{classzr_1_1texture}{texture}} \&t)
+\item 
+\mbox{\Hypertarget{classzr_1_1renderer_a44fa0e520a99be21751810a6ccfe3ee5}\label{classzr_1_1renderer_a44fa0e520a99be21751810a6ccfe3ee5}} 
+void {\bfseries copy} (const \mbox{\hyperlink{classzr_1_1texture}{texture}} \&t, const arma\+::\+Col$<$ int $>$ \&source\+\_\+rect, const arma\+::\+Col$<$ int $>$ \&dest\+\_\+rect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classzr_1_1renderer_aa5e7159d25121d485b210f52c6494289}\label{classzr_1_1renderer_aa5e7159d25121d485b210f52c6494289}} 
+class {\bfseries texture}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -98,7 +115,15 @@ Support for the S\+DL renderer init with stronger typing.
 
 Resets all pixels in the render to the current draw color. 
 
-See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}\label{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}} 
+See {\ttfamily get\+\_\+draw\+\_\+color} and {\ttfamily set\+\_\+draw\+\_\+color} for more information on how to view or change what this color is. \mbox{\Hypertarget{classzr_1_1renderer_a2491df48330b3c0d15d1e440817ddbeb}\label{classzr_1_1renderer_a2491df48330b3c0d15d1e440817ddbeb}} 
+\index{zr::renderer@{zr::renderer}!clear\_target@{clear\_target}}
+\index{clear\_target@{clear\_target}!zr::renderer@{zr::renderer}}
+\doxysubsubsection{\texorpdfstring{clear\_target()}{clear\_target()}}
+{\footnotesize\ttfamily void zr\+::renderer\+::clear\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]this is just placeholder for a method for removing the texture from the current target.\end{DoxyRefDesc}
+We should come up with a more practical/intuitive way to draw things to the screen. \mbox{\Hypertarget{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}\label{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}} 
 \index{zr::renderer@{zr::renderer}!draw\_lines@{draw\_lines}}
 \index{draw\_lines@{draw\_lines}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{draw\_lines()}{draw\_lines()}}
@@ -204,7 +229,7 @@ The rectangles are sequentially read from the given matrix, meaning there needs 
 \index{zr::renderer@{zr::renderer}!get\_blend\_mode@{get\_blend\_mode}}
 \index{get\_blend\_mode@{get\_blend\_mode}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{get\_blend\_mode()}{get\_blend\_mode()}}
-{\footnotesize\ttfamily blend\+\_\+mode zr\+::renderer\+::get\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\+\_\+mode}} zr\+::renderer\+::get\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -232,7 +257,7 @@ Get the clip rectangle for the current target.
 Column vector filled with the current clipping area (x, y, w, h) or an empy rectangle if clipping is disabled.
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}\label{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}} 
 \index{zr::renderer@{zr::renderer}!get\_draw\_color@{get\_draw\_color}}
 \index{get\_draw\_color@{get\_draw\_color}!zr::renderer@{zr::renderer}}
@@ -344,7 +369,7 @@ true if this supports render targets, false otherwise.
 \index{zr::renderer@{zr::renderer}!set\_blend\_mode@{set\_blend\_mode}}
 \index{set\_blend\_mode@{set\_blend\_mode}!zr::renderer@{zr::renderer}}
 \doxysubsubsection{\texorpdfstring{set\_blend\_mode()}{set\_blend\_mode()}}
-{\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}\item[{const blend\+\_\+mode \&}]{bm }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void zr\+::renderer\+::set\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\+\_\+mode}} \&}]{bm }\end{DoxyParamCaption})}
 
 
 

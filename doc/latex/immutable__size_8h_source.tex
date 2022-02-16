@@ -1,0 +1,47 @@
+\hypertarget{immutable__size_8h_source}{}\doxysection{immutable\+\_\+size.\+h}
+\label{immutable__size_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/immutable\_size.h@{/home/zachary/Documents/Projects/game-\/engine/include/immutable\_size.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef IMMUTABLE\_SIZE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define IMMUTABLE\_SIZE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <armadillo>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}exceptions.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12     \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{13     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1immutable__size}{immutable\_size}} \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         \textcolor{keyword}{private}:}
+\DoxyCodeLine{16             \textcolor{keyword}{const} arma::Col<T> s;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keyword}{public}:}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{26             \mbox{\hyperlink{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}{immutable\_size}}(T width, T height) : s(\{width, height\}) \{\};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{38             \mbox{\hyperlink{classzr_1_1immutable__size_a421f134348c4584a1674fd3f60523bb8}{immutable\_size}}(arma::Col<T> \mbox{\hyperlink{classzr_1_1size}{size}}) : s(\mbox{\hyperlink{classzr_1_1size}{size}}) \{ }
+\DoxyCodeLine{39                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{classzr_1_1size}{size}}.n\_rows != 2) \{}
+\DoxyCodeLine{40                     \textcolor{keywordflow}{throw} \mbox{\hyperlink{structzr_1_1input__exception}{input\_exception}}(\textcolor{stringliteral}{"{}[immutable\_size::imutable\_size] Invalid input dimensions for immutable size. Must have exactly two elements for width and height in that order."{}});}
+\DoxyCodeLine{41                 \}}
+\DoxyCodeLine{42             \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{47             \textcolor{keyword}{virtual} \mbox{\hyperlink{classzr_1_1immutable__size_a44dd486f4fd482d1ac38a452b5de7394}{\string~immutable\_size}}() \{\};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{54             \textcolor{keyword}{virtual} \textcolor{keyword}{const} T\& \mbox{\hyperlink{classzr_1_1immutable__size_af771a9bdfecb1e98cf26f4ce086ea936}{get\_width}}() \{ \textcolor{keywordflow}{return} s(0); \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61             \textcolor{keyword}{virtual} \textcolor{keyword}{const} T\& \mbox{\hyperlink{classzr_1_1immutable__size_aef47bc02657d205542d11625ab13e2b3}{get\_height}}() \{ \textcolor{keywordflow}{return} s(1); \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68             \textcolor{keyword}{virtual} \textcolor{keyword}{const} arma::Col<T>\& \mbox{\hyperlink{classzr_1_1immutable__size_a92c7b0f5bde20bb9ddf63b22e8d96779}{get\_size}}() \{ \textcolor{keywordflow}{return} s; \};}
+\DoxyCodeLine{69     \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \} \textcolor{comment}{/* zr  */} }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IMMUTABLE\_SIZE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

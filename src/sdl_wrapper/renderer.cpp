@@ -1,4 +1,5 @@
 #include <sdl_wrapper/renderer.h>
+#include <sdl_wrapper/texture.h>
 #include <exceptions.h>
 #include <util.h>
 #include <exception>
@@ -234,6 +235,14 @@ namespace zr {
 
     bool renderer::is_target_supported() {
         return SDL_RenderTargetSupported(r) == SDL_TRUE;
+    }
+
+    void renderer::copy(const texture& t) {
+        SDL_RenderCopy(r, t.t, NULL, NULL);
+    }
+
+    void renderer::set_target(const texture& t) {
+        SDL_SetRenderTarget(r, t.t); 
     }
 
 } /* zr  */ 

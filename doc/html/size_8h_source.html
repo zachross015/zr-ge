@@ -73,34 +73,65 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SIZE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SIZE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>zr {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classzr_1_1size.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1size.html">size</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            T w, h;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;armadillo&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;exceptions.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>zr {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classzr_1_1size.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1size.html">size</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="classzr_1_1size.html">size</a>(T width, T height) : w(width), h(height) {};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="classzr_1_1size.html">size</a>() {};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> set_width(T width) { w = width; };</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">virtual</span> T get_width() { <span class="keywordflow">return</span> w; };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> set_height(T height) { h = height; };</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">virtual</span> T get_height() { <span class="keywordflow">return</span> h; };</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">/* zr  */</span> </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SIZE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            arma::Col&lt;T&gt; s;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#ace3d6dd667ad30534c8d7012bd2b9d51">   26</a></span>&#160;            <a class="code" href="classzr_1_1size.html#ace3d6dd667ad30534c8d7012bd2b9d51">size</a>(T width, T height) : s({width, height}) {};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#a9076f8f0163404366ef5404a11a34ac3">   38</a></span>&#160;            <a class="code" href="classzr_1_1size.html#a9076f8f0163404366ef5404a11a34ac3">size</a>(arma::Col&lt;T&gt; <a class="code" href="classzr_1_1size.html">size</a>) : s(<a class="code" href="classzr_1_1size.html">size</a>) { </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="classzr_1_1size.html">size</a>.n_rows != 2) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="structzr_1_1input__exception.html">input_exception</a>(<span class="stringliteral">&quot;[mutable_size::mutable_size] Invalid input dimensions for mutable size. Must have exactly two elements for width and height in that order.&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#ac073743065f4f1444e6f1bfc76a0a933">   47</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classzr_1_1size.html#ac073743065f4f1444e6f1bfc76a0a933">~size</a>() {};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#a96824321939b0b95931cc31bc0219ac6">   54</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classzr_1_1size.html#a96824321939b0b95931cc31bc0219ac6">set_width</a>(<span class="keyword">const</span> T&amp; width) { s(0) = width; };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#ae52565d4fbe5925b99fa64bce57f4d9a">   61</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1size.html#ae52565d4fbe5925b99fa64bce57f4d9a">get_width</a>() { <span class="keywordflow">return</span> s(0); };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#aad997f470565e73b33f436a3878b6a7c">   68</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classzr_1_1size.html#aad997f470565e73b33f436a3878b6a7c">set_height</a>(<span class="keyword">const</span> T&amp; height) { s(1) = height; };</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#a30f4291348f34329f6aa48ac9ac4882c">   75</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classzr_1_1size.html#a30f4291348f34329f6aa48ac9ac4882c">get_height</a>() { <span class="keywordflow">return</span> s(1); };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#a13daf006da3d025c4c2eed34437d3e7f">   82</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classzr_1_1size.html#a13daf006da3d025c4c2eed34437d3e7f">set_size</a>(<span class="keyword">const</span> arma::Col&lt;T&gt;&amp; <a class="code" href="classzr_1_1size.html">size</a>) { s = <a class="code" href="classzr_1_1size.html#ace3d6dd667ad30534c8d7012bd2b9d51">size</a>; };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classzr_1_1size.html#ab8551238505aece2b96c099107ef043e">   89</a></span>&#160;            <span class="keyword">virtual</span> <span class="keyword">const</span> arma::Col&lt;T&gt;&amp; <a class="code" href="classzr_1_1size.html#ab8551238505aece2b96c099107ef043e">get_size</a>() { <span class="keywordflow">return</span> s; };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;} <span class="comment">/* zr  */</span> </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SIZE_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasszr_1_1size_html"><div class="ttname"><a href="classzr_1_1size.html">zr::size</a></div><div class="ttdoc">Class template for a size construct that is mutable once initalized.</div><div class="ttdef"><b>Definition:</b> size.h:10</div></div>
+<div class="ttc" id="astructzr_1_1input__exception_html"><div class="ttname"><a href="structzr_1_1input__exception.html">zr::input_exception</a></div><div class="ttdoc">Class of exceptions dealing with input errors that occur in the codebase.</div><div class="ttdef"><b>Definition:</b> exceptions.h:35</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_a96824321939b0b95931cc31bc0219ac6"><div class="ttname"><a href="classzr_1_1size.html#a96824321939b0b95931cc31bc0219ac6">zr::size::set_width</a></div><div class="ttdeci">virtual void set_width(const T &amp;width)</div><div class="ttdoc">Sets the width this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:54</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_aad997f470565e73b33f436a3878b6a7c"><div class="ttname"><a href="classzr_1_1size.html#aad997f470565e73b33f436a3878b6a7c">zr::size::set_height</a></div><div class="ttdeci">virtual void set_height(const T &amp;height)</div><div class="ttdoc">Sets the height this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:68</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_a30f4291348f34329f6aa48ac9ac4882c"><div class="ttname"><a href="classzr_1_1size.html#a30f4291348f34329f6aa48ac9ac4882c">zr::size::get_height</a></div><div class="ttdeci">virtual const T &amp; get_height()</div><div class="ttdoc">Gets the height this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:75</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_ac073743065f4f1444e6f1bfc76a0a933"><div class="ttname"><a href="classzr_1_1size.html#ac073743065f4f1444e6f1bfc76a0a933">zr::size::~size</a></div><div class="ttdeci">virtual ~size()</div><div class="ttdoc">Deconstructor for the size class.</div><div class="ttdef"><b>Definition:</b> size.h:47</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_a9076f8f0163404366ef5404a11a34ac3"><div class="ttname"><a href="classzr_1_1size.html#a9076f8f0163404366ef5404a11a34ac3">zr::size::size</a></div><div class="ttdeci">size(arma::Col&lt; T &gt; size)</div><div class="ttdoc">Constructor for mutable_size given a column vector containing two elements.</div><div class="ttdef"><b>Definition:</b> size.h:38</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_a13daf006da3d025c4c2eed34437d3e7f"><div class="ttname"><a href="classzr_1_1size.html#a13daf006da3d025c4c2eed34437d3e7f">zr::size::set_size</a></div><div class="ttdeci">virtual void set_size(const arma::Col&lt; T &gt; &amp;size)</div><div class="ttdoc">Sets the size this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:82</div></div>
+<div class="ttc" id="aclasszr_1_1size_html"><div class="ttname"><a href="classzr_1_1size.html">zr::size</a></div><div class="ttdoc">Class template for a size construct that is mutable once initalized.</div><div class="ttdef"><b>Definition:</b> size.h:13</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_ace3d6dd667ad30534c8d7012bd2b9d51"><div class="ttname"><a href="classzr_1_1size.html#ace3d6dd667ad30534c8d7012bd2b9d51">zr::size::size</a></div><div class="ttdeci">size(T width, T height)</div><div class="ttdoc">Default constructor for an mutable sizing given a width and height.</div><div class="ttdef"><b>Definition:</b> size.h:26</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_ae52565d4fbe5925b99fa64bce57f4d9a"><div class="ttname"><a href="classzr_1_1size.html#ae52565d4fbe5925b99fa64bce57f4d9a">zr::size::get_width</a></div><div class="ttdeci">virtual const T &amp; get_width()</div><div class="ttdoc">Gets the width this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:61</div></div>
+<div class="ttc" id="aclasszr_1_1size_html_ab8551238505aece2b96c099107ef043e"><div class="ttname"><a href="classzr_1_1size.html#ab8551238505aece2b96c099107ef043e">zr::size::get_size</a></div><div class="ttdeci">virtual const arma::Col&lt; T &gt; &amp; get_size()</div><div class="ttdoc">Gets the size this class is storing.</div><div class="ttdef"><b>Definition:</b> size.h:89</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,11 +1,11 @@
 #ifndef WINDOW_H
 #define WINDOW_H
-
+ 
 #include <string>
 #include <SDL.h>
 #include <vector>
 #include <armadillo>
-#include "display_mode.h"
+#include "display_mode_config.h"
 
 namespace zr {
 
@@ -56,7 +56,7 @@ namespace zr {
     std::ostream& operator<<(std::ostream& out, const window_state& ws);
 
 
-    class window {
+    class window : public size<int> {
         private:
 
             SDL_Window* w;    
@@ -64,27 +64,6 @@ namespace zr {
 
 
         public:
-
-            /** Support for the original SDL initialization method as was originally
-             * built into SDL.
-             *
-             * @param title  The title that should appear on the window.
-             * @param x      The x coordinate the window should appear on the screen
-             * @param y      The y coordinate the window should appear on the screen
-             * @param width  The width of the given window (in pixels)
-             * @param height The height of the given window (in pixels)
-             * @param flags  The flags to include for this window * initialization.
-             *
-             * @throw sdl_exception Either an error when initializing the video
-             * or error when creating the window.
-             */
-            window(std::string title, 
-                   int x, 
-                   int y, 
-                   int width, 
-                   int height, 
-                   int flags);
-
 
             /** Support for SDL intialization using stronger typing. 
              *
@@ -175,12 +154,13 @@ namespace zr {
              *
              * @throw sdl_exception
              *
-             * @return A display_mode structure filled in with the fullscreen
+             * @return A display_mode_config structure filled in with the fullscreen
              * display mode
              */
-            display_mode get_display_mode();
+            display_mode_config get_display_mode_config();
 
-            /** Query the display mode to use when a window is visible at
+
+            /** Set the display mode to use when a window is visible at
              * fullscreen.
              *
              * @remark Only affects the display mode used when the window is in
@@ -188,10 +168,10 @@ namespace zr {
              *
              * @throw sdl_exception
              *
-             * @return A display_mode structure filled in with the fullscreen
+             * @return A display_mode_config structure filled in with the fullscreen
              * display mode
              */
-            void set_display_mode(display_mode dm);
+            void set_display_mode_config(display_mode_config dm);
 
 
             /** Retrieves the list of states the current window is subject to.
@@ -303,20 +283,52 @@ namespace zr {
             void set_pos(const arma::ivec& pos);
 
 
-            /** Gets the window's size.
+            /** Gets the window's width.
              *
-             * @return Row vector containing the window's size (w in 0 and h
+             * @return Col vector containing the window's width (w in 0 and h
              * in 1).
              */
-            arma::ivec get_size();
+            virtual const int& get_width() override;
+
+
+            /** Sets the window's width.
+             *
+             * @param width Col vector containing the window's width (w in 0 and h
+             * in 1).
+             */
+            virtual void set_width(const int& width) override;
+
+
+            /** Gets the window's height.
+             *
+             * @return Col vector containing the window's height (w in 0 and h
+             * in 1).
+             */
+            virtual const int& get_height() override;
+
+
+            /** Sets the window's height.
+             *
+             * @param height Col vector containing the window's height (w in 0 and h
+             * in 1).
+             */
+            virtual void set_height(const int& height) override;
+
+
+            /** Gets the window's size.
+             *
+             * @return Col vector containing the window's size (w in 0 and h
+             * in 1).
+             */
+            virtual const arma::Col<int>& get_size() override;
 
 
             /** Sets the window's size.
              *
-             * @param size Row vector containing the window's size (w in 0 and h
+             * @param size Col vector containing the window's size (w in 0 and h
              * in 1).
              */
-            void set_size(const arma::ivec& size);
+            virtual void set_size(const arma::Col<int>& size) override;
 
 
             /** Gets the window's current title.

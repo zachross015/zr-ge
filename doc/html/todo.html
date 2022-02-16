@@ -67,12 +67,30 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt>File <a class="el" href="blend__mode_8h.html">blend_mode.h</a>  </dt>
+<dd><a class="anchor" id="_todo000001"></a>SDL_BlendMode is an actual class defined by a combination of custom blend mode quanities as defined in <a href="https://wiki.libsdl.org/SDL_ComposeCustomBlendMode">https://wiki.libsdl.org/SDL_ComposeCustomBlendMode</a>. The code should eventuall be extended to include enums for blend factos and blend operations, then the ability to return the custom blend mode from those. Until then, we'll just do boiler plate.  </dd>
+<dt>Member <a class="el" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">zr::blend_mode</a>  </dt>
+<dd><a class="anchor" id="_todo000002"></a>Replace SDL_ComposeCustomBlendMode lol  </dd>
 <dt>Class <a class="el" href="structzr_1_1color.html">zr::color</a>  </dt>
-<dd><a class="anchor" id="_todo000001"></a>Create default color palettes.  </dd>
+<dd><a class="anchor" id="_todo000003"></a>Create default color palettes.  </dd>
 <dt>Class <a class="el" href="classzr_1_1pixel__format.html">zr::pixel_format</a>  </dt>
-<dd><a class="anchor" id="_todo000002"></a>A great abstraction which will be necessary down the line is converting from a color to a specific <a class="el" href="classzr_1_1pixel__format.html" title="Read only class which provides information on pixel formats and associated values.">pixel_format</a>. <a class="el" href="classzr_1_1pixel__format.html" title="Read only class which provides information on pixel formats and associated values.">pixel_format</a> should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions.  </dd>
+<dd><a class="anchor" id="_todo000004"></a>A great abstraction which will be necessary down the line is converting from a color to a specific <a class="el" href="classzr_1_1pixel__format.html" title="Read only class which provides information on pixel formats and associated values.">pixel_format</a>. <a class="el" href="classzr_1_1pixel__format.html" title="Read only class which provides information on pixel formats and associated values.">pixel_format</a> should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions. Further consideration needs to be done in case for example a new layout comes out. I don't want to deal with hard coding things for that reason. </dd>
+<dt>Member <a class="el" href="classzr_1_1renderer.html#a2491df48330b3c0d15d1e440817ddbeb">zr::renderer::clear_target</a>  ()</dt>
+<dd><a class="anchor" id="_todo000006"></a>this is just placeholder for a method for removing the texture from the current target. </dd>
 <dt>Member <a class="el" href="classzr_1_1renderer.html#a1a93b15028f2bc27b2051bc912a70b4b">zr::renderer::get_clip_rect</a>  ()</dt>
-<dd><a class="anchor" id="_todo000003"></a>This may result in an error, especially if SDL_Rect* rect turns out to be NULL if clipping is disabled. </dd>
+<dd><a class="anchor" id="_todo000005"></a>This may result in an error, especially if SDL_Rect* rect turns out to be NULL if clipping is disabled.  </dd>
+<dt>Class <a class="el" href="classzr_1_1texture.html">zr::texture</a>  </dt>
+<dd><a class="anchor" id="_todo000007"></a>Consider how to include the texture scaling methods. </dd>
+<dt>Member <a class="el" href="classzr_1_1texture.html#a6b1635827466882d2321a3e069fed0b4">zr::texture::get_color_overlay</a>  ()</dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000009"></a>This could be made more meaningful if we potentially derived it from the color class. That way, instead of having a separate value for setting the color overlay and the alpha overlay, we would just manipulate the separate components of the texture (e.g. just mess with the red values.)</p>
+<p class="enddd"><a class="anchor" id="_todo000010"></a>Implement this  </p>
+</dd>
+<dt>Member <a class="el" href="classzr_1_1texture.html#a4283a61fd2c01537d6e10e1807442173">zr::texture::get_pixel_format</a>  ()</dt>
+<dd><a class="anchor" id="_todo000012"></a>Could there be a way to change pixel formats? Is that worth even considering? </dd>
+<dt>Member <a class="el" href="classzr_1_1texture.html#a4e8b4e61c04447d3a94979e83a010927">zr::texture::set_color_overlay</a>  (const color &amp;c)</dt>
+<dd><a class="anchor" id="_todo000011"></a>Implement this. </dd>
+<dt>Member <a class="el" href="classzr_1_1texture.html#a90bc21e25a2889400253763294280924">zr::texture::texture</a>  (const renderer &amp;renderer, const pixel_format_specifier &amp;pixel_format_specifier, const texture_access &amp;texture_access, const arma::Col&lt; int &gt; &amp;size)</dt>
+<dd><a class="anchor" id="_todo000008"></a>Firstly a question: can a texture only be drawn to by the renderer that created it? If so, we should keep track of all the textures a renderer is connected to and vice versa. That way, whenever we clean up a renderer, all child textures will be destroyed, and when a texture is destroyed the renderer can be notified promptly.</dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

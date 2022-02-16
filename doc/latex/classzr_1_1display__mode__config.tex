@@ -1,0 +1,129 @@
+\hypertarget{classzr_1_1display__mode__config}{}\doxysection{zr\+::display\+\_\+mode\+\_\+config Class Reference}
+\label{classzr_1_1display__mode__config}\index{zr::display\_mode\_config@{zr::display\_mode\_config}}
+
+
+Inheritance diagram for zr\+::display\+\_\+mode\+\_\+config\+:
+% FIG 0
+
+
+Collaboration diagram for zr\+::display\+\_\+mode\+\_\+config\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzr_1_1display__mode__config_a267bcd06bbca647e8b99cd465fce7b74}{display\+\_\+mode\+\_\+config}} (S\+D\+L\+\_\+\+Display\+Mode dm)
+\begin{DoxyCompactList}\small\item\em Constructor for the display mode struture. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a2a469c224ba9117fb4f63143fd795363}\label{classzr_1_1display__mode__config_a2a469c224ba9117fb4f63143fd795363}} 
+virtual \mbox{\hyperlink{classzr_1_1display__mode__config_a2a469c224ba9117fb4f63143fd795363}{$\sim$display\+\_\+mode\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor for this class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \mbox{\hyperlink{classzr_1_1display__mode__config_a8b33a7b3f570625c9fdec4ced0cf35c4}{get\+\_\+pixel\+\_\+format}} ()
+\begin{DoxyCompactList}\small\item\em Gets the pixel format associated with this display. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classzr_1_1display__mode__config_af9209bca21f80b7962e5aad507404984}{get\+\_\+refresh\+\_\+rate}} ()
+\begin{DoxyCompactList}\small\item\em Gets the refresh rate of this display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classzr_1_1display__mode__config_a3a899b2267d74b46c6540ab92ae85c03}{set\+\_\+refresh\+\_\+rate}} (int refresh\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Sets the refresh rate of this display configuration. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{classzr_1_1display__mode__config_a0e82677b5a0b492f19c739c0f18e312e}{get\+\_\+driver\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Get the driver data associated with this window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classzr_1_1display__mode__config_a8a0e65eabf8bb4a8a15a5827cac62f04}{set\+\_\+driver\+\_\+data}} (void $\ast$driver\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Set the driver data associated with this window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a267bcd06bbca647e8b99cd465fce7b74}\label{classzr_1_1display__mode__config_a267bcd06bbca647e8b99cd465fce7b74}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!display\_mode\_config@{display\_mode\_config}}
+\index{display\_mode\_config@{display\_mode\_config}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{display\_mode\_config()}{display\_mode\_config()}}
+{\footnotesize\ttfamily zr\+::display\+\_\+mode\+\_\+config\+::display\+\_\+mode\+\_\+config (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Display\+Mode}]{dm }\end{DoxyParamCaption})}
+
+
+
+Constructor for the display mode struture. 
+
+Contains the information for how the window or display is being...displayed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dm} & The S\+D\+L\+\_\+\+Display\+Mode. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a0e82677b5a0b492f19c739c0f18e312e}\label{classzr_1_1display__mode__config_a0e82677b5a0b492f19c739c0f18e312e}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!get\_driver\_data@{get\_driver\_data}}
+\index{get\_driver\_data@{get\_driver\_data}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{get\_driver\_data()}{get\_driver\_data()}}
+{\footnotesize\ttfamily void$\ast$ zr\+::display\+\_\+mode\+\_\+config\+::get\+\_\+driver\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the driver data associated with this window. 
+
+This should not be tampered with outside of using this to initialize other windows.
+
+\begin{DoxyReturn}{Returns}
+void$\ast$ Containing the driver data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a8b33a7b3f570625c9fdec4ced0cf35c4}\label{classzr_1_1display__mode__config_a8b33a7b3f570625c9fdec4ced0cf35c4}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!get\_pixel\_format@{get\_pixel\_format}}
+\index{get\_pixel\_format@{get\_pixel\_format}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{get\_pixel\_format()}{get\_pixel\_format()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} zr\+::display\+\_\+mode\+\_\+config\+::get\+\_\+pixel\+\_\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the pixel format associated with this display. 
+
+\begin{DoxyReturn}{Returns}
+The pixel format this display uses. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_af9209bca21f80b7962e5aad507404984}\label{classzr_1_1display__mode__config_af9209bca21f80b7962e5aad507404984}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!get\_refresh\_rate@{get\_refresh\_rate}}
+\index{get\_refresh\_rate@{get\_refresh\_rate}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{get\_refresh\_rate()}{get\_refresh\_rate()}}
+{\footnotesize\ttfamily int zr\+::display\+\_\+mode\+\_\+config\+::get\+\_\+refresh\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the refresh rate of this display. 
+
+\begin{DoxyReturn}{Returns}
+An integer with this display\textquotesingle{}s refresh rate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a8a0e65eabf8bb4a8a15a5827cac62f04}\label{classzr_1_1display__mode__config_a8a0e65eabf8bb4a8a15a5827cac62f04}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!set\_driver\_data@{set\_driver\_data}}
+\index{set\_driver\_data@{set\_driver\_data}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{set\_driver\_data()}{set\_driver\_data()}}
+{\footnotesize\ttfamily void zr\+::display\+\_\+mode\+\_\+config\+::set\+\_\+driver\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{driver\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Set the driver data associated with this window. 
+
+This should not be tampered with outside of using this to initialize other windows and unless you know what you\textquotesingle{}re doing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver\+\_\+data} & void$\ast$ Containing the driver data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classzr_1_1display__mode__config_a3a899b2267d74b46c6540ab92ae85c03}\label{classzr_1_1display__mode__config_a3a899b2267d74b46c6540ab92ae85c03}} 
+\index{zr::display\_mode\_config@{zr::display\_mode\_config}!set\_refresh\_rate@{set\_refresh\_rate}}
+\index{set\_refresh\_rate@{set\_refresh\_rate}!zr::display\_mode\_config@{zr::display\_mode\_config}}
+\doxysubsubsection{\texorpdfstring{set\_refresh\_rate()}{set\_refresh\_rate()}}
+{\footnotesize\ttfamily void zr\+::display\+\_\+mode\+\_\+config\+::set\+\_\+refresh\+\_\+rate (\begin{DoxyParamCaption}\item[{int}]{refresh\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Sets the refresh rate of this display configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+\_\+rate} & An integer with this display\textquotesingle{}s refresh rate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/zachary/\+Documents/\+Projects/game-\/engine/include/sdl\+\_\+wrapper/display\+\_\+mode\+\_\+config.\+h\end{DoxyCompactItemize}

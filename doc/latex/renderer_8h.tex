@@ -1,0 +1,37 @@
+\hypertarget{renderer_8h}{}\doxysection{/home/zachary/\+Documents/\+Projects/game-\/engine/include/sdl\+\_\+wrapper/renderer.h File Reference}
+\label{renderer_8h}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/renderer.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/renderer.h}}
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$armadillo$>$}\newline
+{\ttfamily \#include \char`\"{}window.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}blend\+\_\+mode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}color.\+h\char`\"{}}\newline
+Include dependency graph for renderer.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classzr_1_1renderer}{zr\+::renderer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacezr}{zr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacezr_a10b4e9dee7708da86054b165ef69a368}{zr\+::renderer\+\_\+state}} \{ \mbox{\hyperlink{namespacezr_a10b4e9dee7708da86054b165ef69a368a703526839655289a7f887226a102b939}{zr\+::software}} = S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+S\+O\+F\+T\+W\+A\+RE, 
+\mbox{\hyperlink{namespacezr_a10b4e9dee7708da86054b165ef69a368a2cb63d5c1880330ac2271cf0aacbd646}{zr\+::accelerated}} = S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+ED, 
+\mbox{\hyperlink{namespacezr_a10b4e9dee7708da86054b165ef69a368a8d1d73e9a0a25d42abcbe60fd63ff50b}{zr\+::present\+\_\+vsync}} = S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+P\+R\+E\+S\+E\+N\+T\+V\+S\+Y\+NC, 
+\mbox{\hyperlink{namespacezr_a10b4e9dee7708da86054b165ef69a368a90c9a3ccd73a2a63f7be79e8fe0b84aa}{zr\+::target\+\_\+texture}} = S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+T\+A\+R\+G\+E\+T\+T\+E\+X\+T\+U\+RE
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of the different renderer states permitted by S\+DL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ renderer\+\_\+state $>$ \mbox{\hyperlink{namespacezr_a4dac1d7d072d1c02b530ebcac644aa8a}{zr\+::all\+\_\+renderer\+\_\+states}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the list of all possible render states for enumeration purposes. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{namespacezr_a650038d42563eca425bbfb7815e99981}{zr\+::operator$<$$<$}} (std\+::ostream \&out, const renderer\+\_\+state \&ws)
+\begin{DoxyCompactList}\small\item\em Ostream operator overload for the render\+\_\+state enumerator. \end{DoxyCompactList}\end{DoxyCompactItemize}

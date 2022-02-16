@@ -1,0 +1,38 @@
+\hypertarget{exceptions_8h_source}{}\doxysection{exceptions.\+h}
+\label{exceptions_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/exceptions.h@{/home/zachary/Documents/Projects/game-\/engine/include/exceptions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SDL\_EXCEPTION\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SDL\_EXCEPTION\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{comment}{// TODO: It might be more beneficial down the line to include some macros}}
+\DoxyCodeLine{11     \textcolor{comment}{// which help to facilitate the throwing and sending of exceptions. Right}}
+\DoxyCodeLine{12     \textcolor{comment}{// now it takes \string~3 lines of code per exception case, not including the text}}
+\DoxyCodeLine{13     \textcolor{comment}{// involved. It would be preferable if we had the following:}}
+\DoxyCodeLine{14     \textcolor{comment}{// 1) IF statement/checking macros}}
+\DoxyCodeLine{15     \textcolor{comment}{// 2) Macros which auto populate line no. and function/class names.}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{24     \textcolor{keyword}{struct }\mbox{\hyperlink{structzr_1_1sdl__exception}{sdl\_exception}}: \textcolor{keyword}{public} std::exception \{}
+\DoxyCodeLine{25         std::string message;}
+\DoxyCodeLine{26         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* what() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}() \{ std::cout << \textcolor{stringliteral}{"{} SDL EXCEPTION "{}} << message << std::endl; \textcolor{keywordflow}{return} SDL\_GetError(); \}}
+\DoxyCodeLine{27         \mbox{\hyperlink{structzr_1_1sdl__exception}{sdl\_exception}}(std::string m) : message(m) \{\};}
+\DoxyCodeLine{28     \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{35     \textcolor{keyword}{struct }\mbox{\hyperlink{structzr_1_1input__exception}{input\_exception}}: \textcolor{keyword}{public} std::exception \{}
+\DoxyCodeLine{36         std::string message;}
+\DoxyCodeLine{37         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* what() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}() \{ std::cout << \textcolor{stringliteral}{"{} INPUT EXCEPTION "{}} << message << std::endl; \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}; \}}
+\DoxyCodeLine{38         \mbox{\hyperlink{structzr_1_1input__exception}{input\_exception}}(std::string m) : message(m) \{\};}
+\DoxyCodeLine{39     \};}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SDL\_EXCEPTION\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['texture_76',['texture',['../classzr_1_1texture.html',1,'zr']]],
-  ['todo_20list_77',['Todo List',['../todo.html',1,'']]],
-  ['trap_5fmouse_78',['trap_mouse',['../classzr_1_1window.html#af57be80f046c7074d784e0e02d673afe',1,'zr::window']]]
+  ['pixel_5fformat_58',['pixel_format',['../classzr_1_1pixel__format.html',1,'zr::pixel_format'],['../classzr_1_1pixel__format.html#a4e7d6fdf2c1afc789b13639952e2a821',1,'zr::pixel_format::pixel_format()']]],
+  ['present_59',['present',['../classzr_1_1renderer.html#a518caa521171702dd48f04770530bd21',1,'zr::renderer']]]
 ];

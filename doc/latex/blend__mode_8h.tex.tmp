@@ -1,0 +1,77 @@
+\hypertarget{blend__mode_8h}{}\doxysection{/home/zachary/\+Documents/\+Projects/game-\/engine/include/sdl\+\_\+wrapper/blend\+\_\+mode.h File Reference}
+\label{blend__mode_8h}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/blend\_mode.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/blend\_mode.h}}
+{\ttfamily \#include $<$S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+Include dependency graph for blend\+\_\+mode.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{zr\+::blend\+\_\+mode}} 
+\begin{DoxyCompactList}\small\item\em An enumeration of blend modes used by the renderer and drawing operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ blend\+\_\+mode $>$ \mbox{\hyperlink{blend__mode_8h_a468ce6b8aab19b3ed659962c4cff6ad7}{zr\+::all\+\_\+blend\+\_\+modes}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the list of all possible blend modes for enumeration purposes. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{blend__mode_8h_aae899606e1b4db6fd2915b92016d1097}{zr\+::operator$<$$<$}} (std\+::ostream \&out, const blend\+\_\+mode \&ws)
+\begin{DoxyCompactList}\small\item\em Ostream operator overload for the render\+\_\+state enumerator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]S\+D\+L\+\_\+\+Blend\+Mode is an actual class defined by a combination of custom blend mode quanities as defined in \href{https://wiki.libsdl.org/SDL_ComposeCustomBlendMode}{\texttt{ https\+://wiki.\+libsdl.\+org/\+S\+D\+L\+\_\+\+Compose\+Custom\+Blend\+Mode}}. The code should eventuall be extended to include enums for blend factos and blend operations, then the ability to return the custom blend mode from those. Until then, we\textquotesingle{}ll just do boiler plate. \end{DoxyRefDesc}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}\label{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}} 
+\index{blend\_mode.h@{blend\_mode.h}!blend\_mode@{blend\_mode}}
+\index{blend\_mode@{blend\_mode}!blend\_mode.h@{blend\_mode.h}}
+\doxysubsubsection{\texorpdfstring{blend\_mode}{blend\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{zr\+::blend\+\_\+mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enumeration of blend modes used by the renderer and drawing operations. 
+
+Additional values may be obtained using S\+D\+L\+\_\+\+Compose\+Custom\+Blend\+Mode() \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Replace S\+D\+L\+\_\+\+Compose\+Custom\+Blend\+Mode lol \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{blend__mode_8h_a468ce6b8aab19b3ed659962c4cff6ad7}\label{blend__mode_8h_a468ce6b8aab19b3ed659962c4cff6ad7}} 
+\index{blend\_mode.h@{blend\_mode.h}!all\_blend\_modes@{all\_blend\_modes}}
+\index{all\_blend\_modes@{all\_blend\_modes}!blend\_mode.h@{blend\_mode.h}}
+\doxysubsubsection{\texorpdfstring{all\_blend\_modes()}{all\_blend\_modes()}}
+{\footnotesize\ttfamily std\+::vector$<$blend\+\_\+mode$>$ zr\+::all\+\_\+blend\+\_\+modes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the list of all possible blend modes for enumeration purposes. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$blend\+\_\+mode$>$ consisting of all possible render states. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{blend__mode_8h_aae899606e1b4db6fd2915b92016d1097}\label{blend__mode_8h_aae899606e1b4db6fd2915b92016d1097}} 
+\index{blend\_mode.h@{blend\_mode.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!blend\_mode.h@{blend\_mode.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& zr\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\+\_\+mode}} \&}]{ws }\end{DoxyParamCaption})}
+
+
+
+Ostream operator overload for the render\+\_\+state enumerator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The ostream \\
+\hline
+{\em ws} & The render state to be printed out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The outputted render state. 
+\end{DoxyReturn}

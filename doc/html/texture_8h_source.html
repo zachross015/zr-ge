@@ -76,7 +76,7 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;renderer.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;pixel_format.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;blend_mode.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="blend__mode_8h.html">blend_mode.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../immutable_size.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace  </span>zr {</div>
@@ -95,54 +95,94 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    };</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classzr_1_1texture.html">   26</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1texture.html">texture</a> : <span class="keyword">public</span> <a class="code" href="classzr_1_1immutable__size.html">immutable_size</a>&lt;int&gt;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classzr_1_1pixel__format.html">pixel_format</a> pf;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        texture_access ta;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">enum class</span> texture_scaling_method {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        nearest_pixel_sampling,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        linear_filtering,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        anisotropic_filtering</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="classzr_1_1texture.html">texture</a>(<span class="keyword">const</span> <a class="code" href="classzr_1_1renderer.html">renderer</a>&amp; r, <span class="keyword">const</span> pixel_format_specifier&amp; pf, <span class="keyword">const</span> texture_access&amp; ta, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="classzr_1_1texture.html">texture</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            texture_access get_texture_access();</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classzr_1_1texture.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzr_1_1texture.html">texture</a> : <span class="keyword">public</span> <a class="code" href="classzr_1_1immutable__size.html">immutable_size</a>&lt;int&gt; {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordtype">char</span> get_alpha();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordtype">void</span> set_alpha(<span class="keywordtype">char</span> alpha);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            blend_mode get_blend_mode();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordtype">void</span> set_blend_mode(<span class="keyword">const</span> blend_mode&amp; bm);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="structzr_1_1color.html">color</a> get_color();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordtype">void</span> set_color(<span class="keyword">const</span> <a class="code" href="structzr_1_1color.html">color</a>&amp; c);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">// TODO: The following still need to be implemented. It might be</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="comment">// more useful to separate this class into classes deriving from the</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">// different texture access classes since those can not be changed</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">// once initialized. This is mainly bc lock/unlock can only be used</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// with streaming access, so it is kind of pointless to include the</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">// method for all three.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">//</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">// void bind_to_opengl();</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">// void unbind_from_opengl();</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">// void lock();</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">// void unlock();</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="comment">//</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">/*  zr  */</span> </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TEXTURE_H */</span><span class="preprocessor">  </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzr_1_1renderer.html">renderer</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classzr_1_1pixel__format.html">pixel_format</a> pf;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        texture_access ta;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        SDL_Texture* t;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classzr_1_1texture.html#a90bc21e25a2889400253763294280924">texture</a>(<span class="keyword">const</span> <a class="code" href="classzr_1_1renderer.html">renderer</a>&amp; <a class="code" href="classzr_1_1renderer.html">renderer</a>, </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <span class="keyword">const</span> pixel_format_specifier&amp; pixel_format_specifier, </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    <span class="keyword">const</span> texture_access&amp; texture_access, </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <span class="keyword">const</span> arma::Col&lt;int&gt;&amp; <a class="code" href="classzr_1_1size.html">size</a>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classzr_1_1texture.html#af8f1240da1ebec52bca896b3cfff884c">~texture</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="classzr_1_1texture.html#a97d2e3e5efc5d7220005431910bcfdf3">get_alpha</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classzr_1_1texture.html#a7cd285670896a3d646d075b9e5a1c0cb">set_alpha</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> alpha);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <a class="code" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a> <a class="code" href="classzr_1_1texture.html#a9fd0ed6421d2c850dc3153d0e2d22866">get_blend_mode</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classzr_1_1texture.html#a15d544ae6e3a603a2255755406368600">set_blend_mode</a>(<span class="keyword">const</span> <a class="code" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a>&amp; bm);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="structzr_1_1color.html">color</a> <a class="code" href="classzr_1_1texture.html#a6b1635827466882d2321a3e069fed0b4">get_color_overlay</a>();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classzr_1_1texture.html#a4e8b4e61c04447d3a94979e83a010927">set_color_overlay</a>(<span class="keyword">const</span> <a class="code" href="structzr_1_1color.html">color</a>&amp; c);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keyword">const</span> <a class="code" href="classzr_1_1pixel__format.html">pixel_format</a>&amp; <a class="code" href="classzr_1_1texture.html#a4283a61fd2c01537d6e10e1807442173">get_pixel_format</a>();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keyword">const</span> texture_access&amp; <a class="code" href="classzr_1_1texture.html#a018b224d83b175bbfccd89b00ea85273">get_texture_access</a>();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="comment">// TODO: The following still need to be implemented. It might be</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="comment">// more useful to separate this class into classes deriving from the</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="comment">// different texture access classes since those can not be changed</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="comment">// once initialized. This is mainly bc lock/unlock can only be used</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="comment">// with streaming access, so it is kind of pointless to include the</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="comment">// method for all three.</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="comment">//</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="comment">// void bind_to_opengl();</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="comment">// void unbind_from_opengl();</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="comment">// void lock();</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="comment">// void unlock();</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="comment">//</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    };</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;} <span class="comment">/*  zr  */</span> </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TEXTURE_H */</span><span class="preprocessor">  </span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasszr_1_1immutable__size_html"><div class="ttname"><a href="classzr_1_1immutable__size.html">zr::immutable_size</a></div><div class="ttdoc">Class template for a size construct that is immutable once initalized.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:10</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a15d544ae6e3a603a2255755406368600"><div class="ttname"><a href="classzr_1_1texture.html#a15d544ae6e3a603a2255755406368600">zr::texture::set_blend_mode</a></div><div class="ttdeci">void set_blend_mode(const blend_mode &amp;bm)</div><div class="ttdoc">Set the blend mode used for drawing operations.</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a90bc21e25a2889400253763294280924"><div class="ttname"><a href="classzr_1_1texture.html#a90bc21e25a2889400253763294280924">zr::texture::texture</a></div><div class="ttdeci">texture(const renderer &amp;renderer, const pixel_format_specifier &amp;pixel_format_specifier, const texture_access &amp;texture_access, const arma::Col&lt; int &gt; &amp;size)</div><div class="ttdoc">Constructor for the class of textures.</div></div>
+<div class="ttc" id="aclasszr_1_1immutable__size_html"><div class="ttname"><a href="classzr_1_1immutable__size.html">zr::immutable_size</a></div><div class="ttdoc">Class template for a size construct that is immutable once initalized.</div><div class="ttdef"><b>Definition:</b> immutable_size.h:13</div></div>
+<div class="ttc" id="ablend__mode_8h_html_a5f8dcdda70c99298ce87c3c463cdf629"><div class="ttname"><a href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">zr::blend_mode</a></div><div class="ttdeci">blend_mode</div><div class="ttdoc">An enumeration of blend modes used by the renderer and drawing operations.</div><div class="ttdef"><b>Definition:</b> blend_mode.h:24</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a6b1635827466882d2321a3e069fed0b4"><div class="ttname"><a href="classzr_1_1texture.html#a6b1635827466882d2321a3e069fed0b4">zr::texture::get_color_overlay</a></div><div class="ttdeci">color get_color_overlay()</div><div class="ttdoc">Get the additional color value multiplied into render copy operations.</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_af8f1240da1ebec52bca896b3cfff884c"><div class="ttname"><a href="classzr_1_1texture.html#af8f1240da1ebec52bca896b3cfff884c">zr::texture::~texture</a></div><div class="ttdeci">virtual ~texture()</div><div class="ttdoc">Texture deconstructor.</div></div>
 <div class="ttc" id="astructzr_1_1color_html"><div class="ttname"><a href="structzr_1_1color.html">zr::color</a></div><div class="ttdoc">Structure containing the rgba values for colors.</div><div class="ttdef"><b>Definition:</b> color.h:10</div></div>
-<div class="ttc" id="aclasszr_1_1renderer_html"><div class="ttname"><a href="classzr_1_1renderer.html">zr::renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:37</div></div>
-<div class="ttc" id="aclasszr_1_1pixel__format_html"><div class="ttname"><a href="classzr_1_1pixel__format.html">zr::pixel_format</a></div><div class="ttdoc">Read only class which provides information on pixel formats and associated values.</div><div class="ttdef"><b>Definition:</b> pixel_format.h:121</div></div>
-<div class="ttc" id="aclasszr_1_1texture_html"><div class="ttname"><a href="classzr_1_1texture.html">zr::texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:26</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a018b224d83b175bbfccd89b00ea85273"><div class="ttname"><a href="classzr_1_1texture.html#a018b224d83b175bbfccd89b00ea85273">zr::texture::get_texture_access</a></div><div class="ttdeci">const texture_access &amp; get_texture_access()</div><div class="ttdoc">Returns the texture access this texture was initialized to.</div></div>
+<div class="ttc" id="aclasszr_1_1renderer_html"><div class="ttname"><a href="classzr_1_1renderer.html">zr::renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:39</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a97d2e3e5efc5d7220005431910bcfdf3"><div class="ttname"><a href="classzr_1_1texture.html#a97d2e3e5efc5d7220005431910bcfdf3">zr::texture::get_alpha</a></div><div class="ttdeci">unsigned char get_alpha()</div><div class="ttdoc">Get the alpha channel overlay for this texture.</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a4283a61fd2c01537d6e10e1807442173"><div class="ttname"><a href="classzr_1_1texture.html#a4283a61fd2c01537d6e10e1807442173">zr::texture::get_pixel_format</a></div><div class="ttdeci">const pixel_format &amp; get_pixel_format()</div><div class="ttdoc">Returns the pixel format this texture was initialized to.</div></div>
+<div class="ttc" id="aclasszr_1_1pixel__format_html"><div class="ttname"><a href="classzr_1_1pixel__format.html">zr::pixel_format</a></div><div class="ttdoc">Read only class which provides information on pixel formats and associated values.</div><div class="ttdef"><b>Definition:</b> pixel_format.h:124</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a9fd0ed6421d2c850dc3153d0e2d22866"><div class="ttname"><a href="classzr_1_1texture.html#a9fd0ed6421d2c850dc3153d0e2d22866">zr::texture::get_blend_mode</a></div><div class="ttdeci">blend_mode get_blend_mode()</div><div class="ttdoc">Get the blend mode used for drawing operations.</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a7cd285670896a3d646d075b9e5a1c0cb"><div class="ttname"><a href="classzr_1_1texture.html#a7cd285670896a3d646d075b9e5a1c0cb">zr::texture::set_alpha</a></div><div class="ttdeci">void set_alpha(unsigned char alpha)</div><div class="ttdoc">Set an additional alpha value multiplied into render copy operations.</div></div>
+<div class="ttc" id="aclasszr_1_1size_html"><div class="ttname"><a href="classzr_1_1size.html">zr::size</a></div><div class="ttdoc">Class template for a size construct that is mutable once initalized.</div><div class="ttdef"><b>Definition:</b> size.h:13</div></div>
+<div class="ttc" id="ablend__mode_8h_html"><div class="ttname"><a href="blend__mode_8h.html">blend_mode.h</a></div></div>
+<div class="ttc" id="aclasszr_1_1texture_html"><div class="ttname"><a href="classzr_1_1texture.html">zr::texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:37</div></div>
+<div class="ttc" id="aclasszr_1_1texture_html_a4e8b4e61c04447d3a94979e83a010927"><div class="ttname"><a href="classzr_1_1texture.html#a4e8b4e61c04447d3a94979e83a010927">zr::texture::set_color_overlay</a></div><div class="ttdeci">void set_color_overlay(const color &amp;c)</div><div class="ttdoc">Set an additional color value multiplied into render copy operations.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

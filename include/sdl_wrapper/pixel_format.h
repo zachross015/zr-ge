@@ -116,7 +116,10 @@ namespace zr {
      * converting from a color to a specific pixel_format. pixel_format should
      * be abstract down the line with overrides from the different formats,
      * types, orders, and layouts, with each of those providing methods that
-     * perform the automated conversions.
+     * perform the automated conversions. Further consideration needs to be done
+     * in case for example a new layout comes out. I don't want to deal with
+     * hard coding things for that reason.
+     *
      */
     class pixel_format {
 

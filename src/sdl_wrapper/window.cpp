@@ -65,26 +65,7 @@ namespace zr {
     }
 
 
-    window::window(std::string title, int x, int y, int w, int h, int flags) {
-
-        // Initialize the video device if not already initizlied. If an error
-        // occurs, handle it.
-        if (!SDL_WasInit(SDL_INIT_VIDEO)) {
-            if(SDL_Init(SDL_INIT_VIDEO) < 0){
-                throw sdl_exception("[Window::Window] Error in initializing video.");
-            }
-        }
-
-        // On successful video initialization, actuall create the window with the
-        // given parameters.
-        this->w = SDL_CreateWindow(title.c_str(), x, y, w, h, flags);
-        if (this->w == NULL) {
-            throw sdl_exception("[window::window] Error in creating the window.");
-        }
-    }
-
-
-    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) {
+    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) : size(w, h) {
         // Initialize the video device if not already initizlied. If an error
         // occurs, handle it.
         if (!SDL_WasInit(SDL_INIT_VIDEO)) {
@@ -102,24 +83,22 @@ namespace zr {
     }
 
 
-    window::window(std::string title, int w, int h, const std::vector<window_state>& states) {
-        window(title, 
-                SDL_WINDOWPOS_CENTERED, 
-                SDL_WINDOWPOS_CENTERED, 
-                w, 
-                h, 
-                states);
-    }
+    window::window(std::string title, int w, int h, const std::vector<window_state>& states)
+        : window(title, 
+                 SDL_WINDOWPOS_CENTERED, 
+                 SDL_WINDOWPOS_CENTERED, 
+                 w, 
+                 h, 
+                 states) {}
 
 
-    window::window(int w, int h, const std::vector<window_state>& states) {
-        window("Untitled", 
-                SDL_WINDOWPOS_CENTERED, 
-                SDL_WINDOWPOS_CENTERED, 
-                w, 
-                h, 
-                states);
-    }
+    window::window(int w, int h, const std::vector<window_state>& states) 
+        : window("Untitled", 
+                 SDL_WINDOWPOS_CENTERED, 
+                 SDL_WINDOWPOS_CENTERED, 
+                 w, 
+                 h, 
+                 states) {}
 
 
     window::~window() {
@@ -160,17 +139,17 @@ namespace zr {
     }
 
 
-    display_mode window::get_display_mode() {
+    display_mode_config window::get_display_mode_config() {
         SDL_DisplayMode mode;
         int failure = SDL_GetWindowDisplayMode(w, &mode);
         if(failure) {
-            throw sdl_exception("[window::get_display_mode] Error in retrieving the display mode for the current window.");
+            throw sdl_exception("[window::get_display_mode_config] Error in retrieving the display mode for the current window.");
         }
-        return display_mode(mode);
+        return display_mode_config(mode);
     }
 
 
-    void window::set_display_mode(display_mode dm) {
+    void window::set_display_mode_config(display_mode_config dm) {
         SDL_DisplayMode mode;
         mode.format = static_cast<SDL_PixelFormatEnum>(dm.get_pixel_format().get_format_specifier());
         mode.w = dm.get_width();
@@ -179,7 +158,7 @@ namespace zr {
         mode.driverdata = dm.get_driver_data();
         int failure = SDL_SetWindowDisplayMode(w, &mode);
         if(failure) {
-            throw sdl_exception("[window::set_display_mode] Error when setting the window's display mode.");
+            throw sdl_exception("[window::set_display_mode_config] Error when setting the window's display mode.");
         }
     }
 
@@ -254,13 +233,56 @@ namespace zr {
         SDL_SetWindowPosition(w, pos(0), pos(1)); 
     }
 
-    arma::ivec window::get_size() {
-        int w, h;
-        SDL_GetWindowSize(this->w, &w, &h);
-        return {w, h};
+    const int& window::get_width() {
+        // Need to update the internal size variables since the screen size is
+        // susceptible to change.
+        get_size();
+        return size::get_width();
     }
 
-    void window::set_size(const arma::ivec& size) {
+
+    void window::set_width(const int& width) {
+        // Need to update the internal size variables since the screen size is
+        // susceptible to change. This way, we can update the screen width
+        // without interfering with the height (something not enabled in the
+        // default SDL mode.
+        get_size();
+        SDL_SetWindowSize(w, width, size::get_height()); 
+    }
+
+
+    const int& window::get_height() {
+        // Need to update the internal size variables since the screen size is
+        // susceptible to change.
+        get_size();
+        return size::get_height();
+    }
+
+
+    void window::set_height(const int& height) {
+        // Need to update the internal size variables since the screen size is
+        // susceptible to change. This way, we can update the screen width
+        // without interfering with the width (something not enabled in the
+        // default SDL mode.)
+        get_size();
+        SDL_SetWindowSize(w, size::get_width(), height); 
+    }
+
+    const arma::Col<int>& window::get_size() {
+
+        // Get inital variables
+        int w, h;
+
+        // Note that it is possible for the window to resize. Since our stored
+        // size isn't necessarily attached to those values, we have to update
+        // our stored values and return those.
+        SDL_GetWindowSize(this->w, &w, &h);
+        size::set_size({w, h});
+        return size::get_size();
+    }
+
+    void window::set_size(const arma::Col<int>& size) {
+        size::set_size(size);
         SDL_SetWindowSize(w, size(0), size(1)); 
     }
 

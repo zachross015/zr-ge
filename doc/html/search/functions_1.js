@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['display_5fmode_98',['display_mode',['../classzr_1_1display__mode.html#ad7b2a0572a36ce9046d74564405e0bef',1,'zr::display_mode']]],
-  ['draw_5flines_99',['draw_lines',['../classzr_1_1renderer.html#ae268ca6f29b6483336d1953f0961a2a2',1,'zr::renderer']]],
-  ['draw_5fpoints_100',['draw_points',['../classzr_1_1renderer.html#a39abd3e9998e66da10af82328ea10b74',1,'zr::renderer']]],
-  ['draw_5frects_101',['draw_rects',['../classzr_1_1renderer.html#a99483cdc6fa5ae68180ac5a07c776d93',1,'zr::renderer']]]
+  ['clear_115',['clear',['../classzr_1_1renderer.html#a17d54d638b489ff5125893873533f7fd',1,'zr::renderer']]],
+  ['clear_5ftarget_116',['clear_target',['../classzr_1_1renderer.html#a2491df48330b3c0d15d1e440817ddbeb',1,'zr::renderer']]]
 ];

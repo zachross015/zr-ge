@@ -6,5 +6,7 @@ digraph "Graphical Class Hierarchy"
   rankdir="LR";
   Node0 [label="zr::size\< int \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzr_1_1size.html",tooltip=" "];
   Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 [label="zr::display_mode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzr_1_1display__mode.html",tooltip=" "];
+  Node1 [label="zr::display_mode_config",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzr_1_1display__mode__config.html",tooltip=" "];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="zr::window",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzr_1_1window.html",tooltip=" "];
 }

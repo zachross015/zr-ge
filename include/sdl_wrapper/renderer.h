@@ -9,6 +9,8 @@
 
 namespace zr {
 
+    class texture;
+
     /** Enumeration of the different renderer states permitted by SDL.
      */
     enum renderer_state {
@@ -37,6 +39,7 @@ namespace zr {
     class renderer {
         private:
             SDL_Renderer* r;
+            friend class texture;
 
         public:
 
@@ -313,6 +316,17 @@ namespace zr {
              */
             bool is_target_supported();
 
+
+            void set_target(const texture& t);
+
+            /** @todo this is just placeholder for a method for removing the
+             * texture from the current target. We should come up with a more
+             * practical/intuitive way to draw things to the screen.
+             */
+            void clear_target() { SDL_SetRenderTarget(r, NULL); }
+
+            void copy(const texture& t);
+            void copy(const texture& t, const arma::Col<int>& source_rect, const arma::Col<int>& dest_rect);
 
             // TODO: The following methods need to be implemented still for this
             // wrapper.

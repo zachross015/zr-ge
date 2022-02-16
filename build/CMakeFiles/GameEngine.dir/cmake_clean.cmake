@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GameEngine.dir/src/main.cpp.o"
   "CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.o"
-  "CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode.cpp.o"
+  "CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o"
   "CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o"
   "CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o"
   "CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o"

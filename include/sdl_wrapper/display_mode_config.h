@@ -6,11 +6,9 @@
 
 namespace zr {
 
-    // Read only class which delivers information about the display mode.
+    // Class which delivers information about the display mode.
     // Wrapper for https://wiki.libsdl.org/SDL_DisplayMode
-    // @todo Make not read only and make a struct. Windows can be altered by changing display mode
-    // information, which right now is impossible to do.
-    class display_mode : public size<int> {
+    class display_mode_config : public size<int> {
         private:
 
             // Information that can be retrieved given a pixel format. Display
@@ -31,12 +29,12 @@ namespace zr {
              *
              * @param dm The SDL_DisplayMode.
              */
-            display_mode(SDL_DisplayMode dm);
+            display_mode_config(SDL_DisplayMode dm);
 
 
             /** Deconstructor for this class.
              */
-            virtual ~display_mode();
+            virtual ~display_mode_config();
 
 
             /** Gets the pixel format associated with this display.
@@ -53,6 +51,13 @@ namespace zr {
             int get_refresh_rate();
 
 
+            /** Sets the refresh rate of this display configuration.
+             *
+             * @param refresh_rate An integer with this display's refresh rate.
+             */
+            void set_refresh_rate(int refresh_rate);
+
+
             /** Get the driver data associated with this window. This should not
              * be tampered with outside of using this to initialize other
              * windows.
@@ -60,6 +65,15 @@ namespace zr {
              * @return void* Containing the driver data.
              */
             void* get_driver_data();
+
+
+            /** Set the driver data associated with this window. This should not
+             * be tampered with outside of using this to initialize other
+             * windows and unless you know what you're doing.
+             *
+             * @param driver_data void* Containing the driver data.
+             */
+            void set_driver_data(void* driver_data);
     };
 
 } /* zr */ 

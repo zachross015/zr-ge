@@ -81,10 +81,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a48def2628db32b65e4761c5b05c5a2d9"><td class="memItemLeft" align="right" valign="top"><a id="a48def2628db32b65e4761c5b05c5a2d9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">immutable_size</a> (T width, T height)</td></tr>
-<tr class="memdesc:a48def2628db32b65e4761c5b05c5a2d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the size getter. <br /></td></tr>
+<tr class="memitem:a48def2628db32b65e4761c5b05c5a2d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">immutable_size</a> (T width, T height)</td></tr>
+<tr class="memdesc:a48def2628db32b65e4761c5b05c5a2d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for an immutable sizing given a width and height.  <a href="classzr_1_1immutable__size.html#a48def2628db32b65e4761c5b05c5a2d9">More...</a><br /></td></tr>
 <tr class="separator:a48def2628db32b65e4761c5b05c5a2d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a421f134348c4584a1674fd3f60523bb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#a421f134348c4584a1674fd3f60523bb8">immutable_size</a> (arma::Col&lt; T &gt; <a class="el" href="classzr_1_1size.html">size</a>)</td></tr>
+<tr class="memdesc:a421f134348c4584a1674fd3f60523bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classzr_1_1immutable__size.html" title="Class template for a size construct that is immutable once initalized.">immutable_size</a> given a column vector containing two elements.  <a href="classzr_1_1immutable__size.html#a421f134348c4584a1674fd3f60523bb8">More...</a><br /></td></tr>
+<tr class="separator:a421f134348c4584a1674fd3f60523bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44dd486f4fd482d1ac38a452b5de7394"><td class="memItemLeft" align="right" valign="top"><a id="a44dd486f4fd482d1ac38a452b5de7394"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#a44dd486f4fd482d1ac38a452b5de7394">~immutable_size</a> ()</td></tr>
 <tr class="memdesc:a44dd486f4fd482d1ac38a452b5de7394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructor for the size getter. <br /></td></tr>
@@ -95,6 +97,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a41375df4bfc881269c16250716ac0fe4"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">get_height</a> ()</td></tr>
 <tr class="memdesc:a41375df4bfc881269c16250716ac0fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height this class is storing.  <a href="classzr_1_1immutable__size.html#a41375df4bfc881269c16250716ac0fe4">More...</a><br /></td></tr>
 <tr class="separator:a41375df4bfc881269c16250716ac0fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa458fa9c44d9b744ac666c3c805e8536"><td class="memItemLeft" align="right" valign="top">virtual const arma::Col&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1immutable__size.html#aa458fa9c44d9b744ac666c3c805e8536">get_size</a> ()</td></tr>
+<tr class="memdesc:aa458fa9c44d9b744ac666c3c805e8536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size this class is storing.  <a href="classzr_1_1immutable__size.html#aa458fa9c44d9b744ac666c3c805e8536">More...</a><br /></td></tr>
+<tr class="separator:aa458fa9c44d9b744ac666c3c805e8536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -102,7 +107,97 @@ class zr::immutable_size&lt; T &gt;</h3>
 
 <p>Class template for a size construct that is immutable once initalized. </p>
 <p>Only includes the getter access but may save on memory. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a48def2628db32b65e4761c5b05c5a2d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48def2628db32b65e4761c5b05c5a2d9">&#9670;&nbsp;</a></span>immutable_size() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzr_1_1immutable__size.html">zr::immutable_size</a>&lt; T &gt;::<a class="el" href="classzr_1_1immutable__size.html">immutable_size</a> </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor for an immutable sizing given a width and height. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the size class </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the size class </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a421f134348c4584a1674fd3f60523bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a421f134348c4584a1674fd3f60523bb8">&#9670;&nbsp;</a></span>immutable_size() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzr_1_1immutable__size.html">zr::immutable_size</a>&lt; T &gt;::<a class="el" href="classzr_1_1immutable__size.html">immutable_size</a> </td>
+          <td>(</td>
+          <td class="paramtype">arma::Col&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classzr_1_1immutable__size.html" title="Class template for a size construct that is immutable once initalized.">immutable_size</a> given a column vector containing two elements. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structzr_1_1input__exception.html" title="Class of exceptions dealing with input errors that occur in the codebase.">input_exception</a></td><td>Throws this exception if the number of rows in the column vector is not exactly two (how would you make a higher dimensional size dude??)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The column vector to initalize this size class to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a41375df4bfc881269c16250716ac0fe4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41375df4bfc881269c16250716ac0fe4">&#9670;&nbsp;</a></span>get_height()</h2>
 
@@ -130,6 +225,36 @@ template&lt;class T &gt; </div>
 
 <p>Gets the height this class is storing. </p>
 <dl class="section return"><dt>Returns</dt><dd>The height of the container. </dd></dl>
+
+</div>
+</div>
+<a id="aa458fa9c44d9b744ac666c3c805e8536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa458fa9c44d9b744ac666c3c805e8536">&#9670;&nbsp;</a></span>get_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const arma::Col&lt;T&gt;&amp; <a class="el" href="classzr_1_1immutable__size.html">zr::immutable_size</a>&lt; T &gt;::get_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the size this class is storing. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the container. </dd></dl>
 
 </div>
 </div>

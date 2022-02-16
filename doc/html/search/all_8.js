@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['raise_52',['raise',['../classzr_1_1window.html#aaf9b71ab2dd5224465d240894974e40a',1,'zr::window']]],
-  ['release_5fmouse_53',['release_mouse',['../classzr_1_1window.html#a515865f00bfdf1f2e8ba6f17f01e4d23',1,'zr::window']]],
-  ['renderer_54',['renderer',['../classzr_1_1renderer.html',1,'zr::renderer'],['../classzr_1_1renderer.html#a9c92b731323b34123c217cc216578d0c',1,'zr::renderer::renderer()']]],
-  ['restore_55',['restore',['../classzr_1_1window.html#a9c5a6f4d0d1a58ae977917b21c861443',1,'zr::window']]]
+  ['make_5ffullscreen_54',['make_fullscreen',['../classzr_1_1window.html#a0a3ddeea5960d0a88b26658e9f63180f',1,'zr::window']]],
+  ['maximize_55',['maximize',['../classzr_1_1window.html#ab71727b1930acc6696cf9d2d4a8004f5',1,'zr::window']]],
+  ['minimize_56',['minimize',['../classzr_1_1window.html#a98d596268b898ef7975f0ca56cb01f6d',1,'zr::window']]]
 ];

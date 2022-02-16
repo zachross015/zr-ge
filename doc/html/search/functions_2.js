@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['fill_5frects_102',['fill_rects',['../classzr_1_1renderer.html#a3f8cab381d2b32b0bbe701bcb26ebcd7',1,'zr::renderer']]],
-  ['format_5fis_5falpha_103',['format_is_alpha',['../classzr_1_1pixel__format.html#a6bbb9d49d1da54cb4b44f697a762a252',1,'zr::pixel_format']]],
-  ['format_5fis_5ffourcc_104',['format_is_fourcc',['../classzr_1_1pixel__format.html#a2af4c0f54d9c9fdbd993564a9e4f69e9',1,'zr::pixel_format']]],
-  ['format_5fis_5findexed_105',['format_is_indexed',['../classzr_1_1pixel__format.html#a104d2b92e82b25b6b0530159ab024190',1,'zr::pixel_format']]]
+  ['display_5fmode_5fconfig_117',['display_mode_config',['../classzr_1_1display__mode__config.html#a267bcd06bbca647e8b99cd465fce7b74',1,'zr::display_mode_config']]],
+  ['draw_5flines_118',['draw_lines',['../classzr_1_1renderer.html#ae268ca6f29b6483336d1953f0961a2a2',1,'zr::renderer']]],
+  ['draw_5fpoints_119',['draw_points',['../classzr_1_1renderer.html#a39abd3e9998e66da10af82328ea10b74',1,'zr::renderer']]],
+  ['draw_5frects_120',['draw_rects',['../classzr_1_1renderer.html#a99483cdc6fa5ae68180ac5a07c776d93',1,'zr::renderer']]]
 ];

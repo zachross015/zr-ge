@@ -1,0 +1,186 @@
+\hypertarget{window_8h_source}{}\doxysection{window.\+h}
+\label{window_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/window.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WINDOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WINDOW\_H}}
+\DoxyCodeLine{3  }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <armadillo>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}display\_mode\_config.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{16     \textcolor{keyword}{enum} window\_state \{}
+\DoxyCodeLine{17         fullscreen = SDL\_WINDOW\_FULLSCREEN, }
+\DoxyCodeLine{18         fullscreen\_desktop = SDL\_WINDOW\_FULLSCREEN\_DESKTOP,}
+\DoxyCodeLine{19         opengl = SDL\_WINDOW\_OPENGL,}
+\DoxyCodeLine{20         vulkan = SDL\_WINDOW\_VULKAN,}
+\DoxyCodeLine{21         shown = SDL\_WINDOW\_SHOWN,}
+\DoxyCodeLine{22         hidden = SDL\_WINDOW\_HIDDEN,}
+\DoxyCodeLine{23         borderless = SDL\_WINDOW\_BORDERLESS,}
+\DoxyCodeLine{24         resizable = SDL\_WINDOW\_RESIZABLE,}
+\DoxyCodeLine{25         minimized = SDL\_WINDOW\_MINIMIZED,}
+\DoxyCodeLine{26         maximized = SDL\_WINDOW\_MAXIMIZED,}
+\DoxyCodeLine{27         mouse\_trapped = SDL\_WINDOW\_INPUT\_GRABBED,}
+\DoxyCodeLine{28         input\_focus = SDL\_WINDOW\_INPUT\_FOCUS,}
+\DoxyCodeLine{29         mouse\_focus = SDL\_WINDOW\_MOUSE\_FOCUS,}
+\DoxyCodeLine{30         foreign = SDL\_WINDOW\_FOREIGN,}
+\DoxyCodeLine{31         allow\_highdpi = SDL\_WINDOW\_ALLOW\_HIGHDPI,}
+\DoxyCodeLine{32         mouse\_capture = SDL\_WINDOW\_MOUSE\_CAPTURE,}
+\DoxyCodeLine{33         always\_on\_top = SDL\_WINDOW\_ALWAYS\_ON\_TOP,}
+\DoxyCodeLine{34         skip\_taskbar = SDL\_WINDOW\_SKIP\_TASKBAR,}
+\DoxyCodeLine{35         utility = SDL\_WINDOW\_UTILITY,}
+\DoxyCodeLine{36         tooltip = SDL\_WINDOW\_TOOLTIP,}
+\DoxyCodeLine{37         popup\_menu = SDL\_WINDOW\_POPUP\_MENU}
+\DoxyCodeLine{38     \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{47     std::vector<window\_state> all\_window\_states();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56     std::ostream\& \mbox{\hyperlink{blend__mode_8h_ab62281d9eb3b09b434be07775ab80a99}{operator<<}}(std::ostream\& out, \textcolor{keyword}{const} window\_state\& ws);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1window}{window}} : \textcolor{keyword}{public} \mbox{\hyperlink{classzr_1_1size}{size}}<int> \{}
+\DoxyCodeLine{60         \textcolor{keyword}{private}:}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62             SDL\_Window* w;    }
+\DoxyCodeLine{63             \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1renderer}{renderer}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{keyword}{public}:}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{77             \mbox{\hyperlink{classzr_1_1window_a7fcaed871af530cbb3b376ddc8804a02}{window}}(std::string title, }
+\DoxyCodeLine{78                    \textcolor{keywordtype}{int} x,}
+\DoxyCodeLine{79                    \textcolor{keywordtype}{int} y,}
+\DoxyCodeLine{80                    \textcolor{keywordtype}{int} width, }
+\DoxyCodeLine{81                    \textcolor{keywordtype}{int} height, }
+\DoxyCodeLine{82                    \textcolor{keyword}{const} std::vector<window\_state>\& states = \{\});}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{93             \mbox{\hyperlink{classzr_1_1window_a0e3b351d6b944c6ab625b77c2df68f26}{window}}(std::string title, }
+\DoxyCodeLine{94                    \textcolor{keywordtype}{int} width, }
+\DoxyCodeLine{95                    \textcolor{keywordtype}{int} height, }
+\DoxyCodeLine{96                    \textcolor{keyword}{const} std::vector<window\_state>\& states = \{\});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{106             \mbox{\hyperlink{classzr_1_1window_a51f9d8149433d2cd309195f1d0567299}{window}}(\textcolor{keywordtype}{int} width, }
+\DoxyCodeLine{107                    \textcolor{keywordtype}{int} height, }
+\DoxyCodeLine{108                    \textcolor{keyword}{const} std::vector<window\_state>\& states = \{\});}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 }
+\DoxyCodeLine{113             \textcolor{keyword}{virtual} \mbox{\hyperlink{classzr_1_1window_af26f33fc3c8e390eeadb6d775497644f}{\string~window}}();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{118             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_aa94b92caa4fa491aef4ee465c5b195b6}{show}}();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{123             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a0ee4dc213eed4dc9ce130132a407ea89}{hide}}();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{132             arma::Col<int> \mbox{\hyperlink{classzr_1_1window_a28e4f49717d564bc1dfe64acc3d68b40}{get\_borders\_size}}();}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{140             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a6117b494f121cae26208223ac91a42ac}{set\_bordered}}(\textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 }
+\DoxyCodeLine{149             \textcolor{keywordtype}{int} \mbox{\hyperlink{classzr_1_1window_a0bc83e8b3f344cb1d59e665913e6db80}{get\_display\_index}}();}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 }
+\DoxyCodeLine{160             \mbox{\hyperlink{classzr_1_1display__mode__config}{display\_mode\_config}} \mbox{\hyperlink{classzr_1_1window_af294cf573d74af0afe56a3107d77c52c}{get\_display\_mode\_config}}();}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 }
+\DoxyCodeLine{174             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_aded109e3c2215e143e559fa65744583e}{set\_display\_mode\_config}}(\mbox{\hyperlink{classzr_1_1display__mode__config}{display\_mode\_config}} dm);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 }
+\DoxyCodeLine{181             std::vector<window\_state> \mbox{\hyperlink{classzr_1_1window_a3d8c00e5677a0cb503f0e325b8ece1b1}{get\_states}}();}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 }
+\DoxyCodeLine{189             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1window_a8bee2edac13805d0c92776f83e161f30}{is\_mouse\_trapped}}();}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 }
+\DoxyCodeLine{197             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a93c0a3a8de19987d695c5d3c25b7e99e}{set\_mouse\_trapped}}(\textcolor{keywordtype}{bool} tf);}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 }
+\DoxyCodeLine{202             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_af57be80f046c7074d784e0e02d673afe}{trap\_mouse}}() \{ \mbox{\hyperlink{classzr_1_1window_a93c0a3a8de19987d695c5d3c25b7e99e}{set\_mouse\_trapped}}(\textcolor{keyword}{true}); \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{207             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a515865f00bfdf1f2e8ba6f17f01e4d23}{release\_mouse}}() \{ \mbox{\hyperlink{classzr_1_1window_a93c0a3a8de19987d695c5d3c25b7e99e}{set\_mouse\_trapped}}(\textcolor{keyword}{false}); \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{214             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classzr_1_1window_a95ccf6c2e84f0dc17b1e39ef9fb25dbd}{get\_id}}();}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 }
+\DoxyCodeLine{221             arma::ivec \mbox{\hyperlink{classzr_1_1window_a2cda852929c29550bf358adc473fa9e6}{get\_max\_size}}();}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 }
+\DoxyCodeLine{228             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_abd4c4665578edb5897c3de0b1131dd62}{set\_max\_size}}(\textcolor{keyword}{const} arma::ivec\& \mbox{\hyperlink{classzr_1_1size}{size}});}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 }
+\DoxyCodeLine{235             arma::ivec \mbox{\hyperlink{classzr_1_1window_a60a796394842a9bb1d404db078062d5e}{get\_min\_size}}();}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 }
+\DoxyCodeLine{242             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a1693d1f4e58fdd37779b21dc17c10f93}{set\_min\_size}}(\textcolor{keyword}{const} arma::ivec\& \mbox{\hyperlink{classzr_1_1size}{size}});}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244             }
+\DoxyCodeLine{256             \textcolor{keywordtype}{float} \mbox{\hyperlink{classzr_1_1window_a1bd9698271e3612cb2c8a81db2fc4c2f}{get\_opacity}}();}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 }
+\DoxyCodeLine{267             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_af092d16b4e9cbb7c7c99ea10927ef789}{set\_opacity}}(\textcolor{keywordtype}{float} o);}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 }
+\DoxyCodeLine{275             arma::ivec \mbox{\hyperlink{classzr_1_1window_a5c81812c9f9df5993930dada2869d67e}{get\_pos}}();}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 }
+\DoxyCodeLine{283             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a405e46c0f8a8cad0d7eb7b7f47cdfb8b}{set\_pos}}(\textcolor{keyword}{const} arma::ivec\& pos);}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 }
+\DoxyCodeLine{291             \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& \mbox{\hyperlink{classzr_1_1window_ae4ab69753f7994dfe4c27fb3ea9f2857}{get\_width}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 }
+\DoxyCodeLine{299             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a4e8882bc40fb5f191fe5f9ba2ea87381}{set\_width}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& width) \textcolor{keyword}{override};}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{307             \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& \mbox{\hyperlink{classzr_1_1window_a587e0e70be46748a0bdfd36f507be2d8}{get\_height}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309 }
+\DoxyCodeLine{315             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a14f2da7ea2fefb186c6288103078a9c7}{set\_height}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& height) \textcolor{keyword}{override};}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 }
+\DoxyCodeLine{323             \textcolor{keyword}{virtual} \textcolor{keyword}{const} arma::Col<int>\& \mbox{\hyperlink{classzr_1_1window_abdb8a17d3f2a9e48855eefcb219e62df}{get\_size}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 }
+\DoxyCodeLine{331             \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a13039eae0244c6e30d423cbc5de3da3c}{set\_size}}(\textcolor{keyword}{const} arma::Col<int>\& \mbox{\hyperlink{classzr_1_1size}{size}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 }
+\DoxyCodeLine{338             std::string \mbox{\hyperlink{classzr_1_1window_a3caf079fd66b1f26cc9600f965a8d4be}{get\_title}}();}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 }
+\DoxyCodeLine{345             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_adcb61826bfe6b8096df04f3fab5a60a9}{set\_title}}(\textcolor{keyword}{const} std::string\& title);}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347 }
+\DoxyCodeLine{350             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_ab71727b1930acc6696cf9d2d4a8004f5}{maximize}}();}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352 }
+\DoxyCodeLine{355             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a98d596268b898ef7975f0ca56cb01f6d}{minimize}}();}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357 }
+\DoxyCodeLine{360             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_aaf9b71ab2dd5224465d240894974e40a}{raise}}();}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362             }
+\DoxyCodeLine{366             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a9c5a6f4d0d1a58ae977917b21c861443}{restore}}();}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 }
+\DoxyCodeLine{376             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1window_a0a3ddeea5960d0a88b26658e9f63180f}{make\_fullscreen}}(\textcolor{keywordtype}{bool} fake = \textcolor{keyword}{false});}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379     \};}
+\DoxyCodeLine{380 \} \textcolor{comment}{/* zr */} }
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* WINDOW\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

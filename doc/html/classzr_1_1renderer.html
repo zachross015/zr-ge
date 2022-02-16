@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classzr_1_1renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">zr::renderer Class Reference</div>  </div>
@@ -83,10 +84,10 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a358c9dc90374d1e1437c68fc0001fbec">~renderer</a> ()</td></tr>
 <tr class="memdesc:a358c9dc90374d1e1437c68fc0001fbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs the renderer. <br /></td></tr>
 <tr class="separator:a358c9dc90374d1e1437c68fc0001fbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112198ad37eef60c6ef13268e92aa5c4"><td class="memItemLeft" align="right" valign="top">blend_mode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a112198ad37eef60c6ef13268e92aa5c4">get_blend_mode</a> ()</td></tr>
+<tr class="memitem:a112198ad37eef60c6ef13268e92aa5c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a112198ad37eef60c6ef13268e92aa5c4">get_blend_mode</a> ()</td></tr>
 <tr class="memdesc:a112198ad37eef60c6ef13268e92aa5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the blend mode used for drawing operations.  <a href="classzr_1_1renderer.html#a112198ad37eef60c6ef13268e92aa5c4">More...</a><br /></td></tr>
 <tr class="separator:a112198ad37eef60c6ef13268e92aa5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a360403779583d35ce89d252c3e095358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a360403779583d35ce89d252c3e095358">set_blend_mode</a> (const blend_mode &amp;bm)</td></tr>
+<tr class="memitem:a360403779583d35ce89d252c3e095358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a360403779583d35ce89d252c3e095358">set_blend_mode</a> (const <a class="el" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a> &amp;bm)</td></tr>
 <tr class="memdesc:a360403779583d35ce89d252c3e095358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the blend mode used for drawing operations.  <a href="classzr_1_1renderer.html#a360403779583d35ce89d252c3e095358">More...</a><br /></td></tr>
 <tr class="separator:a360403779583d35ce89d252c3e095358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb127e7471a24f884de13b4761ebcfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzr_1_1color.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a0cb127e7471a24f884de13b4761ebcfb">get_draw_color</a> ()</td></tr>
@@ -156,6 +157,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_pixels</b> (cons
 <tr class="memitem:a35a644f8857d4c57ca672fed3eda37b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a35a644f8857d4c57ca672fed3eda37b9">is_target_supported</a> ()</td></tr>
 <tr class="memdesc:a35a644f8857d4c57ca672fed3eda37b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine whether this renderer supports the use of render targets.  <a href="classzr_1_1renderer.html#a35a644f8857d4c57ca672fed3eda37b9">More...</a><br /></td></tr>
 <tr class="separator:a35a644f8857d4c57ca672fed3eda37b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ac43c5c1b8081976c89b19f53c5a3c"><td class="memItemLeft" align="right" valign="top"><a id="a05ac43c5c1b8081976c89b19f53c5a3c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_target</b> (const <a class="el" href="classzr_1_1texture.html">texture</a> &amp;t)</td></tr>
+<tr class="separator:a05ac43c5c1b8081976c89b19f53c5a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2491df48330b3c0d15d1e440817ddbeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzr_1_1renderer.html#a2491df48330b3c0d15d1e440817ddbeb">clear_target</a> ()</td></tr>
+<tr class="separator:a2491df48330b3c0d15d1e440817ddbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5018f5954575baf3d39897f24d7950d"><td class="memItemLeft" align="right" valign="top"><a id="af5018f5954575baf3d39897f24d7950d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classzr_1_1texture.html">texture</a> &amp;t)</td></tr>
+<tr class="separator:af5018f5954575baf3d39897f24d7950d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44fa0e520a99be21751810a6ccfe3ee5"><td class="memItemLeft" align="right" valign="top"><a id="a44fa0e520a99be21751810a6ccfe3ee5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classzr_1_1texture.html">texture</a> &amp;t, const arma::Col&lt; int &gt; &amp;source_rect, const arma::Col&lt; int &gt; &amp;dest_rect)</td></tr>
+<tr class="separator:a44fa0e520a99be21751810a6ccfe3ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aa5e7159d25121d485b210f52c6494289"><td class="memItemLeft" align="right" valign="top"><a id="aa5e7159d25121d485b210f52c6494289"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>texture</b></td></tr>
+<tr class="separator:aa5e7159d25121d485b210f52c6494289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9c92b731323b34123c217cc216578d0c"></a>
@@ -226,6 +244,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_pixels</b> (cons
 
 <p>Resets all pixels in the render to the current draw color. </p>
 <p>See <code>get_draw_color</code> and <code>set_draw_color</code> for more information on how to view or change what this color is. </p>
+
+</div>
+</div>
+<a id="a2491df48330b3c0d15d1e440817ddbeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2491df48330b3c0d15d1e440817ddbeb">&#9670;&nbsp;</a></span>clear_target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zr::renderer::clear_target </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>this is just placeholder for a method for removing the texture from the current target.</dd></dl>
+<p>We should come up with a more practical/intuitive way to draw things to the screen. </p>
 
 </div>
 </div>
@@ -378,7 +423,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_pixels</b> (cons
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">blend_mode zr::renderer::get_blend_mode </td>
+          <td class="memname"><a class="el" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a> zr::renderer::get_blend_mode </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -414,7 +459,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_pixels</b> (cons
 
 <p>Get the clip rectangle for the current target. </p>
 <dl class="section return"><dt>Returns</dt><dd>Column vector filled with the current clipping area (x, y, w, h) or an empy rectangle if clipping is disabled.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>This may result in an error, especially if SDL_Rect* rect turns out to be NULL if clipping is disabled. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>This may result in an error, especially if SDL_Rect* rect turns out to be NULL if clipping is disabled. </dd></dl>
 
 </div>
 </div>
@@ -588,7 +633,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_pixels</b> (cons
         <tr>
           <td class="memname">void zr::renderer::set_blend_mode </td>
           <td>(</td>
-          <td class="paramtype">const blend_mode &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629">blend_mode</a> &amp;&#160;</td>
           <td class="paramname"><em>bm</em></td><td>)</td>
           <td></td>
         </tr>

@@ -12,16 +12,19 @@ Class template for a size construct that is immutable once initalized.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}\label{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}} 
 \mbox{\hyperlink{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}{immutable\+\_\+size}} (T width, T height)
-\begin{DoxyCompactList}\small\item\em Constructor for the size getter. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for an immutable sizing given a width and height. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classzr_1_1immutable__size_a421f134348c4584a1674fd3f60523bb8}{immutable\+\_\+size}} (arma\+::\+Col$<$ T $>$ \mbox{\hyperlink{classzr_1_1size}{size}})
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classzr_1_1immutable__size}{immutable\+\_\+size}} given a column vector containing two elements. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1immutable__size_a44dd486f4fd482d1ac38a452b5de7394}\label{classzr_1_1immutable__size_a44dd486f4fd482d1ac38a452b5de7394}} 
 virtual \mbox{\hyperlink{classzr_1_1immutable__size_a44dd486f4fd482d1ac38a452b5de7394}{$\sim$immutable\+\_\+size}} ()
 \begin{DoxyCompactList}\small\item\em Deconstructor for the size getter. \end{DoxyCompactList}\item 
 virtual const T \& \mbox{\hyperlink{classzr_1_1immutable__size_ab26f49d67bc5b8c3fac428c33f97e336}{get\+\_\+width}} ()
 \begin{DoxyCompactList}\small\item\em Gets the width this class is storing. \end{DoxyCompactList}\item 
 virtual const T \& \mbox{\hyperlink{classzr_1_1immutable__size_a41375df4bfc881269c16250716ac0fe4}{get\+\_\+height}} ()
-\begin{DoxyCompactList}\small\item\em Gets the height this class is storing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the height this class is storing. \end{DoxyCompactList}\item 
+virtual const arma\+::\+Col$<$ T $>$ \& \mbox{\hyperlink{classzr_1_1immutable__size_aa458fa9c44d9b744ac666c3c805e8536}{get\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Gets the size this class is storing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -31,6 +34,48 @@ class zr\+::immutable\+\_\+size$<$ T $>$}
 Class template for a size construct that is immutable once initalized. 
 
 Only includes the getter access but may save on memory. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}\label{classzr_1_1immutable__size_a48def2628db32b65e4761c5b05c5a2d9}} 
+\index{zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}!immutable\_size@{immutable\_size}}
+\index{immutable\_size@{immutable\_size}!zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{immutable\_size()}{immutable\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classzr_1_1immutable__size}{zr\+::immutable\+\_\+size}}$<$ T $>$\+::\mbox{\hyperlink{classzr_1_1immutable__size}{immutable\+\_\+size}} (\begin{DoxyParamCaption}\item[{T}]{width,  }\item[{T}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for an immutable sizing given a width and height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the size class \\
+\hline
+{\em height} & The height of the size class \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classzr_1_1immutable__size_a421f134348c4584a1674fd3f60523bb8}\label{classzr_1_1immutable__size_a421f134348c4584a1674fd3f60523bb8}} 
+\index{zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}!immutable\_size@{immutable\_size}}
+\index{immutable\_size@{immutable\_size}!zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{immutable\_size()}{immutable\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classzr_1_1immutable__size}{zr\+::immutable\+\_\+size}}$<$ T $>$\+::\mbox{\hyperlink{classzr_1_1immutable__size}{immutable\+\_\+size}} (\begin{DoxyParamCaption}\item[{arma\+::\+Col$<$ T $>$}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classzr_1_1immutable__size}{immutable\+\_\+size}} given a column vector containing two elements. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{structzr_1_1input__exception}{input\+\_\+exception}}} & Throws this exception if the number of rows in the column vector is not exactly two (how would you make a higher dimensional size dude??)\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The column vector to initalize this size class to. \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classzr_1_1immutable__size_a41375df4bfc881269c16250716ac0fe4}\label{classzr_1_1immutable__size_a41375df4bfc881269c16250716ac0fe4}} 
@@ -46,6 +91,20 @@ Gets the height this class is storing.
 
 \begin{DoxyReturn}{Returns}
 The height of the container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classzr_1_1immutable__size_aa458fa9c44d9b744ac666c3c805e8536}\label{classzr_1_1immutable__size_aa458fa9c44d9b744ac666c3c805e8536}} 
+\index{zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual const arma\+::\+Col$<$T$>$\& \mbox{\hyperlink{classzr_1_1immutable__size}{zr\+::immutable\+\_\+size}}$<$ T $>$\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Gets the size this class is storing. 
+
+\begin{DoxyReturn}{Returns}
+The size of the container. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classzr_1_1immutable__size_ab26f49d67bc5b8c3fac428c33f97e336}\label{classzr_1_1immutable__size_ab26f49d67bc5b8c3fac428c33f97e336}} 
 \index{zr::immutable\_size$<$ T $>$@{zr::immutable\_size$<$ T $>$}!get\_width@{get\_width}}

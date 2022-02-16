@@ -1,0 +1,135 @@
+\hypertarget{renderer_8h_source}{}\doxysection{renderer.\+h}
+\label{renderer_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/renderer.h@{/home/zachary/Documents/Projects/game-\/engine/include/sdl\_wrapper/renderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RENDERER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RENDERER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <armadillo>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}window.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{blend__mode_8h}{blend\_mode.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}color.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }zr \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{class }texture;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{16     \textcolor{keyword}{enum} renderer\_state \{}
+\DoxyCodeLine{17         software = SDL\_RENDERER\_SOFTWARE,}
+\DoxyCodeLine{18         accelerated = SDL\_RENDERER\_ACCELERATED,}
+\DoxyCodeLine{19         present\_vsync = SDL\_RENDERER\_PRESENTVSYNC,}
+\DoxyCodeLine{20         target\_texture = SDL\_RENDERER\_TARGETTEXTURE}
+\DoxyCodeLine{21     \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{29     std::vector<renderer\_state> all\_renderer\_states();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{37     std::ostream\& \mbox{\hyperlink{blend__mode_8h_ab62281d9eb3b09b434be07775ab80a99}{operator<<}}(std::ostream\& out, \textcolor{keyword}{const} renderer\_state\& ws);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1renderer}{renderer}} \{}
+\DoxyCodeLine{40         \textcolor{keyword}{private}:}
+\DoxyCodeLine{41             SDL\_Renderer* r;}
+\DoxyCodeLine{42             \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classzr_1_1texture}{texture}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \textcolor{keyword}{public}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{58             \mbox{\hyperlink{classzr_1_1renderer_a9c92b731323b34123c217cc216578d0c}{renderer}}(\textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1window}{window}}\& w, }
+\DoxyCodeLine{59                      \textcolor{keyword}{const} std::vector<renderer\_state>\& rs = \{\},}
+\DoxyCodeLine{60                      \textcolor{keywordtype}{int} index = -\/1);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{65             \textcolor{keyword}{virtual} \mbox{\hyperlink{classzr_1_1renderer_a358c9dc90374d1e1437c68fc0001fbec}{\string~renderer}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 }
+\DoxyCodeLine{74             \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\_mode}} \mbox{\hyperlink{classzr_1_1renderer_a112198ad37eef60c6ef13268e92aa5c4}{get\_blend\_mode}}();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{83             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a360403779583d35ce89d252c3e095358}{set\_blend\_mode}}(\textcolor{keyword}{const} \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{blend\_mode}}\& bm);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90             \mbox{\hyperlink{structzr_1_1color}{color}} \mbox{\hyperlink{classzr_1_1renderer_a0cb127e7471a24f884de13b4761ebcfb}{get\_draw\_color}}();}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{102             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a8a7093e4fbc38f037085f84e15d4715a}{set\_draw\_color}}(\textcolor{keyword}{const} \mbox{\hyperlink{structzr_1_1color}{color}}\& c);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{110             arma::Col<int> \mbox{\hyperlink{classzr_1_1renderer_afec15d44b1797756f416c543291e9234}{get\_output\_size}}();}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{117             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a17d54d638b489ff5125893873533f7fd}{clear}}();}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 }
+\DoxyCodeLine{139             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_ae268ca6f29b6483336d1953f0961a2a2}{draw\_lines}}(\textcolor{keyword}{const} arma::Mat<float>\& lines);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141             }
+\DoxyCodeLine{157             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a39abd3e9998e66da10af82328ea10b74}{draw\_points}}(\textcolor{keyword}{const} arma::Mat<float>\& points);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{176             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a99483cdc6fa5ae68180ac5a07c776d93}{draw\_rects}}(\textcolor{keyword}{const} arma::Mat<float>\& rects);}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178   }
+\DoxyCodeLine{196             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a3f8cab381d2b32b0bbe701bcb26ebcd7}{fill\_rects}}(\textcolor{keyword}{const} arma::Mat<float>\& rects);}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 }
+\DoxyCodeLine{202             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a518caa521171702dd48f04770530bd21}{present}}();}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{213             arma::Col<int> \mbox{\hyperlink{classzr_1_1renderer_a1997524c5ecf4022c3cfadae2ec07c14}{get\_clip\_rect}}();}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 }
+\DoxyCodeLine{224             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a43901bc197ee5f4343a05b8d7f1534d3}{set\_clip\_rect}}(\textcolor{keyword}{const} arma::Col<int>\& cr);}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 }
+\DoxyCodeLine{232             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1renderer_aa53b7e1ef05450aa609b044f30f0f402}{integer\_scales\_are\_forced}}();}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 }
+\DoxyCodeLine{243             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a853761a5436cbde1d21b33095753c54a}{set\_force\_integer\_scales}}(\textcolor{keywordtype}{bool} tf);}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 }
+\DoxyCodeLine{255             arma::Col<int> \mbox{\hyperlink{classzr_1_1renderer_ad6fe5c976acdcb1c92859a59ab4f82a6}{get\_logical\_size}}();}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 }
+\DoxyCodeLine{263             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a432e8d37f2713d3bc629f4c18d34394a}{set\_logical\_size}}(\textcolor{keyword}{const} arma::Col<int>\& ls);}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 }
+\DoxyCodeLine{270             arma::Col<float> \mbox{\hyperlink{classzr_1_1renderer_a80e5b06428b0e8a7ade29b5b21f9caee}{get\_scale}}();}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 }
+\DoxyCodeLine{279             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_a58a97696110f7049dba12dfe6e65e9d8}{set\_scale}}(\textcolor{keyword}{const} arma::Col<float>\& s);}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 }
+\DoxyCodeLine{286             arma::Col<int> \mbox{\hyperlink{classzr_1_1renderer_aca69e8a911554952b69cd39015d48a41}{get\_viewport}}();}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288 }
+\DoxyCodeLine{295             \textcolor{keywordtype}{void} \mbox{\hyperlink{classzr_1_1renderer_aa8a9ad5c6403619107677bcc5a2fa94b}{set\_viewport}}(\textcolor{keyword}{const} arma::Col<int>\& vp);}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 }
+\DoxyCodeLine{302             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1renderer_a5d255c4f265665412ed8e4a9bf3cc8da}{is\_clipping\_enabled}}();}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305             \textcolor{comment}{// TODO: Implement this in some form or another.}}
+\DoxyCodeLine{306             \textcolor{keywordtype}{void} read\_pixels(\textcolor{keyword}{const} arma::Col<int>\& vp, }
+\DoxyCodeLine{307                              \textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\_format}}\& format, }
+\DoxyCodeLine{308                              \textcolor{keywordtype}{void}* pixels, }
+\DoxyCodeLine{309                              \textcolor{keywordtype}{int} pitch) \{\}}
+\DoxyCodeLine{310             }
+\DoxyCodeLine{311 }
+\DoxyCodeLine{317             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classzr_1_1renderer_a35a644f8857d4c57ca672fed3eda37b9}{is\_target\_supported}}();}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320             \textcolor{keywordtype}{void} copy(\textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1texture}{texture}}\& t);}
+\DoxyCodeLine{321             \textcolor{keywordtype}{void} copy(\textcolor{keyword}{const} \mbox{\hyperlink{classzr_1_1texture}{texture}}\& t, \textcolor{keyword}{const} arma::Col<int>\& source\_rect, \textcolor{keyword}{const} arma::Col<int>\& dest\_rect);}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323             \textcolor{comment}{// TODO: The following methods need to be implemented still for this}}
+\DoxyCodeLine{324             \textcolor{comment}{// wrapper.}}
+\DoxyCodeLine{325             \textcolor{comment}{// -\/ SDL\_CreateTexture}}
+\DoxyCodeLine{326             \textcolor{comment}{// -\/ SDL\_GetRendererInfo}}
+\DoxyCodeLine{327             \textcolor{comment}{// -\/ SDL\_GetRenderTarget}}
+\DoxyCodeLine{328             \textcolor{comment}{// -\/ SDL\_SetRenderTarget}}
+\DoxyCodeLine{329     \};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331 \} \textcolor{comment}{/* zr  */} }
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* RENDERER\_H */}\textcolor{preprocessor}{ }}
+
+\end{DoxyCode}

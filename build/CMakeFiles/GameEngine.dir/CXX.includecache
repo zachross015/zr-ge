@@ -14,6 +14,12 @@ SDL.h
 iostream
 -
 
+../include/immutable_size.h
+armadillo
+-
+exceptions.h
+../include/exceptions.h
+
 ../include/sdl_wrapper/blend_mode.h
 SDL.h
 -
@@ -24,7 +30,7 @@ ostream
 
 ../include/sdl_wrapper/color.h
 
-../include/sdl_wrapper/display_mode.h
+../include/sdl_wrapper/display_mode_config.h
 pixel_format.h
 ../include/sdl_wrapper/pixel_format.h
 ../size.h
@@ -48,6 +54,18 @@ blend_mode.h
 color.h
 ../include/sdl_wrapper/color.h
 
+../include/sdl_wrapper/texture.h
+SDL.h
+-
+renderer.h
+../include/sdl_wrapper/renderer.h
+pixel_format.h
+../include/sdl_wrapper/pixel_format.h
+blend_mode.h
+../include/sdl_wrapper/blend_mode.h
+../immutable_size.h
+../include/immutable_size.h
+
 ../include/sdl_wrapper/window.h
 string
 -
@@ -57,10 +75,14 @@ vector
 -
 armadillo
 -
-display_mode.h
-../include/sdl_wrapper/display_mode.h
+display_mode_config.h
+../include/sdl_wrapper/display_mode_config.h
 
 ../include/size.h
+armadillo
+-
+exceptions.h
+../include/exceptions.h
 
 ../include/util.h
 vector
@@ -791,13 +813,17 @@ sdl_wrapper/window.h
 -
 sdl_wrapper/renderer.h
 -
-sdl_wrapper/display_mode.h
+sdl_wrapper/texture.h
+-
+sdl_wrapper/display_mode_config.h
 -
 SDL.h
 -
 
 /home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp
 sdl_wrapper/renderer.h
+-
+sdl_wrapper/texture.h
 -
 exceptions.h
 -
@@ -806,14 +832,8 @@ util.h
 exception
 -
 
-/home/zachary/projects/game-engine/src/sdl_wrapper/window.cpp
-util.h
--
-sdl_wrapper/window.h
--
-exceptions.h
--
-type_traits
+/home/zachary/projects/game-engine/src/sdl_wrapper/texture.cpp
+sdl_wrapper/texture.h
 -
 
 lib/armadillo-code/tmp/include/armadillo

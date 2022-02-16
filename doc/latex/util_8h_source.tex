@@ -1,0 +1,34 @@
+\hypertarget{util_8h_source}{}\doxysection{util.\+h}
+\label{util_8h_source}\index{/home/zachary/Documents/Projects/game-\/engine/include/util.h@{/home/zachary/Documents/Projects/game-\/engine/include/util.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef UTIL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define UTIL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{7 std::vector<T> flags\_to\_enums(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} flags, std::vector<T> all\_enums) \{}
+\DoxyCodeLine{8     std::vector<T> enums;}
+\DoxyCodeLine{9     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} e : all\_enums) \{}
+\DoxyCodeLine{10         \textcolor{keywordflow}{if} (flags \& e) \{}
+\DoxyCodeLine{11             enums.push\_back(e);}
+\DoxyCodeLine{12         \} }
+\DoxyCodeLine{13     \}}
+\DoxyCodeLine{14     \textcolor{keywordflow}{return} enums;}
+\DoxyCodeLine{15 \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{19 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} enums\_to\_flags(std::vector<T> enums) \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} flags = 0;}
+\DoxyCodeLine{21     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} flag : enums) \{}
+\DoxyCodeLine{22         flags = flags | flag;}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} flags;}
+\DoxyCodeLine{25 \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

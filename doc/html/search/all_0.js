@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['clear_0',['clear',['../classzr_1_1renderer.html#a17d54d638b489ff5125893873533f7fd',1,'zr::renderer']]],
-  ['color_1',['color',['../structzr_1_1color.html',1,'zr']]]
+  ['all_5fblend_5fmodes_0',['all_blend_modes',['../blend__mode_8h.html#a468ce6b8aab19b3ed659962c4cff6ad7',1,'zr']]]
 ];

@@ -1,12 +1,40 @@
 
 \begin{DoxyRefList}
-\item[Class \mbox{\hyperlink{structzr_1_1color}{zr::color}} ]\label{todo__todo000001}%
+\item[File \mbox{\hyperlink{blend__mode_8h}{blend\+\_\+mode.h}} ]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
-Create default color palettes.  
-\item[Class \mbox{\hyperlink{classzr_1_1pixel__format}{zr::pixel\+\_\+format}} ]\label{todo__todo000002}%
+S\+D\+L\+\_\+\+Blend\+Mode is an actual class defined by a combination of custom blend mode quanities as defined in \href{https://wiki.libsdl.org/SDL_ComposeCustomBlendMode}{\texttt{ https\+://wiki.\+libsdl.\+org/\+S\+D\+L\+\_\+\+Compose\+Custom\+Blend\+Mode}}. The code should eventuall be extended to include enums for blend factos and blend operations, then the ability to return the custom blend mode from those. Until then, we\textquotesingle{}ll just do boiler plate.  
+\item[Member \mbox{\hyperlink{blend__mode_8h_a5f8dcdda70c99298ce87c3c463cdf629}{zr::blend\+\_\+mode}} ]\label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
-A great abstraction which will be necessary down the line is converting from a color to a specific \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}. \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions.  
-\item[Member \mbox{\hyperlink{classzr_1_1renderer_a1a93b15028f2bc27b2051bc912a70b4b}{zr::renderer::get\+\_\+clip\+\_\+rect}} ()]\label{todo__todo000003}%
+Replace S\+D\+L\+\_\+\+Compose\+Custom\+Blend\+Mode lol  
+\item[Class \mbox{\hyperlink{structzr_1_1color}{zr::color}} ]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
-This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled. 
+Create default color palettes.  
+\item[Class \mbox{\hyperlink{classzr_1_1pixel__format}{zr::pixel\+\_\+format}} ]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
+A great abstraction which will be necessary down the line is converting from a color to a specific \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}. \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions. Further consideration needs to be done in case for example a new layout comes out. I don\textquotesingle{}t want to deal with hard coding things for that reason. 
+\item[Member \mbox{\hyperlink{classzr_1_1renderer_a2491df48330b3c0d15d1e440817ddbeb}{zr::renderer::clear\+\_\+target}} ()]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
+this is just placeholder for a method for removing the texture from the current target. 
+\item[Member \mbox{\hyperlink{classzr_1_1renderer_a1a93b15028f2bc27b2051bc912a70b4b}{zr::renderer::get\+\_\+clip\+\_\+rect}} ()]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+This may result in an error, especially if S\+D\+L\+\_\+\+Rect$\ast$ rect turns out to be N\+U\+LL if clipping is disabled.  
+\item[Class \mbox{\hyperlink{classzr_1_1texture}{zr::texture}} ]\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
+Consider how to include the texture scaling methods. 
+\item[Member \mbox{\hyperlink{classzr_1_1texture_a6b1635827466882d2321a3e069fed0b4}{zr::texture::get\+\_\+color\+\_\+overlay}} ()]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
+This could be made more meaningful if we potentially derived it from the color class. That way, instead of having a separate value for setting the color overlay and the alpha overlay, we would just manipulate the separate components of the texture (e.\+g. just mess with the red values.)
+
+\label{todo__todo000010}%
+\Hypertarget{todo__todo000010}%
+Implement this  
+\item[Member \mbox{\hyperlink{classzr_1_1texture_a4283a61fd2c01537d6e10e1807442173}{zr::texture::get\+\_\+pixel\+\_\+format}} ()]\label{todo__todo000012}%
+\Hypertarget{todo__todo000012}%
+Could there be a way to change pixel formats? Is that worth even considering? 
+\item[Member \mbox{\hyperlink{classzr_1_1texture_a4e8b4e61c04447d3a94979e83a010927}{zr::texture::set\+\_\+color\+\_\+overlay}} (const color \&c)]\label{todo__todo000011}%
+\Hypertarget{todo__todo000011}%
+Implement this. 
+\item[Member \mbox{\hyperlink{classzr_1_1texture_a90bc21e25a2889400253763294280924}{zr::texture::texture}} (const renderer \&renderer, const pixel\+\_\+format\+\_\+specifier \&pixel\+\_\+format\+\_\+specifier, const texture\+\_\+access \&texture\+\_\+access, const arma\+::\+Col$<$ int $>$ \&size)]\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
+Firstly a question\+: can a texture only be drawn to by the renderer that created it? If so, we should keep track of all the textures a renderer is connected to and vice versa. That way, whenever we clean up a renderer, all child textures will be destroyed, and when a texture is destroyed the renderer can be notified promptly.
 \end{DoxyRefList}

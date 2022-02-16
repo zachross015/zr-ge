@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_57',['operator&lt;&lt;',['../blend__mode_8h.html#aae899606e1b4db6fd2915b92016d1097',1,'zr']]]
+  ['none_0',['none',['../blend__mode_8h.html#a5f8dcdda70c99298ce87c3c463cdf629a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'zr']]]
 ];

@@ -10,6 +10,7 @@
 namespace zr {
 
     class texture;
+    class render_dispatch;
 
     /** Enumeration of the different renderer states permitted by SDL.
      */
@@ -36,10 +37,27 @@ namespace zr {
      */
     std::ostream& operator<<(std::ostream& out, const renderer_state& ws);
 
+
+    /** Class construct for drawing things.
+     *
+     * @todo Consider removing the public constructor in favor of a constructor
+     * inside 'window' since the renderer has to be connected to the window.
+     * @todo Consider separating into two classes for window rendering and
+     * texture rendering. Would there be any benefit to this either than taking
+     * out the `copy` function?
+     */
     class renderer {
         private:
-            SDL_Renderer* r;
+
             friend class texture;
+            friend class render_dispatch;
+
+            // The underlying renderer we are drawing to.
+            SDL_Renderer* r;
+
+            // The target this renderer is drawing to. Currently NULL if we are
+            // drawing to the window instead. See the todo in the defintion.
+            texture* target;
 
         public:
 
@@ -314,26 +332,73 @@ namespace zr {
              *
              * @return true if this supports render targets, false otherwise.
              */
-            bool is_target_supported();
+            bool supports_targets();
 
 
-            void set_target(const texture& t);
-
-            /** @todo this is just placeholder for a method for removing the
-             * texture from the current target. We should come up with a more
-             * practical/intuitive way to draw things to the screen.
+            /** Set the target of this renderer. 
+             *
+             * Once the target is set, all further drawing operations from this
+             * renderer will be performed on the passed target. 
+             *
+             * @todo Consider modifying this code further down the line to
+             * except references instead of needing pointer. I don't have time
+             * to put this in now, but that would save a lot of headaches tbh.
+             *
+             * @throw input_exception An exception that will occur if the user
+             * attempts to send an unitialized texture to this renderer.
+             * @throw input_exception An exception that will occur if the wrong
+             * type of texture access is used with this method. Textures that
+             * are to be used as targets must have target access.
+             *
+             * @param t A pointer to the texture which this renderer should
+             * target for drawing operations.
              */
-            void clear_target() { SDL_SetRenderTarget(r, NULL); }
+            void set_target(texture* t);
 
-            void copy(const texture& t);
-            void copy(const texture& t, const arma::Col<int>& source_rect, const arma::Col<int>& dest_rect);
+
+            /** Get the texture this renderer is currently targeting.
+             *
+             * Delivers the requested target to the programmer. Will return NULL
+             * if the renderer is targetting the window instead of a texture.
+             *
+             * @return The texture this renderer is targetting or NULL if the the
+             * window is targetted.
+             */
+            texture* get_target();
+
+
+            /** Sets the target of this renderer to the window it was
+             * initialized with.
+             *
+             * Renderers can't change windows after initialization (per SDL
+             * standard) so when this function is called, the renderer is
+             * defaulted back to its original rendering medium. 
+             */
+            void set_target_window();
+
+
+            /** Creates a render dispatched for determining where this renderer
+             * should copy its contents to. 
+             *
+             * When this method is called, the renderer begins the process of
+             * copying its current target into a further specified target. This
+             * second target is specified in the render_dispatch and can either
+             * be another texture or just a window.
+             *
+             * @param source_rect The source rectangle of the texture to be
+             * copied into a target. Note that if this source rectangle's size
+             * doesn't match that of the destinations (in render_dispatch), then 
+             * the source texture will be stretched based on its
+             * texture_scaling_method.
+             *
+             * @return A render_dispatch instance containing the information
+             * needed to copy the current target to a specified target.
+             */
+            render_dispatch copy(const arma::Col<int>& source_rect = {});
 
             // TODO: The following methods need to be implemented still for this
             // wrapper.
-            // - SDL_CreateTexture
             // - SDL_GetRendererInfo
-            // - SDL_GetRenderTarget
-            // - SDL_SetRenderTarget
     };
 
 } /* zr  */ 

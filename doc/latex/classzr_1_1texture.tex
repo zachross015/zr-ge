@@ -18,7 +18,7 @@ Collaboration diagram for zr\+::texture\+:
 \mbox{\hyperlink{classzr_1_1texture_a90bc21e25a2889400253763294280924}{texture}} (const \mbox{\hyperlink{classzr_1_1renderer}{renderer}} \&\mbox{\hyperlink{classzr_1_1renderer}{renderer}}, const pixel\+\_\+format\+\_\+specifier \&pixel\+\_\+format\+\_\+specifier, const texture\+\_\+access \&texture\+\_\+access, const arma\+::\+Col$<$ int $>$ \&\mbox{\hyperlink{classzr_1_1size}{size}})
 \begin{DoxyCompactList}\small\item\em Constructor for the class of textures. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1texture_af8f1240da1ebec52bca896b3cfff884c}\label{classzr_1_1texture_af8f1240da1ebec52bca896b3cfff884c}} 
-virtual \mbox{\hyperlink{classzr_1_1texture_af8f1240da1ebec52bca896b3cfff884c}{$\sim$texture}} ()
+virtual {\bfseries $\sim$texture} ()
 \begin{DoxyCompactList}\small\item\em Texture deconstructor. \end{DoxyCompactList}\item 
 unsigned char \mbox{\hyperlink{classzr_1_1texture_a97d2e3e5efc5d7220005431910bcfdf3}{get\+\_\+alpha}} ()
 \begin{DoxyCompactList}\small\item\em Get the alpha channel overlay for this texture. \end{DoxyCompactList}\item 
@@ -32,21 +32,28 @@ void \mbox{\hyperlink{classzr_1_1texture_a15d544ae6e3a603a2255755406368600}{set\
 \begin{DoxyCompactList}\small\item\em Get the additional color value multiplied into render copy operations. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1texture_a4e8b4e61c04447d3a94979e83a010927}{set\+\_\+color\+\_\+overlay}} (const \mbox{\hyperlink{structzr_1_1color}{color}} \&c)
 \begin{DoxyCompactList}\small\item\em Set an additional color value multiplied into render copy operations. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \& \mbox{\hyperlink{classzr_1_1texture_a4283a61fd2c01537d6e10e1807442173}{get\+\_\+pixel\+\_\+format}} ()
+const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \& \mbox{\hyperlink{classzr_1_1texture_aee8c0582b3f93304a66faecbd7c508a5}{get\+\_\+pixel\+\_\+format}} ()
 \begin{DoxyCompactList}\small\item\em Returns the pixel format this texture was initialized to. \end{DoxyCompactList}\item 
-const texture\+\_\+access \& \mbox{\hyperlink{classzr_1_1texture_a018b224d83b175bbfccd89b00ea85273}{get\+\_\+texture\+\_\+access}} ()
+const texture\+\_\+access \& \mbox{\hyperlink{classzr_1_1texture_a436cfe897abf7d5222898fe9529931d6}{get\+\_\+texture\+\_\+access}} ()
 \begin{DoxyCompactList}\small\item\em Returns the texture access this texture was initialized to. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classzr_1_1texture_ac1d7b7c76c80ffc9d15121d463d9b8ae}\label{classzr_1_1texture_ac1d7b7c76c80ffc9d15121d463d9b8ae}} 
 class {\bfseries renderer}
+\item 
+\mbox{\Hypertarget{classzr_1_1texture_a89ce4164acb3a8e96ed2813a20d0761d}\label{classzr_1_1texture_a89ce4164acb3a8e96ed2813a20d0761d}} 
+class {\bfseries render\+\_\+dispatch}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Consider how to include the texture scaling methods.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000012}{Todo}}]Consider removing the public constructor in favor of a constructor inside \textquotesingle{}renderer\textquotesingle{}. I\textquotesingle{}m still unclear whether or not the texture needs to be connected to a renderer, but it definitely needs a renderer for construction. 
+
+Consider how to include the texture scaling methods. 
+
+Consider separating into several classes for dealing with the different access methods. This may be important since streaming textures have different methods while target\+\_\+access is required for the renderer to be able to draw to this. \end{DoxyRefDesc}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -63,7 +70,7 @@ Constructor for the class of textures.
 This creates a texture for which the given renderer can render to.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Firstly a question\+: can a texture only be drawn to by the renderer that created it? If so, we should keep track of all the textures a renderer is connected to and vice versa. That way, whenever we clean up a renderer, all child textures will be destroyed, and when a texture is destroyed the renderer can be notified promptly.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000013}{Todo}}]Firstly a question\+: can a texture only be drawn to by the renderer that created it? If so, we should keep track of all the textures a renderer is connected to and vice versa. That way, whenever we clean up a renderer, all child textures will be destroyed, and when a texture is destroyed the renderer can be notified promptly.\end{DoxyRefDesc}
 
 
 
@@ -97,7 +104,7 @@ Get the alpha channel overlay for this texture.
 
 
 \begin{DoxyExceptions}{Exceptions}
-{\em \mbox{\hyperlink{structzr_1_1sdl__exception}{sdl\+\_\+exception}}} & The error is unspecified by S\+DL.\\
+{\em \mbox{\hyperlink{structzr_1_1sdl__exception}{sdl\+\_\+exception}}} & The error is unspecified by SDL.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyReturn}{Returns}
@@ -132,16 +139,16 @@ Associate blend mode.
 Get the additional color value multiplied into render copy operations. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]This could be made more meaningful if we potentially derived it from the color class. That way, instead of having a separate value for setting the color overlay and the alpha overlay, we would just manipulate the separate components of the texture (e.\+g. just mess with the red values.)\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000014}{Todo}}]This could be made more meaningful if we potentially derived it from the color class. That way, instead of having a separate value for setting the color overlay and the alpha overlay, we would just manipulate the separate components of the texture (e.\+g. just mess with the red values.)\end{DoxyRefDesc}
 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]Implement this \end{DoxyRefDesc}
-\mbox{\Hypertarget{classzr_1_1texture_a4283a61fd2c01537d6e10e1807442173}\label{classzr_1_1texture_a4283a61fd2c01537d6e10e1807442173}} 
+\item[\mbox{\hyperlink{todo__todo000015}{Todo}}]Implement this \end{DoxyRefDesc}
+\mbox{\Hypertarget{classzr_1_1texture_aee8c0582b3f93304a66faecbd7c508a5}\label{classzr_1_1texture_aee8c0582b3f93304a66faecbd7c508a5}} 
 \index{zr::texture@{zr::texture}!get\_pixel\_format@{get\_pixel\_format}}
 \index{get\_pixel\_format@{get\_pixel\_format}!zr::texture@{zr::texture}}
 \doxysubsubsection{\texorpdfstring{get\_pixel\_format()}{get\_pixel\_format()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}\& zr\+::texture\+::get\+\_\+pixel\+\_\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} \& zr\+::texture\+::get\+\_\+pixel\+\_\+format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -153,17 +160,17 @@ Returns the pixel format this texture was initialized to.
 The pixel format can not be changed after initialization...or can it?
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000012}{Todo}}]Could there be a way to change pixel formats? Is that worth even considering?\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000017}{Todo}}]Could there be a way to change pixel formats? Is that worth even considering?\end{DoxyRefDesc}
 
 
 \begin{DoxyReturn}{Returns}
 The pixel format this texture was initialized to. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classzr_1_1texture_a018b224d83b175bbfccd89b00ea85273}\label{classzr_1_1texture_a018b224d83b175bbfccd89b00ea85273}} 
+\mbox{\Hypertarget{classzr_1_1texture_a436cfe897abf7d5222898fe9529931d6}\label{classzr_1_1texture_a436cfe897abf7d5222898fe9529931d6}} 
 \index{zr::texture@{zr::texture}!get\_texture\_access@{get\_texture\_access}}
 \index{get\_texture\_access@{get\_texture\_access}!zr::texture@{zr::texture}}
 \doxysubsubsection{\texorpdfstring{get\_texture\_access()}{get\_texture\_access()}}
-{\footnotesize\ttfamily const texture\+\_\+access\& zr\+::texture\+::get\+\_\+texture\+\_\+access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const texture\+\_\+access \& zr\+::texture\+::get\+\_\+texture\+\_\+access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -232,13 +239,13 @@ Set the blend mode used for drawing operations.
 Set an additional color value multiplied into render copy operations. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]Implement this.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000016}{Todo}}]Implement this.\end{DoxyRefDesc}
 
 
 \begin{DoxyRemark}{Remarks}
 When this texture is rendered, during the copy operation the source alpha value is modulated by this alpha value according to the following formula\+:
 \end{DoxyRemark}
-source\+R\+GB = source\+R\+GB $\ast$ (color / 255)
+source\+RGB = source\+RGB $\ast$ (color / 255)
 
 Color modulation is not always supported by the renderer.
 

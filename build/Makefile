@@ -343,6 +343,33 @@ src/sdl_wrapper/pixel_format.cpp.s:
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.s
 .PHONY : src/sdl_wrapper/pixel_format.cpp.s
 
+src/sdl_wrapper/render_dispatch.o: src/sdl_wrapper/render_dispatch.cpp.o
+
+.PHONY : src/sdl_wrapper/render_dispatch.o
+
+# target to build an object file
+src/sdl_wrapper/render_dispatch.cpp.o:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o
+.PHONY : src/sdl_wrapper/render_dispatch.cpp.o
+
+src/sdl_wrapper/render_dispatch.i: src/sdl_wrapper/render_dispatch.cpp.i
+
+.PHONY : src/sdl_wrapper/render_dispatch.i
+
+# target to preprocess a source file
+src/sdl_wrapper/render_dispatch.cpp.i:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.i
+.PHONY : src/sdl_wrapper/render_dispatch.cpp.i
+
+src/sdl_wrapper/render_dispatch.s: src/sdl_wrapper/render_dispatch.cpp.s
+
+.PHONY : src/sdl_wrapper/render_dispatch.s
+
+# target to generate assembly for a file
+src/sdl_wrapper/render_dispatch.cpp.s:
+	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.s
+.PHONY : src/sdl_wrapper/render_dispatch.cpp.s
+
 src/sdl_wrapper/renderer.o: src/sdl_wrapper/renderer.cpp.o
 
 .PHONY : src/sdl_wrapper/renderer.o
@@ -508,6 +535,9 @@ help:
 	@echo "... src/sdl_wrapper/pixel_format.o"
 	@echo "... src/sdl_wrapper/pixel_format.i"
 	@echo "... src/sdl_wrapper/pixel_format.s"
+	@echo "... src/sdl_wrapper/render_dispatch.o"
+	@echo "... src/sdl_wrapper/render_dispatch.i"
+	@echo "... src/sdl_wrapper/render_dispatch.s"
 	@echo "... src/sdl_wrapper/renderer.o"
 	@echo "... src/sdl_wrapper/renderer.i"
 	@echo "... src/sdl_wrapper/renderer.s"

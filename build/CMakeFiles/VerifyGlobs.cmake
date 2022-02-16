@@ -18,6 +18,7 @@ set(OLD_GLOB
   "/home/zachary/projects/game-engine/src/sdl_wrapper/blend_mode.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/display_mode_config.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/pixel_format.cpp"
+  "/home/zachary/projects/game-engine/src/sdl_wrapper/render_dispatch.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/sdl_exception.cpp"
   "/home/zachary/projects/game-engine/src/sdl_wrapper/texture.cpp"

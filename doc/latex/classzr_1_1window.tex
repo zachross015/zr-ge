@@ -12,21 +12,21 @@ Collaboration diagram for zr\+::window\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classzr_1_1window_a7fcaed871af530cbb3b376ddc8804a02}{window}} (std\+::string title, int x, int y, int width, int height, const std\+::vector$<$ window\+\_\+state $>$ \&states=\{\})
-\begin{DoxyCompactList}\small\item\em Support for S\+DL intialization using stronger typing. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Support for SDL intialization using stronger typing. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classzr_1_1window_a0e3b351d6b944c6ab625b77c2df68f26}{window}} (std\+::string title, int width, int height, const std\+::vector$<$ window\+\_\+state $>$ \&states=\{\})
-\begin{DoxyCompactList}\small\item\em Support for S\+DL intialization using stronger typing and defaults for the x and y positions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Support for SDL intialization using stronger typing and defaults for the x and y positions. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classzr_1_1window_a51f9d8149433d2cd309195f1d0567299}{window}} (int width, int height, const std\+::vector$<$ window\+\_\+state $>$ \&states=\{\})
-\begin{DoxyCompactList}\small\item\em Support for S\+DL intialization using stronger typing and defaults for the x and y positions along with the title. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Support for SDL intialization using stronger typing and defaults for the x and y positions along with the title. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_af26f33fc3c8e390eeadb6d775497644f}\label{classzr_1_1window_af26f33fc3c8e390eeadb6d775497644f}} 
-virtual \mbox{\hyperlink{classzr_1_1window_af26f33fc3c8e390eeadb6d775497644f}{$\sim$window}} ()
+virtual {\bfseries $\sim$window} ()
 \begin{DoxyCompactList}\small\item\em Default deconstruction of a window object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_aa94b92caa4fa491aef4ee465c5b195b6}\label{classzr_1_1window_aa94b92caa4fa491aef4ee465c5b195b6}} 
-void \mbox{\hyperlink{classzr_1_1window_aa94b92caa4fa491aef4ee465c5b195b6}{show}} ()
+void {\bfseries show} ()
 \begin{DoxyCompactList}\small\item\em Shows the current window. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_a0ee4dc213eed4dc9ce130132a407ea89}\label{classzr_1_1window_a0ee4dc213eed4dc9ce130132a407ea89}} 
-void \mbox{\hyperlink{classzr_1_1window_a0ee4dc213eed4dc9ce130132a407ea89}{hide}} ()
+void {\bfseries hide} ()
 \begin{DoxyCompactList}\small\item\em Hides the current window. \end{DoxyCompactList}\item 
-arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1window_ade7c8ac28fe36ae519894a6a44f97ec3}{get\+\_\+borders\+\_\+size}} ()
+arma\+::\+Col$<$ int $>$ \mbox{\hyperlink{classzr_1_1window_a28e4f49717d564bc1dfe64acc3d68b40}{get\+\_\+borders\+\_\+size}} ()
 \begin{DoxyCompactList}\small\item\em Get the size of a window\textquotesingle{}s borders (decorations) around the client area. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1window_a6117b494f121cae26208223ac91a42ac}{set\+\_\+bordered}} (bool b)
 \begin{DoxyCompactList}\small\item\em Set the border state of the window. \end{DoxyCompactList}\item 
@@ -36,17 +36,17 @@ int \mbox{\hyperlink{classzr_1_1window_a0bc83e8b3f344cb1d59e665913e6db80}{get\+\
 \begin{DoxyCompactList}\small\item\em Query the display mode to use when a window is visible at fullscreen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1window_aded109e3c2215e143e559fa65744583e}{set\+\_\+display\+\_\+mode\+\_\+config}} (\mbox{\hyperlink{classzr_1_1display__mode__config}{display\+\_\+mode\+\_\+config}} dm)
 \begin{DoxyCompactList}\small\item\em Set the display mode to use when a window is visible at fullscreen. \end{DoxyCompactList}\item 
-std\+::vector$<$ window\+\_\+state $>$ \mbox{\hyperlink{classzr_1_1window_abc002da1bdf9b4c9dbd70b1845d67717}{get\+\_\+states}} ()
+std\+::vector$<$ window\+\_\+state $>$ \mbox{\hyperlink{classzr_1_1window_a3d8c00e5677a0cb503f0e325b8ece1b1}{get\+\_\+states}} ()
 \begin{DoxyCompactList}\small\item\em Retrieves the list of states the current window is subject to. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classzr_1_1window_a8bee2edac13805d0c92776f83e161f30}{is\+\_\+mouse\+\_\+trapped}} ()
 \begin{DoxyCompactList}\small\item\em Determines if the mouse is confined to this window. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1window_a93c0a3a8de19987d695c5d3c25b7e99e}{set\+\_\+mouse\+\_\+trapped}} (bool tf)
 \begin{DoxyCompactList}\small\item\em Determines if the mouse is confined to this window. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_af57be80f046c7074d784e0e02d673afe}\label{classzr_1_1window_af57be80f046c7074d784e0e02d673afe}} 
-void \mbox{\hyperlink{classzr_1_1window_af57be80f046c7074d784e0e02d673afe}{trap\+\_\+mouse}} ()
+void {\bfseries trap\+\_\+mouse} ()
 \begin{DoxyCompactList}\small\item\em Confines the mouse to the screen. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_a515865f00bfdf1f2e8ba6f17f01e4d23}\label{classzr_1_1window_a515865f00bfdf1f2e8ba6f17f01e4d23}} 
-void \mbox{\hyperlink{classzr_1_1window_a515865f00bfdf1f2e8ba6f17f01e4d23}{release\+\_\+mouse}} ()
+void {\bfseries release\+\_\+mouse} ()
 \begin{DoxyCompactList}\small\item\em Releases the mouse from the screen. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classzr_1_1window_a95ccf6c2e84f0dc17b1e39ef9fb25dbd}{get\+\_\+id}} ()
 \begin{DoxyCompactList}\small\item\em Retrieves this windows identifier. \end{DoxyCompactList}\item 
@@ -66,15 +66,15 @@ arma\+::ivec \mbox{\hyperlink{classzr_1_1window_a5c81812c9f9df5993930dada2869d67
 \begin{DoxyCompactList}\small\item\em Gets the window\textquotesingle{}s position. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1window_a405e46c0f8a8cad0d7eb7b7f47cdfb8b}{set\+\_\+pos}} (const arma\+::ivec \&pos)
 \begin{DoxyCompactList}\small\item\em Sets the window\textquotesingle{}s position. \end{DoxyCompactList}\item 
-virtual const int \& \mbox{\hyperlink{classzr_1_1window_aebc14cdc853aeadc91f4572623285dbd}{get\+\_\+width}} () override
+virtual const int \& \mbox{\hyperlink{classzr_1_1window_ae4ab69753f7994dfe4c27fb3ea9f2857}{get\+\_\+width}} () override
 \begin{DoxyCompactList}\small\item\em Gets the window\textquotesingle{}s width. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classzr_1_1window_a4e8882bc40fb5f191fe5f9ba2ea87381}{set\+\_\+width}} (const int \&width) override
 \begin{DoxyCompactList}\small\item\em Sets the window\textquotesingle{}s width. \end{DoxyCompactList}\item 
-virtual const int \& \mbox{\hyperlink{classzr_1_1window_aaa76c143d38233e5784ea850a5403e1b}{get\+\_\+height}} () override
+virtual const int \& \mbox{\hyperlink{classzr_1_1window_a587e0e70be46748a0bdfd36f507be2d8}{get\+\_\+height}} () override
 \begin{DoxyCompactList}\small\item\em Gets the window\textquotesingle{}s height. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classzr_1_1window_a14f2da7ea2fefb186c6288103078a9c7}{set\+\_\+height}} (const int \&height) override
 \begin{DoxyCompactList}\small\item\em Sets the window\textquotesingle{}s height. \end{DoxyCompactList}\item 
-virtual const arma\+::\+Col$<$ int $>$ \& \mbox{\hyperlink{classzr_1_1window_a84dbb317d96a659437d4272e8ed99ff2}{get\+\_\+size}} () override
+virtual const arma\+::\+Col$<$ int $>$ \& \mbox{\hyperlink{classzr_1_1window_abdb8a17d3f2a9e48855eefcb219e62df}{get\+\_\+size}} () override
 \begin{DoxyCompactList}\small\item\em Gets the window\textquotesingle{}s size. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classzr_1_1window_a13039eae0244c6e30d423cbc5de3da3c}{set\+\_\+size}} (const arma\+::\+Col$<$ int $>$ \&\mbox{\hyperlink{classzr_1_1size}{size}}) override
 \begin{DoxyCompactList}\small\item\em Sets the window\textquotesingle{}s size. \end{DoxyCompactList}\item 
@@ -83,16 +83,16 @@ std\+::string \mbox{\hyperlink{classzr_1_1window_a3caf079fd66b1f26cc9600f965a8d4
 void \mbox{\hyperlink{classzr_1_1window_adcb61826bfe6b8096df04f3fab5a60a9}{set\+\_\+title}} (const std\+::string \&title)
 \begin{DoxyCompactList}\small\item\em Sets the window\textquotesingle{}s current title. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_ab71727b1930acc6696cf9d2d4a8004f5}\label{classzr_1_1window_ab71727b1930acc6696cf9d2d4a8004f5}} 
-void \mbox{\hyperlink{classzr_1_1window_ab71727b1930acc6696cf9d2d4a8004f5}{maximize}} ()
+void {\bfseries maximize} ()
 \begin{DoxyCompactList}\small\item\em Makes the window as large as possible. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_a98d596268b898ef7975f0ca56cb01f6d}\label{classzr_1_1window_a98d596268b898ef7975f0ca56cb01f6d}} 
-void \mbox{\hyperlink{classzr_1_1window_a98d596268b898ef7975f0ca56cb01f6d}{minimize}} ()
+void {\bfseries minimize} ()
 \begin{DoxyCompactList}\small\item\em Minimizes the current window to an iconic representation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_aaf9b71ab2dd5224465d240894974e40a}\label{classzr_1_1window_aaf9b71ab2dd5224465d240894974e40a}} 
-void \mbox{\hyperlink{classzr_1_1window_aaf9b71ab2dd5224465d240894974e40a}{raise}} ()
+void {\bfseries raise} ()
 \begin{DoxyCompactList}\small\item\em Raise a window above other windows and set the input focus. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1window_a9c5a6f4d0d1a58ae977917b21c861443}\label{classzr_1_1window_a9c5a6f4d0d1a58ae977917b21c861443}} 
-void \mbox{\hyperlink{classzr_1_1window_a9c5a6f4d0d1a58ae977917b21c861443}{restore}} ()
+void {\bfseries restore} ()
 \begin{DoxyCompactList}\small\item\em Restore the size and position of a minimized or maximized window. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classzr_1_1window_a0a3ddeea5960d0a88b26658e9f63180f}{make\+\_\+fullscreen}} (bool fake=false)
 \begin{DoxyCompactList}\small\item\em Makes the current window fullscreen with the option to do either \char`\"{}real\char`\"{} fullscreen or \char`\"{}fake\char`\"{} fullscreen that just takes the size of the desktop. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -113,7 +113,7 @@ class {\bfseries renderer}
 
 
 
-Support for S\+DL intialization using stronger typing. 
+Support for SDL intialization using stronger typing. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -138,7 +138,7 @@ Support for S\+DL intialization using stronger typing.
 
 
 
-Support for S\+DL intialization using stronger typing and defaults for the x and y positions. 
+Support for SDL intialization using stronger typing and defaults for the x and y positions. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -159,7 +159,7 @@ Support for S\+DL intialization using stronger typing and defaults for the x and
 
 
 
-Support for S\+DL intialization using stronger typing and defaults for the x and y positions along with the title. 
+Support for SDL intialization using stronger typing and defaults for the x and y positions along with the title. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -173,11 +173,11 @@ Support for S\+DL intialization using stronger typing and defaults for the x and
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classzr_1_1window_ade7c8ac28fe36ae519894a6a44f97ec3}\label{classzr_1_1window_ade7c8ac28fe36ae519894a6a44f97ec3}} 
+\mbox{\Hypertarget{classzr_1_1window_a28e4f49717d564bc1dfe64acc3d68b40}\label{classzr_1_1window_a28e4f49717d564bc1dfe64acc3d68b40}} 
 \index{zr::window@{zr::window}!get\_borders\_size@{get\_borders\_size}}
 \index{get\_borders\_size@{get\_borders\_size}!zr::window@{zr::window}}
 \doxysubsubsection{\texorpdfstring{get\_borders\_size()}{get\_borders\_size()}}
-{\footnotesize\ttfamily arma\+::\+Col$<$int$>$ zr\+::window\+::get\+\_\+borders\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily arma\+::\+Col$<$ int $>$ zr\+::window\+::get\+\_\+borders\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -222,11 +222,11 @@ Query the display mode to use when a window is visible at fullscreen.
 \begin{DoxyReturn}{Returns}
 A \mbox{\hyperlink{classzr_1_1display__mode__config}{display\+\_\+mode\+\_\+config}} structure filled in with the fullscreen display mode 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classzr_1_1window_aaa76c143d38233e5784ea850a5403e1b}\label{classzr_1_1window_aaa76c143d38233e5784ea850a5403e1b}} 
+\mbox{\Hypertarget{classzr_1_1window_a587e0e70be46748a0bdfd36f507be2d8}\label{classzr_1_1window_a587e0e70be46748a0bdfd36f507be2d8}} 
 \index{zr::window@{zr::window}!get\_height@{get\_height}}
 \index{get\_height@{get\_height}!zr::window@{zr::window}}
 \doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
-{\footnotesize\ttfamily virtual const int\& zr\+::window\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual const int \& zr\+::window\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -237,7 +237,7 @@ Col vector containing the window\textquotesingle{}s height (w in 0 and h in 1).
 \end{DoxyReturn}
 
 
-Reimplemented from \mbox{\hyperlink{classzr_1_1size_a30f4291348f34329f6aa48ac9ac4882c}{zr\+::size$<$ int $>$}}.
+Reimplemented from \mbox{\hyperlink{classzr_1_1size_aadc8d3627af0a47fd63657a7aab7cc15}{zr\+::size$<$ int $>$}}.
 
 \mbox{\Hypertarget{classzr_1_1window_a95ccf6c2e84f0dc17b1e39ef9fb25dbd}\label{classzr_1_1window_a95ccf6c2e84f0dc17b1e39ef9fb25dbd}} 
 \index{zr::window@{zr::window}!get\_id@{get\_id}}
@@ -314,11 +314,11 @@ Gets the window\textquotesingle{}s position.
 \begin{DoxyReturn}{Returns}
 Row vector containing the window\textquotesingle{}s position (x in 0 and y in 1). 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classzr_1_1window_a84dbb317d96a659437d4272e8ed99ff2}\label{classzr_1_1window_a84dbb317d96a659437d4272e8ed99ff2}} 
+\mbox{\Hypertarget{classzr_1_1window_abdb8a17d3f2a9e48855eefcb219e62df}\label{classzr_1_1window_abdb8a17d3f2a9e48855eefcb219e62df}} 
 \index{zr::window@{zr::window}!get\_size@{get\_size}}
 \index{get\_size@{get\_size}!zr::window@{zr::window}}
 \doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
-{\footnotesize\ttfamily virtual const arma\+::\+Col$<$int$>$\& zr\+::window\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual const arma\+::\+Col$<$ int $>$ \& zr\+::window\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -329,13 +329,13 @@ Col vector containing the window\textquotesingle{}s size (w in 0 and h in 1).
 \end{DoxyReturn}
 
 
-Reimplemented from \mbox{\hyperlink{classzr_1_1size_ab8551238505aece2b96c099107ef043e}{zr\+::size$<$ int $>$}}.
+Reimplemented from \mbox{\hyperlink{classzr_1_1size_ab37979124774040199813c66d5317c52}{zr\+::size$<$ int $>$}}.
 
-\mbox{\Hypertarget{classzr_1_1window_abc002da1bdf9b4c9dbd70b1845d67717}\label{classzr_1_1window_abc002da1bdf9b4c9dbd70b1845d67717}} 
+\mbox{\Hypertarget{classzr_1_1window_a3d8c00e5677a0cb503f0e325b8ece1b1}\label{classzr_1_1window_a3d8c00e5677a0cb503f0e325b8ece1b1}} 
 \index{zr::window@{zr::window}!get\_states@{get\_states}}
 \index{get\_states@{get\_states}!zr::window@{zr::window}}
 \doxysubsubsection{\texorpdfstring{get\_states()}{get\_states()}}
-{\footnotesize\ttfamily std\+::vector$<$window\+\_\+state$>$ zr\+::window\+::get\+\_\+states (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ window\+\_\+state $>$ zr\+::window\+::get\+\_\+states (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -357,11 +357,11 @@ Gets the window\textquotesingle{}s current title.
 \begin{DoxyReturn}{Returns}
 The window\textquotesingle{}s title. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classzr_1_1window_aebc14cdc853aeadc91f4572623285dbd}\label{classzr_1_1window_aebc14cdc853aeadc91f4572623285dbd}} 
+\mbox{\Hypertarget{classzr_1_1window_ae4ab69753f7994dfe4c27fb3ea9f2857}\label{classzr_1_1window_ae4ab69753f7994dfe4c27fb3ea9f2857}} 
 \index{zr::window@{zr::window}!get\_width@{get\_width}}
 \index{get\_width@{get\_width}!zr::window@{zr::window}}
 \doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
-{\footnotesize\ttfamily virtual const int\& zr\+::window\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual const int \& zr\+::window\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -372,7 +372,7 @@ Col vector containing the window\textquotesingle{}s width (w in 0 and h in 1).
 \end{DoxyReturn}
 
 
-Reimplemented from \mbox{\hyperlink{classzr_1_1size_ae52565d4fbe5925b99fa64bce57f4d9a}{zr\+::size$<$ int $>$}}.
+Reimplemented from \mbox{\hyperlink{classzr_1_1size_a26adca9f975ddd9a4030a4e0904c1db7}{zr\+::size$<$ int $>$}}.
 
 \mbox{\Hypertarget{classzr_1_1window_a8bee2edac13805d0c92776f83e161f30}\label{classzr_1_1window_a8bee2edac13805d0c92776f83e161f30}} 
 \index{zr::window@{zr::window}!is\_mouse\_trapped@{is\_mouse\_trapped}}

@@ -109,9 +109,22 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zachary/projects/game-engine/src/sdl_wrapper/pixel_format.cpp -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.s
 
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o: CMakeFiles/GameEngine.dir/flags.make
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o: ../src/sdl_wrapper/render_dispatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/render_dispatch.cpp
+
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zachary/projects/game-engine/src/sdl_wrapper/render_dispatch.cpp > CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.i
+
+CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zachary/projects/game-engine/src/sdl_wrapper/render_dispatch.cpp -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.s
+
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o: ../src/sdl_wrapper/renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.s: cmake_force
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o: ../src/sdl_wrapper/sdl_exception.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/sdl_exception.cpp
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.s: cmake_force
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o: ../src/sdl_wrapper/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/texture.cpp
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.s: cmake_force
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.o: ../src/sdl_wrapper/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.o -c /home/zachary/projects/game-engine/src/sdl_wrapper/window.cpp
 
 CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/GameEngine.dir/src/sdl_wrapper/window.cpp.s: cmake_force
 
 CMakeFiles/GameEngine.dir/src/util.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/util.cpp.o: ../src/util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GameEngine.dir/src/util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GameEngine.dir/src/util.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/src/util.cpp.o -c /home/zachary/projects/game-engine/src/util.cpp
 
 CMakeFiles/GameEngine.dir/src/util.cpp.i: cmake_force
@@ -180,6 +193,7 @@ GameEngine_OBJECTS = \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o" \
+"CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o" \
 "CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o" \
@@ -193,6 +207,7 @@ GameEngine: CMakeFiles/GameEngine.dir/src/main.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/blend_mode.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/display_mode_config.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/pixel_format.cpp.o
+GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/render_dispatch.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/renderer.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/sdl_exception.cpp.o
 GameEngine: CMakeFiles/GameEngine.dir/src/sdl_wrapper/texture.cpp.o
@@ -204,7 +219,7 @@ GameEngine: lib/SDL/libSDL2-2.0d.so.0.18.3
 GameEngine: /usr/lib/x86_64-linux-gnu/libblas.so
 GameEngine: /usr/lib/x86_64-linux-gnu/liblapack.so
 GameEngine: CMakeFiles/GameEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable GameEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zachary/projects/game-engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable GameEngine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameEngine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

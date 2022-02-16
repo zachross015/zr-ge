@@ -3,6 +3,7 @@
 #include <exceptions.h>
 #include <util.h>
 #include <exception>
+#include <sdl_wrapper/render_dispatch.h>
 
 namespace zr {
 
@@ -41,6 +42,12 @@ namespace zr {
 
 
     renderer::~renderer() {
+
+        // Clean up target 
+        target = 0;
+        delete target;
+
+        // Clean up renderer
         SDL_DestroyRenderer(r);
     }
 
@@ -233,16 +240,37 @@ namespace zr {
     }
 
 
-    bool renderer::is_target_supported() {
+    bool renderer::supports_targets() {
         return SDL_RenderTargetSupported(r) == SDL_TRUE;
     }
 
-    void renderer::copy(const texture& t) {
-        SDL_RenderCopy(r, t.t, NULL, NULL);
+
+    render_dispatch renderer::copy(const arma::Col<int>& source_rect) {
+        if(target == NULL) throw input_exception("[renderer::copy] This function should only be called when a texture is being targeted, since a copy can not perform a copy when the target is the window. The default behavior under this condition is the renderer will draw to the window unconditionally.");
+        return render_dispatch(this, target, source_rect);
     }
 
-    void renderer::set_target(const texture& t) {
-        SDL_SetRenderTarget(r, t.t); 
+
+    void renderer::set_target_window() {
+        this->target = NULL;
+        SDL_SetRenderTarget(r, NULL); 
+    }
+
+
+    void renderer::set_target(texture* t) {
+        if(t == NULL || t == nullptr) {
+            throw input_exception("[renderer::set_target] Attempted to pass a null pointer as a target to the renderer. Make sure the texture has been initialized before sending it.");
+        } else if(t->get_texture_access() != texture_access::target_access) {
+            throw input_exception("[renderer::set_target] Attempted to pass a texture with an invalid access type. Must have texture_access::target_access.");
+        }
+
+        this->target = t;
+        SDL_SetRenderTarget(r, t->t); 
+    }
+
+
+    texture* renderer::get_target() {
+        return target;
     }
 
 } /* zr  */ 

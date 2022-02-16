@@ -32,15 +32,31 @@ namespace  zr {
 
     /**
      *
+     * @todo Consider removing the public constructor in favor of a constructor
+     * inside 'renderer'. I'm still unclear whether or not the texture needs to
+     * be connected to a renderer, but it definitely needs a renderer for
+     * construction. 
      * @todo Consider how to include the texture scaling methods.
+     * @todo Consider separating into several classes for dealing with the
+     * different access methods. This may be important since streaming textures
+     * have different methods while target_access is required for the renderer
+     * to be able to draw to this.
      */
     class texture : public immutable_size<int> {
         private:
 
         friend class renderer;
+        friend class render_dispatch;
 
+        /** The underlying pixel format for this texture */
         pixel_format pf;
+
+
+        /** The initalized access level for this texture. */
         texture_access ta;
+
+
+        /** Underlying SDL structure for the texture */
         SDL_Texture* t;
 
         public:

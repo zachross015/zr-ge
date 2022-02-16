@@ -15,7 +15,7 @@ Read only class which provides information on pixel formats and associated value
 \mbox{\hyperlink{classzr_1_1pixel__format_a4e7d6fdf2c1afc789b13639952e2a821}{pixel\+\_\+format}} (pixel\+\_\+format\+\_\+specifier f)
 \begin{DoxyCompactList}\small\item\em Constructs the pixel format for quick querys dealing with pixel information. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}\label{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}} 
-\mbox{\hyperlink{classzr_1_1pixel__format_a7e549024b83246d1540a1a975de61a55}{$\sim$pixel\+\_\+format}} ()
+{\bfseries $\sim$pixel\+\_\+format} ()
 \begin{DoxyCompactList}\small\item\em Deconstructor for the pixel format. \end{DoxyCompactList}\item 
 pixel\+\_\+format\+\_\+specifier \mbox{\hyperlink{classzr_1_1pixel__format_a92d5598e901bd419f3fa36d656021c28}{get\+\_\+format\+\_\+specifier}} ()
 \begin{DoxyCompactList}\small\item\em Format specifier this pixel format was initialized to. \end{DoxyCompactList}\item 
@@ -41,7 +41,7 @@ bool \mbox{\hyperlink{classzr_1_1pixel__format_a2af4c0f54d9c9fdbd993564a9e4f69e9
 Read only class which provides information on pixel formats and associated values. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]A great abstraction which will be necessary down the line is converting from a color to a specific \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}. \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions. Further consideration needs to be done in case for example a new layout comes out. I don\textquotesingle{}t want to deal with hard coding things for that reason.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]A great abstraction which will be necessary down the line is converting from a color to a specific \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}}. \mbox{\hyperlink{classzr_1_1pixel__format}{pixel\+\_\+format}} should be abstract down the line with overrides from the different formats, types, orders, and layouts, with each of those providing methods that perform the automated conversions. Further consideration needs to be done in case for example a new layout comes out. I don\textquotesingle{}t want to deal with hard coding things for that reason.\end{DoxyRefDesc}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -88,7 +88,7 @@ True if this format contains an alpha channel, false otherwise.
 
 Whether this format represents a unique format (e.\+g. 
 
-Y\+UV formats)
+YUV formats)
 
 \begin{DoxyReturn}{Returns}
 True if this format is a unique format, false otherwise. 
@@ -145,7 +145,7 @@ The number of bytes.
 Format specifier this pixel format was initialized to. 
 
 \begin{DoxyReturn}{Returns}
-The format specifier (i.\+e. the wrapped S\+D\+L\+\_\+\+Pixel\+Format\+Enum) 
+The format specifier (i.\+e. the wrapped SDL\+\_\+\+Pixel\+Format\+Enum) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}\label{classzr_1_1pixel__format_ae650325fc69c8251c116e82bf22df4e2}} 
 \index{zr::pixel\_format@{zr::pixel\_format}!get\_layout@{get\_layout}}
@@ -167,10 +167,10 @@ Different layouts specify how, within packed pixel formats, how the underlying d
 
 Pixel ordering for this pixel format. 
 
-Different pixel layouts specify the order in which different values appear in the pixel structure. E.\+g. an R\+GB format has the order as red, green, then blue, while a B\+GR format has the order blue, green, red.
+Different pixel layouts specify the order in which different values appear in the pixel structure. E.\+g. an RGB format has the order as red, green, then blue, while a BGR format has the order blue, green, red.
 
 \begin{DoxyReturn}{Returns}
-The pixel ordering (i.\+e. the wrapped S\+D\+L\+\_\+\+P\+I\+X\+E\+L\+O\+R\+D\+ER macro) 
+The pixel ordering (i.\+e. the wrapped SDL\+\_\+\+PIXELORDER macro) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}\label{classzr_1_1pixel__format_a2e2ff41cbd2434aa1e99aa6ffd8b92db}} 
 \index{zr::pixel\_format@{zr::pixel\_format}!get\_type@{get\_type}}
@@ -185,7 +185,7 @@ Pixel type for this pixel format.
 Different pixel types specify the size of the data in a pixel array, along with how the information in this array is packed together. E.\+g. an array pixel type stores pixel information in an array while packed stores them in a singular value.
 
 \begin{DoxyReturn}{Returns}
-The pixel type (i.\+e. the wrapped S\+D\+L\+\_\+\+P\+I\+X\+E\+L\+T\+Y\+PE macro) 
+The pixel type (i.\+e. the wrapped SDL\+\_\+\+PIXELTYPE macro) 
 \end{DoxyReturn}
 
 

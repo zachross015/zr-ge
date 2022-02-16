@@ -42,6 +42,16 @@ ostream
 SDL.h
 -
 
+../include/sdl_wrapper/render_dispatch.h
+armadillo
+-
+SDL.h
+-
+renderer.h
+../include/sdl_wrapper/renderer.h
+texture.h
+../include/sdl_wrapper/texture.h
+
 ../include/sdl_wrapper/renderer.h
 SDL.h
 -
@@ -83,10 +93,6 @@ armadillo
 -
 exceptions.h
 ../include/exceptions.h
-
-../include/util.h
-vector
--
 
 ../lib/SDL/include/SDL.h
 SDL_main.h
@@ -817,23 +823,9 @@ sdl_wrapper/texture.h
 -
 sdl_wrapper/display_mode_config.h
 -
+sdl_wrapper/render_dispatch.h
+-
 SDL.h
--
-
-/home/zachary/projects/game-engine/src/sdl_wrapper/renderer.cpp
-sdl_wrapper/renderer.h
--
-sdl_wrapper/texture.h
--
-exceptions.h
--
-util.h
--
-exception
--
-
-/home/zachary/projects/game-engine/src/sdl_wrapper/texture.cpp
-sdl_wrapper/texture.h
 -
 
 lib/armadillo-code/tmp/include/armadillo

@@ -1,8 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node0 [label="zr::render_dispatch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classzr_1_1render__dispatch.html",tooltip="Class which maintains the state of renders that are meant to be drawn to the screen."];
-}

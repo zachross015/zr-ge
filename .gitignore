@@ -1,6 +1,6 @@
 *.swp
 
-build
-doc/dox-awesome
-doc/html
-doc/latex
+build/
+doc/dox-awesome/
+doc/html/
+doc/latex/

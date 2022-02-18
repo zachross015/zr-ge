@@ -65,7 +65,7 @@ namespace zr {
     }
 
 
-    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) : mutable_size(w, h) {
+    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) : rect_m(x, y, w, h) {
         // Initialize the video device if not already initizlied. If an error
         // occurs, handle it.
         if (!SDL_WasInit(SDL_INIT_VIDEO)) {
@@ -223,52 +223,75 @@ namespace zr {
         }
     }
 
-    arma::ivec window::pos() {
+
+    int window::x() {
+        return pos().x();
+    }
+
+
+    void window::x(const int& val) {
+        auto p = pos();
+        pos({val, p.y()});
+    }
+
+
+    int window::y() {
+        return pos().y();
+    }
+
+
+    void window::y(const int& val) {
+        auto p = pos();
+        pos({p.x(), val});
+    }
+
+
+    pos_m<int>& window::pos() {
         int w, h;
         SDL_GetWindowPosition(this->w, &w, &h);
-        return {w, h};
+        rect_m::pos({w, h});
+        return rect_m::pos();
     }
 
-    void window::pos(const arma::ivec& pos) {
+    void window::pos(const arma::Col<int>& pos) {
         SDL_SetWindowPosition(w, pos(0), pos(1)); 
+        rect_m::pos(pos);
     }
 
-    const int& window::width() {
+    int window::width() {
         // Need to update the internal size variables since the screen size is
         // susceptible to change.
-        size();
-        return mutable_size::width();
+        return size().width();
     }
 
 
-    void window::width(const int& width) {
+    void window::width(const int& val) {
         // Need to update the internal size variables since the screen size is
         // susceptible to change. This way, we can update the screen width
         // without interfering with the height (something not enabled in the
         // default SDL mode.
-        size();
-        SDL_SetWindowSize(w, width, mutable_size::height()); 
+        auto s = size();
+        size({val, s.height()});
     }
 
 
-    const int& window::height() {
+    int window::height() {
         // Need to update the internal size variables since the screen size is
         // susceptible to change.
-        size();
-        return mutable_size::height();
+        return size().height();
     }
 
 
-    void window::height(const int& height) {
+    void window::height(const int& val) {
         // Need to update the internal size variables since the screen size is
         // susceptible to change. This way, we can update the screen width
         // without interfering with the width (something not enabled in the
         // default SDL mode.)
-        size();
-        SDL_SetWindowSize(w, mutable_size::width(), height); 
+        auto s = size();
+        size({s.width(), val});
     }
 
-    const arma::Col<int>& window::size() {
+    size_m<int>& window::size() {
 
         // Get inital variables
         int wi, h;
@@ -277,13 +300,31 @@ namespace zr {
         // size isn't necessarily attached to those values, we have to update
         // our stored values and return those.
         SDL_GetWindowSize(this->w, &wi, &h);
-        mutable_size::size({wi, h});
-        return mutable_size::size();
+        rect_m::size({wi, h});
+        return rect_m::size();
     }
 
     void window::size(const arma::Col<int>& size) {
-        mutable_size::size(size);
         SDL_SetWindowSize(w, size(0), size(1)); 
+        rect_m::size(size);
+    }
+
+
+    arma::Col<int> window::rect() {
+        // Refresh variables in case the dimensions have changed
+        pos();
+        size();
+        return rect_m::rect();
+    }
+
+
+    /**
+     * @todo Add checks for this
+     */
+    void window::rect(arma::Col<int> r) {
+        rect_m::rect(r);
+        pos(r.rows(0, 1));
+        size(r.rows(2, 3));
     }
 
 

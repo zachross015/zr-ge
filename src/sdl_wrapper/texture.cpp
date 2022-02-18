@@ -6,7 +6,7 @@ namespace zr {
                      const pixel_format_specifier& pfs, 
                      const texture_access& ta, 
                      const arma::Col<int>& size) 
-        : immutable_size<int>(size),
+        : size_i<int>(size),
           pf(pixel_format(pfs)),
           ta(ta) {
         this->t = SDL_CreateTexture(r.r, 

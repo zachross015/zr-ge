@@ -3,7 +3,7 @@
 
 namespace zr {
 
-    display_mode_config::display_mode_config(SDL_DisplayMode dm) : pf(static_cast<pixel_format_specifier>(dm.format)), mutable_size<int>(dm.w, dm.h) {
+    display_mode_config::display_mode_config(SDL_DisplayMode dm) : pf(static_cast<pixel_format_specifier>(dm.format)), size_m<int>(dm.w, dm.h) {
 
         // Save the rest of the variables
         this->rr = dm.refresh_rate;

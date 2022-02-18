@@ -5,7 +5,7 @@
 #include <cmath>
 
 #include <exceptions.h>
-#include <mutable_size.h>
+#include <size.h>
 
 #include<sdl_wrapper.h>
 
@@ -18,8 +18,8 @@ int main(int argc, char* argv[]) {
 
     zr::window window = zr::window("Hello", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, { zr::opengl, zr::resizable });
     window.title("Hello world");
-    window.width(1600);
-    window.height(900);
+
+    window.rect({0, 0, 800, 800});
 
     zr::renderer renderer = zr::renderer(window, {zr::accelerated});
     zr::texture texture = zr::texture(renderer, 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
         std::chrono::duration<float> elapsed_time = now - start;
         float dt = elapsed_time.count();
         
-        zr::mutable_size screen_size = window.size();
+        zr::size_m screen_size = window.size();
         float x = screen_size.width() / 4.0;
         float y = screen_size.height() / 4.0;
         float w = screen_size.width() / 2.0;
@@ -66,7 +66,8 @@ int main(int argc, char* argv[]) {
         renderer.draw_color({ 255, 255, 255, 255 });
 
         // Generate the random lines
-        auto size = arma::conv_to<arma::fmat>::from(window.size());
+        auto s = window.size().size();
+        auto size = arma::conv_to<arma::fmat>::from(window.size().size());
         arma::fmat A(100, 2, arma::fill::randu);
         arma::fmat B = A * arma::diagmat(size);
 

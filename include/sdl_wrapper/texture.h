@@ -5,7 +5,7 @@
 #include "renderer.h"
 #include "pixel_format.h"
 #include "blend_mode.h"
-#include "../immutable_size.h"
+#include "../size.h"
 
 namespace  zr {
 
@@ -42,7 +42,7 @@ namespace  zr {
      * have different methods while target_access is required for the renderer
      * to be able to draw to this.
      */
-    class texture : public immutable_size<int> {
+    class texture : public size_i<int> {
         private:
 
         friend class renderer;

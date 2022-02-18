@@ -6,6 +6,7 @@
 #include <vector>
 #include <armadillo>
 #include "display_mode_config.h"
+#include "../rect.h"
 
 namespace zr {
 
@@ -63,7 +64,7 @@ namespace zr {
      * them. This way, we aren't reinitializing things constantly.
      *
      */
-    class window : public mutable_size<int> {
+    class window : public rect_m<int> {
         private:
 
             SDL_Window* w;    
@@ -274,68 +275,108 @@ namespace zr {
             void opacity(float o);
 
 
-            /** Gets the window's position.
+            /** Gets the x coordinate of the window.
              *
-             * @return Row vector containing the window's position (x in 0 and y
-             * in 1).
+             * @return The window's x coordinate.
              */
-            arma::ivec pos();
+            virtual int x() override;
 
 
-            /** Sets the window's position.
+            /** Sets the x coordinate of the window.
              *
-             * @param pos Row vector containing the window's position (x in 0 and y
-             * in 1).
+             * @param val The x coordinate to set this window to.
              */
-            void pos(const arma::ivec& pos);
+            virtual void x(const int& val) override;
+
+
+            /** Gets the y coordinate of the window.
+             *
+             * @return The window's y coordinate.
+             */
+            virtual int y() override;
+
+
+            /** Sets the y coordinate of the window.
+             *
+             * @param val The y coordinate to set the window to.
+             */
+            virtual void y(const int& val) override;
+
+
+            /** Gets the underlying structure for the window's current position.
+             *
+             * @return The window's underlying pos_m.
+             */
+            virtual pos_m<int>& pos() override;
+
+
+            /** Sets the window's position to that of the given column vector.
+             *
+             * @param ps The column vector denoting where on the screen the
+             * window should be placed.
+             */
+            virtual void pos(const arma::Col<int>& ps) override;
 
 
             /** Gets the window's width.
              *
-             * @return Col vector containing the window's width (w in 0 and h
-             * in 1).
+             * @return The window's width.
              */
-            virtual const int& width() override;
+            virtual int width() override;
 
 
             /** Sets the window's width.
              *
-             * @param width Col vector containing the window's width (w in 0 and h
-             * in 1).
+             * @param w The width to set the window to.
              */
-            virtual void width(const int& width) override;
+            virtual void width(const int& w) override;
 
 
             /** Gets the window's height.
              *
-             * @return Col vector containing the window's height (w in 0 and h
-             * in 1).
+             * @return The window's height.
              */
-            virtual const int& height() override;
+            virtual int height() override;
 
 
-            /** Sets the window's height.
+            /** Set the window's height.
              *
-             * @param height Col vector containing the window's height (w in 0 and h
-             * in 1).
+             * @param h The height to set the window to.
              */
-            virtual void height(const int& height) override;
+            virtual void height(const int& h) override;
 
 
-            /** Gets the window's size.
+            /** Gets the underlying structure for the window's size.
              *
-             * @return Col vector containing the window's size (w in 0 and h
-             * in 1).
+             * @return The underlying size_m containing the window's size
+             * information.
              */
-            virtual const arma::Col<int>& size() override;
+            virtual size_m<int>& size() override;
 
 
-            /** Sets the window's size.
+            /** Sets the window's size to that of the given column vector.
              *
-             * @param size Col vector containing the window's size (w in 0 and h
-             * in 1).
+             * @param ps The column vector denoting how large the window should
+             * be.
              */
-            virtual void size(const arma::Col<int>& size) override;
+            virtual void size(const arma::Col<int>& ps) override;
+
+
+            /** Gets a column vector containing the bounding rectangle for this
+             * window. The vector contains (x, y, width, height).
+             *
+             * @return A column vector containing the bounding rectangle for the
+             * window with coordinates denoted by (x, y, width, height).
+             */
+            virtual arma::Col<int> rect() override;
+
+
+            /** Sets the bounding rectangle for this window.
+             *
+             * @param r A column vector containing the (x, y, width, height) to
+             * set this window to.
+             */
+            virtual void rect(arma::Col<int> r) override;
 
 
             /** Gets the window's current title.

@@ -2,13 +2,13 @@
 #define DISPLAY_MODE_H
 
 #include "pixel_format.h"
-#include "../mutable_size.h"
+#include "../size.h"
 
 namespace zr {
 
     // Class which delivers information about the display mode.
     // Wrapper for https://wiki.libsdl.org/SDL_DisplayMode
-    class display_mode_config : public mutable_size<int> {
+    class display_mode_config : public size_m<int> {
         private:
 
             // Information that can be retrieved given a pixel format. Display

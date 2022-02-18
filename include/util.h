@@ -1,6 +1,13 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#define GET(dt, name) const dt& name()
+#define SET(dt, name) void name(const dt& name_val)
+
+#define DEFINE_GET(dt, cla, name) const dt& cla::name()
+#define DEFINE_SET(dt, cla, name) void cla::name(const dt& name_val)
+
+
 #include <vector>
 
 template <typename T>

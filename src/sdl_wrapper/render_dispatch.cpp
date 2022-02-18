@@ -47,19 +47,19 @@ namespace zr {
         // If we have the following sequence
         //
         // render_dispatch dispatch_1 = renderer.copy();
-        // renderer.set_target(another_texture);
+        // renderer.target(another_texture);
         // dispatch_1.to(a_third_texture);
         //
         // we have to make sure that the dispatch copies its original contents
         // when the renderer was copied rather than the new target, making the
         // renderer relatively agnostic of its dispatchs. To do this, we save
         // and restore the current target of the renderer.
-        texture* temp = r->get_target();
-        r->set_target(t);
+        texture* temp = r->target();
+        r->target(t);
         int failure = SDL_RenderCopy(r->r, this->t->t, src, dst);
 
         // Don't want to try and set the target to NULL if there was no target!
-        if(temp != NULL) r->set_target(temp);
+        if(temp != NULL) r->target(temp);
 
         // Clean up before potential failures.
         delete src;
@@ -103,19 +103,19 @@ namespace zr {
         // If we have the following sequence
         //
         // render_dispatch dispatch_1 = renderer.copy();
-        // renderer.set_target(another_texture);
+        // renderer.target(another_texture);
         // dispatch_1.to(a_third_texture);
         //
         // we have to make sure that the dispatch copies its original contents
         // when the renderer was copied rather than the new target, making the
         // renderer relatively agnostic of its dispatchs. To do this, we save
         // and restore the current target of the renderer.
-        texture* temp = r->get_target();
-        r->set_target_window();
+        texture* temp = r->target();
+        r->target_window();
         int failure = SDL_RenderCopy(r->r, t->t, src, dst);
 
         // Don't want to try and set the target to NULL if there was no target!
-        if(temp != NULL) r->set_target(t);
+        if(temp != NULL) r->target(t);
 
         delete src;
         delete dst;

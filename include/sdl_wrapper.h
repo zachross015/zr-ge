@@ -1,0 +1,8 @@
+#include "sdl_wrapper/blend_mode.h"
+#include "sdl_wrapper/color.h"
+#include "sdl_wrapper/display_mode_config.h"
+#include "sdl_wrapper/pixel_format.h"
+#include "sdl_wrapper/render_dispatch.h"
+#include "sdl_wrapper/renderer.h"
+#include "sdl_wrapper/texture.h"
+#include "sdl_wrapper/window.h"

@@ -100,7 +100,7 @@ namespace  zr {
              *
              * @return the alpha level between 0 and 255.
              */
-            unsigned char get_alpha();
+            unsigned char alpha();
 
 
             /** Set an additional alpha value multiplied into render copy
@@ -119,7 +119,7 @@ namespace  zr {
              *
              * @param alpha The alpha value to set this texture to.
              */
-            void set_alpha(unsigned char alpha);
+            void alpha(unsigned char alpha);
 
 
             /** Get the blend mode used for drawing operations.
@@ -128,7 +128,7 @@ namespace  zr {
              *
              * @return Associate blend mode.
              */
-            blend_mode get_blend_mode();
+            blend_mode mode();
 
 
             /** Set the blend mode used for drawing operations.
@@ -137,7 +137,7 @@ namespace  zr {
              *
              * @param bm Associate blend mode.
              */
-            void set_blend_mode(const blend_mode& bm);
+            void mode(const blend_mode& bm);
             
 
             /** Get the additional color value multiplied into render copy
@@ -151,7 +151,7 @@ namespace  zr {
              *
              * @todo Implement this
              */
-            color get_color_overlay();
+            const color& color_overlay();
 
 
             /** Set an additional color value multiplied into render copy
@@ -169,7 +169,7 @@ namespace  zr {
              *
              * @param c The color to set this color overlay to.
              */
-            void set_color_overlay(const color& c);
+            void color_overlay(const color& c);
 
 
             /** Returns the pixel format this texture was initialized to.  
@@ -182,7 +182,7 @@ namespace  zr {
              *
              * @return The pixel format this texture was initialized to.
              */
-            const pixel_format& get_pixel_format();
+            const pixel_format& format();
 
 
             /** Returns the texture access this texture was initialized to.
@@ -191,7 +191,7 @@ namespace  zr {
              *
              * @return The texture access level for this texture.
              */
-            const texture_access& get_texture_access();
+            const texture_access& access();
             
 
             // TODO: The following still need to be implemented. It might be

@@ -56,7 +56,14 @@ namespace zr {
     std::ostream& operator<<(std::ostream& out, const window_state& ws);
 
 
-    class window : public size<int> {
+    /** Window
+     *
+     * @todo For a speed benefit down the line, it may be worthwile to consider
+     * storing all the get/set variables and returing constant references to
+     * them. This way, we aren't reinitializing things constantly.
+     *
+     */
+    class window : public mutable_size<int> {
         private:
 
             SDL_Window* w;    
@@ -129,7 +136,7 @@ namespace zr {
              * @return 4d column vector containing the borders with order (top,
              * left, bottom, right);
              */
-            arma::Col<int> get_borders_size();
+            arma::Col<int> borders_size();
 
 
             /** Set the border state of the window.
@@ -137,7 +144,7 @@ namespace zr {
              * @param b True if the window should have a border, false
              * otherwise.
              */
-            void set_bordered(bool b);
+            void bordered(bool b);
 
 
             /** Get the index of the display associated with this window.
@@ -146,7 +153,7 @@ namespace zr {
              *
              * @return Index of the display.
              */
-            int get_display_index();
+            int display_index();
 
 
             /** Query the display mode to use when a window is visible at
@@ -157,28 +164,28 @@ namespace zr {
              * @return A display_mode_config structure filled in with the fullscreen
              * display mode
              */
-            display_mode_config get_display_mode_config();
+            display_mode_config display_mode();
 
 
             /** Set the display mode to use when a window is visible at
              * fullscreen.
              *
              * @remark Only affects the display mode used when the window is in
-             * fullscreen. Otherwise, window::set_size() should be used instead.
+             * fullscreen. Otherwise, window::size() should be used instead.
              *
              * @throw sdl_exception
              *
              * @return A display_mode_config structure filled in with the fullscreen
              * display mode
              */
-            void set_display_mode_config(display_mode_config dm);
+            void display_mode(display_mode_config dm);
 
 
             /** Retrieves the list of states the current window is subject to.
              *
              * @return List of window states the current window has.
              */
-            std::vector<window_state> get_states();
+            std::vector<window_state> states();
 
 
             /** Determines if the mouse is confined to this window.
@@ -194,52 +201,52 @@ namespace zr {
              * @return true if the mouse is confined to this window, false
              * otherwise.
              */
-            void set_mouse_trapped(bool tf);
+            void mouse_trapped(bool tf);
 
 
             /** Confines the mouse to the screen.
              */
-            void trap_mouse() { set_mouse_trapped(true); }
+            void trap_mouse() { mouse_trapped(true); }
 
 
             /** Releases the mouse from the screen.
              */
-            void release_mouse() { set_mouse_trapped(false); }
+            void release_mouse() { mouse_trapped(false); }
 
 
             /** Retrieves this windows identifier.
              *
              * @return Identifier associated with this window.
              */
-            unsigned int get_id();
+            unsigned int id();
 
 
             /** Gets the maximum size the window is allowed to grow to.
              *
              * @return row vector containing the maximum size of the window.
              */
-            arma::ivec get_max_size();
+            arma::ivec max_size();
 
 
             /** Sets the maximum size of the window
              *
              * @param size Row vector containing the preferred maximum sizing.
              */
-            void set_max_size(const arma::ivec& size);
+            void max_size(const arma::ivec& size);
 
 
             /** Gets the minimum size the window is allowed to grow to.
              *
              * @return row vector containing the minimum size of the window.
              */
-            arma::ivec get_min_size();
+            arma::ivec min_size();
 
 
             /** Sets the minimum size of the window
              *
              * @param size Row vector containing the preferred minimum sizing.
              */
-            void set_min_size(const arma::ivec& size);
+            void min_size(const arma::ivec& size);
 
             
             /** Gets the opacity of this window. Takes on a value between 0.0
@@ -253,7 +260,7 @@ namespace zr {
              *
              * @return Window opacity
              */
-            float get_opacity();
+            float opacity();
 
 
             /** Sets the opacity of this window. Should be a value between 0.0
@@ -264,7 +271,7 @@ namespace zr {
              * @throw sdl_exception Error that may occur if the OS doesn't
              * support alternate opacities.
              */
-            void set_opacity(float o);
+            void opacity(float o);
 
 
             /** Gets the window's position.
@@ -272,7 +279,7 @@ namespace zr {
              * @return Row vector containing the window's position (x in 0 and y
              * in 1).
              */
-            arma::ivec get_pos();
+            arma::ivec pos();
 
 
             /** Sets the window's position.
@@ -280,7 +287,7 @@ namespace zr {
              * @param pos Row vector containing the window's position (x in 0 and y
              * in 1).
              */
-            void set_pos(const arma::ivec& pos);
+            void pos(const arma::ivec& pos);
 
 
             /** Gets the window's width.
@@ -288,7 +295,7 @@ namespace zr {
              * @return Col vector containing the window's width (w in 0 and h
              * in 1).
              */
-            virtual const int& get_width() override;
+            virtual const int& width() override;
 
 
             /** Sets the window's width.
@@ -296,7 +303,7 @@ namespace zr {
              * @param width Col vector containing the window's width (w in 0 and h
              * in 1).
              */
-            virtual void set_width(const int& width) override;
+            virtual void width(const int& width) override;
 
 
             /** Gets the window's height.
@@ -304,7 +311,7 @@ namespace zr {
              * @return Col vector containing the window's height (w in 0 and h
              * in 1).
              */
-            virtual const int& get_height() override;
+            virtual const int& height() override;
 
 
             /** Sets the window's height.
@@ -312,7 +319,7 @@ namespace zr {
              * @param height Col vector containing the window's height (w in 0 and h
              * in 1).
              */
-            virtual void set_height(const int& height) override;
+            virtual void height(const int& height) override;
 
 
             /** Gets the window's size.
@@ -320,7 +327,7 @@ namespace zr {
              * @return Col vector containing the window's size (w in 0 and h
              * in 1).
              */
-            virtual const arma::Col<int>& get_size() override;
+            virtual const arma::Col<int>& size() override;
 
 
             /** Sets the window's size.
@@ -328,21 +335,21 @@ namespace zr {
              * @param size Col vector containing the window's size (w in 0 and h
              * in 1).
              */
-            virtual void set_size(const arma::Col<int>& size) override;
+            virtual void size(const arma::Col<int>& size) override;
 
 
             /** Gets the window's current title.
              *
              * @return The window's title.
              */
-            std::string get_title();
+            std::string title();
 
 
             /** Sets the window's current title.
              *
              * @param title The window's title.
              */
-            void set_title(const std::string& title);
+            void title(const std::string& title);
 
 
             /** Makes the window as large as possible.

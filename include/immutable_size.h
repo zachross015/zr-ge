@@ -51,21 +51,21 @@ namespace zr {
              *
              * @return The width of the container.
              */
-            virtual const T& get_width() { return s(0); };
+            virtual const T& width() { return s(0); };
 
 
             /** Gets the height this class is storing.
              *
              * @return The height of the container.
              */
-            virtual const T& get_height() { return s(1); };
+            virtual const T& height() { return s(1); };
 
 
             /** Gets the size this class is storing.
              *
              * @return The size of the container.
              */
-            virtual const arma::Col<T>& get_size() { return s; };
+            virtual const arma::Col<T>& size() { return s; };
     };
 
 } /* zr  */ 

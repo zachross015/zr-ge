@@ -38,21 +38,25 @@ namespace zr {
         if(r == NULL) {
             throw sdl_exception("[renderer::renderer] Error loading in renderer.");
         }
+
+        // Default to alpha blending since this seems like the expected
+        // behavior.
+        blend(blend_mode::blend);
     }
 
 
     renderer::~renderer() {
 
         // Clean up target 
-        target = 0;
-        delete target;
+        tar = 0;
+        delete tar;
 
         // Clean up renderer
         SDL_DestroyRenderer(r);
     }
 
 
-    blend_mode renderer::get_blend_mode() {
+    blend_mode renderer::blend() {
         SDL_BlendMode bm;
         int failure = SDL_GetRenderDrawBlendMode(r, &bm);
         if (failure) {
@@ -62,7 +66,7 @@ namespace zr {
     }
 
 
-    void renderer::set_blend_mode(const blend_mode& bm) {
+    void renderer::blend(const blend_mode& bm) {
         SDL_BlendMode mode = static_cast<SDL_BlendMode>(bm);
         if(SDL_SetRenderDrawBlendMode(r, mode)) {
             throw sdl_exception("[renderer::set_blend_mode] Error setting the blend mode.");
@@ -70,7 +74,7 @@ namespace zr {
     }
 
 
-    color renderer::get_draw_color() {
+    color renderer::draw_color()  {
         color c;
         if(SDL_GetRenderDrawColor(r, &c.r, &c.g, &c.b, &c.a)) {
             throw sdl_exception("[renderer::get_draw_color] Error getting the draw color.");
@@ -79,14 +83,14 @@ namespace zr {
     }
 
 
-    void renderer::set_draw_color(const color& c) {
+    void renderer::draw_color(const color& c) {
         if(SDL_SetRenderDrawColor(r, c.r, c.g, c.b, c.a)) {
             throw sdl_exception("[renderer::set_draw_color] Error setting the draw color.");
         }
     }
 
 
-    arma::Col<int> renderer::get_output_size() {
+    arma::Col<int> renderer::output_size() {
         int w, h;
         if(SDL_GetRendererOutputSize(r, &w, &h)) {
             throw sdl_exception("[renderer::get_output_size]");
@@ -165,14 +169,14 @@ namespace zr {
     }
 
 
-    arma::Col<int> renderer::get_clip_rect() {
+    arma::Col<int> renderer::clip_rect() {
         SDL_Rect rect;
         SDL_RenderGetClipRect(r, &rect);
         return { rect.x, rect.y, rect.w, rect.h };
     }
 
 
-    void renderer::set_clip_rect(const arma::Col<int>& cr) {
+    void renderer::clip_rect(const arma::Col<int>& cr) {
         SDL_Rect rect = { cr(0), cr(1), cr(2), cr(3) };
         if(SDL_RenderSetClipRect(r, &rect)) {
             throw sdl_exception("[renderer::set_clip_rect]");
@@ -185,49 +189,49 @@ namespace zr {
     }
 
 
-    void renderer::set_force_integer_scales(bool tf) {
+    void renderer::force_integer_scales(bool tf) {
         if(SDL_RenderSetIntegerScale(r, tf ? SDL_TRUE : SDL_FALSE)) {
             throw sdl_exception("[renderer::set_force_integer_scales]");
         }
     }
 
 
-    arma::Col<int> renderer::get_logical_size() {
+    arma::Col<int> renderer::logical_size() {
         int w, h;
         SDL_RenderGetLogicalSize(r, &w, &h);
         return {w, h};
     }
 
 
-    void renderer::set_logical_size(const arma::Col<int>& ls) {
+    void renderer::logical_size(const arma::Col<int>& ls) {
         if(SDL_RenderSetLogicalSize(r, ls(0), ls(1))) {
             throw sdl_exception("[renderer::set_logical_size]");
         }
     }
 
 
-    arma::Col<float> renderer::get_scale() {
+    arma::Col<float> renderer::scale() {
         float x, y;
         SDL_RenderGetScale(r, &x, &y); 
         return {x, y};
     }
 
 
-    void renderer::set_scale(const arma::Col<float>& s) {
+    void renderer::scale(const arma::Col<float>& s) {
         if(SDL_RenderSetScale(r, s(0), s(1))) {
             throw sdl_exception("[renderer::set_scale]");
         }
     }
 
 
-    arma::Col<int> renderer::get_viewport() {
+    arma::Col<int> renderer::viewport() {
         SDL_Rect rect;
         SDL_RenderGetViewport(r, &rect);
         return {rect.x, rect.y, rect.w, rect.h};
     }
 
 
-    void renderer::set_viewport(const arma::Col<int>& vp) {
+    void renderer::viewport(const arma::Col<int>& vp) {
         SDL_Rect rect = { vp(0), vp(1), vp(2), vp(3) }; 
         if(SDL_RenderSetViewport(r, &rect)) {
             throw sdl_exception("[renderer::set_viewport]");
@@ -246,31 +250,31 @@ namespace zr {
 
 
     render_dispatch renderer::copy(const arma::Col<int>& source_rect) {
-        if(target == NULL) throw input_exception("[renderer::copy] This function should only be called when a texture is being targeted, since a copy can not perform a copy when the target is the window. The default behavior under this condition is the renderer will draw to the window unconditionally.");
-        return render_dispatch(this, target, source_rect);
+        if(tar == NULL) throw input_exception("[renderer::copy] This function should only be called when a texture is being targeted, since a copy can not perform a copy when the target is the window. The default behavior under this condition is the renderer will draw to the window unconditionally.");
+        return render_dispatch(this, tar, source_rect);
     }
 
 
-    void renderer::set_target_window() {
-        this->target = NULL;
+    void renderer::target_window() {
+        this->tar = NULL;
         SDL_SetRenderTarget(r, NULL); 
     }
 
 
-    void renderer::set_target(texture* t) {
+    void renderer::target(texture* t) {
         if(t == NULL || t == nullptr) {
             throw input_exception("[renderer::set_target] Attempted to pass a null pointer as a target to the renderer. Make sure the texture has been initialized before sending it.");
-        } else if(t->get_texture_access() != texture_access::target_access) {
+        } else if(t->access() != texture_access::target_access) {
             throw input_exception("[renderer::set_target] Attempted to pass a texture with an invalid access type. Must have texture_access::target_access.");
         }
 
-        this->target = t;
+        this->tar = t;
         SDL_SetRenderTarget(r, t->t); 
     }
 
 
-    texture* renderer::get_target() {
-        return target;
+    texture* renderer::target() {
+        return tar;
     }
 
 } /* zr  */ 

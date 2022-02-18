@@ -179,7 +179,7 @@ namespace zr {
              * @return The format specifier (i.e. the wrapped
              * SDL_PixelFormatEnum)
              */
-            pixel_format_specifier get_format_specifier();
+            const pixel_format_specifier& specifier() const;
 
 
             /** Pixel type for this pixel format.
@@ -191,7 +191,7 @@ namespace zr {
              *
              * @return The pixel type (i.e. the wrapped SDL_PIXELTYPE macro)
              */
-            pixel_type get_type();
+            const pixel_type& type() const;
 
 
             /** Pixel layout specifically for packed pixel formats.
@@ -203,7 +203,7 @@ namespace zr {
              * components get 5 bytes while the last pixel only has one byte.
              *
              */
-            pixel_layout get_layout();
+            const pixel_layout& layout() const;
 
             
             /** Pixel ordering for this pixel format.
@@ -215,21 +215,21 @@ namespace zr {
              *
              * @return The pixel ordering (i.e. the wrapped SDL_PIXELORDER macro)
              */
-            pixel_order get_order();
+            const pixel_order& order() const;
 
 
             /** Number of bits per pixel are allowed in this pixel format.
              *
              * @return The number of bits.
              */
-            char get_bits_per_pixel();
+            char bits_per_pixel();
 
 
             /** Number of bytes per pixel are allowed in this format.
              *
              * @return The number of bytes.
              */
-            char get_bytes_per_pixel();
+            char bytes_per_pixel();
 
 
             /** Whether or not this format is one of the indexed pixel formats

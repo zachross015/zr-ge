@@ -65,7 +65,7 @@ namespace zr {
     }
 
 
-    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) : size(w, h) {
+    window::window(std::string title, int x, int y, int w, int h, const std::vector<window_state>& states) : mutable_size(w, h) {
         // Initialize the video device if not already initizlied. If an error
         // occurs, handle it.
         if (!SDL_WasInit(SDL_INIT_VIDEO)) {
@@ -116,54 +116,54 @@ namespace zr {
     }
 
 
-    arma::Col<int> window::get_borders_size() {
+    arma::Col<int> window::borders_size() {
         int t, l, b, r;
         if(SDL_GetWindowBordersSize(w, &t, &l, &b, &r)) {
-            throw sdl_exception("[window::get_borders_size] Error when trying to get the borders size for the window.");
+            throw sdl_exception("[window::borders_size] Error when trying to get the borders size for the window.");
         }
         return {t, l, b, r};
     }
 
 
-    void window::set_bordered(bool b) {
+    void window::bordered(bool b) {
         SDL_SetWindowBordered(w,  b ? SDL_TRUE : SDL_FALSE);
     }
 
 
-    int window::get_display_index() {
+    int window::display_index() {
         int index = SDL_GetWindowDisplayIndex(w);
         if(index < 0) {
-            throw sdl_exception("[window::get_display_index] Error in getting window display index.");
+            throw sdl_exception("[window::display_index] Error in getting window display index.");
         }
         return index;
     }
 
 
-    display_mode_config window::get_display_mode_config() {
+    display_mode_config window::display_mode() {
         SDL_DisplayMode mode;
         int failure = SDL_GetWindowDisplayMode(w, &mode);
         if(failure) {
-            throw sdl_exception("[window::get_display_mode_config] Error in retrieving the display mode for the current window.");
+            throw sdl_exception("[window::display_mode_config] Error in retrieving the display mode for the current window.");
         }
         return display_mode_config(mode);
     }
 
 
-    void window::set_display_mode_config(display_mode_config dm) {
-        SDL_DisplayMode mode;
-        mode.format = static_cast<SDL_PixelFormatEnum>(dm.get_pixel_format().get_format_specifier());
-        mode.w = dm.get_width();
-        mode.h = dm.get_height();
-        mode.refresh_rate = dm.get_refresh_rate();
-        mode.driverdata = dm.get_driver_data();
-        int failure = SDL_SetWindowDisplayMode(w, &mode);
+    void window::display_mode(display_mode_config dm) {
+        SDL_DisplayMode mo;
+        mo.format = static_cast<SDL_PixelFormatEnum>(dm.format().specifier());
+        mo.w = dm.width();
+        mo.h = dm.height();
+        mo.refresh_rate = dm.refresh_rate();
+        mo.driverdata = dm.driver_data();
+        int failure = SDL_SetWindowDisplayMode(w, &mo);
         if(failure) {
-            throw sdl_exception("[window::set_display_mode_config] Error when setting the window's display mode.");
+            throw sdl_exception("[window::set_display_mo_config] Error when setting the window's display mo.");
         }
     }
 
 
-    std::vector<window_state> window::get_states() {
+    std::vector<window_state> window::states() {
         return flags_to_enums(SDL_GetWindowFlags(w), all_window_states());
     }
 
@@ -173,126 +173,126 @@ namespace zr {
     }
 
 
-    void window::set_mouse_trapped(bool tf) {
+    void window::mouse_trapped(bool tf) {
         SDL_SetWindowGrab(w, tf ? SDL_TRUE : SDL_FALSE);
     }
 
 
-    unsigned int window::get_id() {
+    unsigned int window::id() {
         return SDL_GetWindowID(w);
     }
 
-    arma::ivec window::get_max_size() {
+    arma::ivec window::max_size() {
         int w, h;
         SDL_GetWindowMaximumSize(this->w, &w, &h);
         return {w, h};
     }
 
 
-    void window::set_max_size(const arma::ivec& size) {
+    void window::max_size(const arma::ivec& size) {
         SDL_SetWindowMaximumSize(w, size(0), size(1)); 
     }
 
 
-    arma::ivec window::get_min_size() {
+    arma::ivec window::min_size() {
         int w, h;
         SDL_GetWindowMinimumSize(this->w, &w, &h);
         return {w, h};
     }
 
 
-    void window::set_min_size(const arma::ivec& size) {
+    void window::min_size(const arma::ivec& size) {
         SDL_SetWindowMinimumSize(w, size(0), size(1)); 
     }
 
 
-    float window::get_opacity() {
+    float window::opacity() {
         float o;
         int failure = SDL_GetWindowOpacity(w, &o);  
         if(failure) {
-            throw sdl_exception("[window::get_window_opacity] Error getting window opacity.");
+            throw sdl_exception("[window::window_opacity] Error getting window opacity.");
         }
         return o;
     }
 
 
-    void window::set_opacity(float o) {
+    void window::opacity(float o) {
         int failure = SDL_SetWindowOpacity(w, o);  
         if(failure) {
-            throw sdl_exception("[window::set_window_opacity] Error setting window opacity. This system may not support alternate window opacities.");
+            throw sdl_exception("[window::window_opacity] Error setting window opacity. This system may not support alternate window opacities.");
         }
     }
 
-    arma::ivec window::get_pos() {
+    arma::ivec window::pos() {
         int w, h;
         SDL_GetWindowPosition(this->w, &w, &h);
         return {w, h};
     }
 
-    void window::set_pos(const arma::ivec& pos) {
+    void window::pos(const arma::ivec& pos) {
         SDL_SetWindowPosition(w, pos(0), pos(1)); 
     }
 
-    const int& window::get_width() {
+    const int& window::width() {
         // Need to update the internal size variables since the screen size is
         // susceptible to change.
-        get_size();
-        return size::get_width();
+        size();
+        return mutable_size::width();
     }
 
 
-    void window::set_width(const int& width) {
+    void window::width(const int& width) {
         // Need to update the internal size variables since the screen size is
         // susceptible to change. This way, we can update the screen width
         // without interfering with the height (something not enabled in the
         // default SDL mode.
-        get_size();
-        SDL_SetWindowSize(w, width, size::get_height()); 
+        size();
+        SDL_SetWindowSize(w, width, mutable_size::height()); 
     }
 
 
-    const int& window::get_height() {
+    const int& window::height() {
         // Need to update the internal size variables since the screen size is
         // susceptible to change.
-        get_size();
-        return size::get_height();
+        size();
+        return mutable_size::height();
     }
 
 
-    void window::set_height(const int& height) {
+    void window::height(const int& height) {
         // Need to update the internal size variables since the screen size is
         // susceptible to change. This way, we can update the screen width
         // without interfering with the width (something not enabled in the
         // default SDL mode.)
-        get_size();
-        SDL_SetWindowSize(w, size::get_width(), height); 
+        size();
+        SDL_SetWindowSize(w, mutable_size::width(), height); 
     }
 
-    const arma::Col<int>& window::get_size() {
+    const arma::Col<int>& window::size() {
 
         // Get inital variables
-        int w, h;
+        int wi, h;
 
         // Note that it is possible for the window to resize. Since our stored
         // size isn't necessarily attached to those values, we have to update
         // our stored values and return those.
-        SDL_GetWindowSize(this->w, &w, &h);
-        size::set_size({w, h});
-        return size::get_size();
+        SDL_GetWindowSize(this->w, &wi, &h);
+        mutable_size::size({wi, h});
+        return mutable_size::size();
     }
 
-    void window::set_size(const arma::Col<int>& size) {
-        size::set_size(size);
+    void window::size(const arma::Col<int>& size) {
+        mutable_size::size(size);
         SDL_SetWindowSize(w, size(0), size(1)); 
     }
 
 
-    std::string window::get_title() {
+    std::string window::title() {
         return std::string(SDL_GetWindowTitle(w));
     }
 
 
-    void window::set_title(const std::string& s) {
+    void window::title(const std::string& s) {
         SDL_SetWindowTitle(w, s.c_str());
     }
 

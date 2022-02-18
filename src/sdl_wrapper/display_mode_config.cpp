@@ -3,7 +3,7 @@
 
 namespace zr {
 
-    display_mode_config::display_mode_config(SDL_DisplayMode dm) : pf(static_cast<pixel_format_specifier>(dm.format)), size<int>(dm.w, dm.h) {
+    display_mode_config::display_mode_config(SDL_DisplayMode dm) : pf(static_cast<pixel_format_specifier>(dm.format)), mutable_size<int>(dm.w, dm.h) {
 
         // Save the rest of the variables
         this->rr = dm.refresh_rate;
@@ -11,16 +11,22 @@ namespace zr {
 
     }
 
+
     display_mode_config::~display_mode_config() {};
 
-    pixel_format display_mode_config::get_pixel_format() { return pf; }
 
-    int display_mode_config::get_refresh_rate() { return rr; }
+    const pixel_format& display_mode_config::format() const { return pf; }
 
-    void display_mode_config::set_refresh_rate(int r) { rr = r; }
+    void display_mode_config::format(const pixel_format& pf) { this->pf = pf; }
 
-    void* display_mode_config::get_driver_data() { return dd; }
 
-    void display_mode_config::set_driver_data(void* d) { dd = d; }
+    int display_mode_config::refresh_rate() { return rr; }
+
+    void display_mode_config::refresh_rate(int r) { rr = r; }
+
+
+    void* display_mode_config::driver_data() { return dd; }
+
+    void display_mode_config::driver_data(void* d) { dd = d; }
 
 } /* zr */ 

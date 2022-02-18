@@ -24,17 +24,17 @@ namespace zr {
 
     pixel_format::~pixel_format() {};
 
-    pixel_format_specifier pixel_format::get_format_specifier() { return f; }
+    const pixel_format_specifier& pixel_format::specifier() const { return f; }
 
-    pixel_type pixel_format::get_type() { return t; }
+    const pixel_type& pixel_format::type() const { return t; }
 
-    pixel_order pixel_format::get_order() { return o; }
+    const pixel_order& pixel_format::order() const { return o; }
 
-    pixel_layout pixel_format::get_layout() { return l; }
+    const pixel_layout& pixel_format::layout() const { return l; }
 
-    char pixel_format::get_bits_per_pixel() { return bpp; }
+    char pixel_format::bits_per_pixel() { return bpp; }
 
-    char pixel_format::get_bytes_per_pixel() { return Bpp; }
+    char pixel_format::bytes_per_pixel() { return Bpp; }
 
     bool pixel_format::format_is_indexed() { return ipfi; }
 

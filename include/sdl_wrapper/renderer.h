@@ -57,7 +57,7 @@ namespace zr {
 
             // The target this renderer is drawing to. Currently NULL if we are
             // drawing to the window instead. See the todo in the defintion.
-            texture* target;
+            texture* tar;
 
         public:
 
@@ -89,7 +89,7 @@ namespace zr {
              *
              * @return Associate blend mode.
              */
-            blend_mode get_blend_mode();
+            blend_mode blend();
 
 
             /** Set the blend mode used for drawing operations.
@@ -98,14 +98,14 @@ namespace zr {
              *
              * @param bm Associate blend mode.
              */
-            void set_blend_mode(const blend_mode& bm);
+            void blend(const blend_mode& bm);
 
 
             /** Gets the the current color that this renderer is drawing in.
              *
              * @return The color this renderer is using to draw.
              */
-            color get_draw_color();
+            color draw_color();
 
             /** Tells the renderer which color to switch to.
              *
@@ -117,7 +117,7 @@ namespace zr {
              *
              * @param c The color that the renderer should switch to.
              */
-            void set_draw_color(const color& c);
+            void draw_color(const color& c);
 
 
             /** Return the size of the rendering window.
@@ -125,11 +125,11 @@ namespace zr {
              * @return Column vector containing the width (index 0) and height
              * (index 1).
              */
-            arma::Col<int> get_output_size();
+            arma::Col<int> output_size() ;
 
 
             /** Resets all pixels in the render to the current draw color. See
-             * `get_draw_color` and `set_draw_color` for more information on how
+             * `draw_color` for more information on how
              * to view or change what this color is.
              */
             void clear();
@@ -228,7 +228,7 @@ namespace zr {
              * @todo This may result in an error, especially if SDL_Rect* rect
              * turns out to be NULL if clipping is disabled.
              */
-            arma::Col<int> get_clip_rect();
+            arma::Col<int> clip_rect();
 
 
             /** Set the clip rectangle for rendering on the specified target.
@@ -239,7 +239,7 @@ namespace zr {
              * @param cr The clipping area matrix with entries as (x, y, w, h).
              * Note that this is relative to the viewport.
              */
-            void set_clip_rect(const arma::Col<int>& cr);
+            void clip_rect(const arma::Col<int>& cr);
 
 
             /** Get whether integer scales are forced for resolution-independent
@@ -258,7 +258,7 @@ namespace zr {
              *
              * @param tf True if they should be forced, false otherwise.
              */
-            void set_force_integer_scales(bool tf);
+            void force_integer_scales(bool tf);
 
 
             /** Get device independent resolution for rendering.
@@ -270,7 +270,7 @@ namespace zr {
              * @return 2D vector containing width (0) and height (1) for the
              * independent resolution size.
              */
-            arma::Col<int> get_logical_size();
+            arma::Col<int> logical_size();
 
 
             /** Set device independent resolution for rendering.
@@ -278,14 +278,14 @@ namespace zr {
              * @param ls 2D vector containing width (0) and height (1) for the
              * independent resolution size.
              */
-            void set_logical_size(const arma::Col<int>& ls);
+            void logical_size(const arma::Col<int>& ls);
 
 
             /** Get the drawing scale for the current target.
              *
              * @return 2D Drawing scale for the target (x, y)
              */
-            arma::Col<float> get_scale();
+            arma::Col<float> scale();
 
 
             /** Set the drawing scale for the current target.
@@ -294,14 +294,14 @@ namespace zr {
              *
              * @param s 2D Drawing scale for the target (x, y)
              */
-            void set_scale(const arma::Col<float>& s);
+            void scale(const arma::Col<float>& s);
 
 
             /** Get the drawing area for the current target.
              *
              * @return 2D Drawing area for the target (x, y)
              */
-            arma::Col<int> get_viewport();
+            arma::Col<int> viewport();
 
 
             /** Set the drawing area for the current target.
@@ -310,7 +310,7 @@ namespace zr {
              *
              * @param s 2D Drawing area for the target (x, y)
              */
-            void set_viewport(const arma::Col<int>& vp);
+            void viewport(const arma::Col<int>& vp);
 
 
             /** Get whether clipping is enabled on this renderer.
@@ -353,7 +353,7 @@ namespace zr {
              * @param t A pointer to the texture which this renderer should
              * target for drawing operations.
              */
-            void set_target(texture* t);
+            void target(texture* t);
 
 
             /** Get the texture this renderer is currently targeting.
@@ -364,7 +364,7 @@ namespace zr {
              * @return The texture this renderer is targetting or NULL if the the
              * window is targetted.
              */
-            texture* get_target();
+            texture* target();
 
 
             /** Sets the target of this renderer to the window it was
@@ -374,7 +374,7 @@ namespace zr {
              * standard) so when this function is called, the renderer is
              * defaulted back to its original rendering medium. 
              */
-            void set_target_window();
+            void target_window();
 
 
             /** Creates a render dispatched for determining where this renderer

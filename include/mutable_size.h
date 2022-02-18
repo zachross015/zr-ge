@@ -10,7 +10,7 @@ namespace zr {
      * Includes getter and setter access.
      */
     template <class T>
-    class size {
+    class mutable_size {
 
         private:
             arma::Col<T> s;
@@ -23,7 +23,7 @@ namespace zr {
              * @param width  The width of the size class
              * @param height The height of the size class
              */
-            size(T width, T height) : s({width, height}) {};
+            mutable_size(T width, T height) : s({width, height}) {};
 
 
             /** Constructor for mutable_size given a column vector containing
@@ -35,58 +35,58 @@ namespace zr {
              *
              * @param size The column vector to initalize this size class to.
              */
-            size(arma::Col<T> size) : s(size) { 
+            mutable_size(arma::Col<T> size) : s(size) { 
                 if(size.n_rows != 2) {
-                    throw input_exception("[mutable_size::mutable_size] Invalid input dimensions for mutable size. Must have exactly two elements for width and height in that order.");
+                    throw input_exception("[mutable_size::mutable_size] Invalid input dimensions for mutable size. Must have exactly two elements for width and height (in that order).");
                 }
             };
 
 
             /** Deconstructor for the size class.
              */
-            virtual ~size() {};
+            virtual ~mutable_size() {};
             
 
             /** Sets the width this class is storing.
              *
              * @param width The width to set this container to.
              */
-            virtual void set_width(const T& width) { s(0) = width; };
+            virtual void width(const T& width) { s(0) = width; };
 
 
             /** Gets the width this class is storing.
              *
              * @return The width of the container.
              */
-            virtual const T& get_width() { return s(0); };
+            virtual const T& width() { return s(0); };
 
 
             /** Sets the height this class is storing.
              *
              * @param height The height to set this container to.
              */
-            virtual void set_height(const T& height) { s(1) = height; };
+            virtual void height(const T& height) { s(1) = height; };
 
 
             /** Gets the height this class is storing.
              *
              * @return The height of the container.
              */
-            virtual const T& get_height() { return s(1); };
+            virtual const T& height() { return s(1); };
 
 
             /** Sets the size this class is storing.
              *
              * @param size The size to set this container to.
              */
-            virtual void set_size(const arma::Col<T>& size) { s = size; };
+            virtual void size(const arma::Col<T>& size) { s = size; };
 
 
             /** Gets the size this class is storing.
              *
              * @return The size of the container.
              */
-            virtual const arma::Col<T>& get_size() { return s; };
+            virtual const arma::Col<T>& size() { return s; };
     };
 
 } /* zr  */ 

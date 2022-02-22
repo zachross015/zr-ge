@@ -38,6 +38,9 @@ struct square : public zr::renderable {
     }
 };
 
+// TODO: Need to combine the rendering architecture with ECS. It should be a prerequisite that if a component is to be rendered, it must at least have
+// both a position and renderable. Otherwise, how would it be rendered? Or like how else would we see it lol.
+
 int main(int argc, char* argv[]) {
 
     zr::window window = zr::window("Hello", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, { zr::opengl, zr::resizable });

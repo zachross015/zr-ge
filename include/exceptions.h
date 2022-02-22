@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 
 namespace zr {
@@ -36,6 +37,17 @@ namespace zr {
         std::string message;
         const char* what() const throw() { std::cout << " INPUT EXCEPTION " << message << std::endl; return ""; }
         input_exception(std::string m) : message(m) {};
+    };
+
+
+    /** Class of exceptions dealing with errors that occur within the SDL_image
+     * codebase. It restates the messages passed by SDL_image with some added
+     * information by the compiler.
+     */
+    struct sdl_img_exception: public std::exception {
+        std::string message;
+        const char* what() const throw() { std::cout << " SDL IMAGE EXCEPTION " << message << std::endl; return IMG_GetError(); }
+        sdl_img_exception(std::string m) : message(m) {};
     };
 }
 

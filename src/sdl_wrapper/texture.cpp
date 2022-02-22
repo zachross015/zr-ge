@@ -3,9 +3,9 @@
 namespace zr {
 
     texture::texture(const renderer& r, 
-                     const pixel_format_specifier& pfs, 
+                     const arma::Col<int>& size,
                      const texture_access& ta, 
-                     const arma::Col<int>& size) 
+                     const pixel_format_specifier& pfs)
         : size_i<int>(size),
           pf(pixel_format(pfs)),
           ta(ta) {
@@ -22,6 +22,25 @@ namespace zr {
         // the expected behavior.
         mode(blend_mode::blend);
     };
+
+    arma::Col<int> texture::pre_init_size(SDL_Texture* t) {
+        Uint32 format;
+        int w, h, a;
+        if(SDL_QueryTexture(t, &format, &a, &w, &h)) {
+            throw sdl_exception("[texture::pre_init_size] Error occurred when attempting to query the given texture. It's possible the texture was never initalized.");
+        }
+        return {w, h}; 
+    }
+
+    texture::texture(SDL_Texture* t) : t(t), size_i<int>(pre_init_size(t)), pf(pixel_format_specifier::unknown), ta(texture_access::static_access) {
+        Uint32 format;
+        int w, h, a;
+        if(SDL_QueryTexture(t, &format, &a, &w, &h)) {
+            throw sdl_exception("[texture::texture] Error occurred when attempting to query the given texture. It's possible the texture was never initalized.");
+        }
+        this->pf = pixel_format(static_cast<pixel_format_specifier>(format));
+        this->ta = static_cast<texture_access>(a);
+    }
 
 
     texture::~texture() {

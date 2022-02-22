@@ -7,10 +7,12 @@
 #include "blend_mode.h"
 #include "color.h"
 
+#include "renderable.h"
+
 namespace zr {
 
     class texture;
-    class render_dispatch;
+    class target_texture;
 
     /** Enumeration of the different renderer states permitted by SDL.
      */
@@ -18,7 +20,7 @@ namespace zr {
         software = SDL_RENDERER_SOFTWARE,
         accelerated = SDL_RENDERER_ACCELERATED,
         present_vsync = SDL_RENDERER_PRESENTVSYNC,
-        target_texture = SDL_RENDERER_TARGETTEXTURE
+        target_texture_state = SDL_RENDERER_TARGETTEXTURE
     };
 
     /** Retrieves the list of all possible render states for enumeration
@@ -50,14 +52,15 @@ namespace zr {
         private:
 
             friend class texture;
-            friend class render_dispatch;
+            friend class target_texture;
+            friend class image;
 
             // The underlying renderer we are drawing to.
             SDL_Renderer* r;
 
             // The target this renderer is drawing to. Currently NULL if we are
             // drawing to the window instead. See the todo in the defintion.
-            texture* tar;
+            target_texture* tar;
 
         public:
 
@@ -133,6 +136,13 @@ namespace zr {
              * to view or change what this color is.
              */
             void clear();
+
+
+            /** Resets all pixels in the render to the given draw color.
+             *
+             * @param cl The color to reset the screen to 
+             */
+            void clear(const color& cl);
 
 
             /** Draws the specified series of lines to this renderer. 
@@ -353,7 +363,7 @@ namespace zr {
              * @param t A pointer to the texture which this renderer should
              * target for drawing operations.
              */
-            void target(texture* t);
+            void target(target_texture* t);
 
 
             /** Get the texture this renderer is currently targeting.
@@ -364,7 +374,7 @@ namespace zr {
              * @return The texture this renderer is targetting or NULL if the the
              * window is targetted.
              */
-            texture* target();
+            target_texture* target();
 
 
             /** Sets the target of this renderer to the window it was
@@ -376,25 +386,36 @@ namespace zr {
              */
             void target_window();
 
-
             /** Creates a render dispatched for determining where this renderer
              * should copy its contents to. 
              *
              * When this method is called, the renderer begins the process of
              * copying its current target into a further specified target. This
-             * second target is specified in the render_dispatch and can either
-             * be another texture or just a window.
+             * second target is the one currently being targetted by the
+             * renderer.
              *
+             * @param t The texture to copy from.
              * @param source_rect The source rectangle of the texture to be
              * copied into a target. Note that if this source rectangle's size
-             * doesn't match that of the destinations (in render_dispatch), then 
+             * doesn't match that of the destinations (in render_drawer), then 
              * the source texture will be stretched based on its
              * texture_scaling_method.
-             *
-             * @return A render_dispatch instance containing the information
-             * needed to copy the current target to a specified target.
+             * @param dest_rect The destination rectangle in the currently
+             * targeted objet.
              */
-            render_dispatch copy(const arma::Col<int>& source_rect = {});
+            void copy(texture* t, const arma::Col<int>& source_rect = {}, const arma::Col<int>& dest_rect = {});
+
+            /** Renders the renderable object acccording to the instructions
+             * given by the object itself.
+             *
+             * Note that state information is stored prior to rendering, so the
+             * render commands act as a sandbox.
+             *
+             * @param r The object to render.
+             */
+            void render(renderable* r);
+
+
 
             // TODO: The following methods need to be implemented still for this
             // wrapper.

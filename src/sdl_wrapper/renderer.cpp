@@ -3,7 +3,6 @@
 #include <exceptions.h>
 #include <util.h>
 #include <exception>
-#include <sdl_wrapper/render_dispatch.h>
 
 namespace zr {
 
@@ -12,7 +11,7 @@ namespace zr {
             software,
             accelerated,
             present_vsync,
-            target_texture
+            target_texture_state
         };
         return std::vector<renderer_state>(all, all + sizeof(all) / sizeof(renderer_state));
     }
@@ -25,7 +24,7 @@ namespace zr {
             CV(software)
                 CV(accelerated)
                 CV(present_vsync)
-                CV(target_texture)
+                CV(target_texture_state)
         }       
 #undef CV
         out << s;
@@ -103,6 +102,16 @@ namespace zr {
         if(SDL_RenderClear(r)) {
             throw sdl_exception("[renderer::clear]"); 
         }
+    } 
+
+
+    void renderer::clear(const color& c) {
+        // Copy and swap the current draw color, clear the screen, then
+        // replace the original color.
+        color dc = draw_color();
+        draw_color(c);
+        clear();
+        draw_color(dc);
     } 
 
 
@@ -249,9 +258,41 @@ namespace zr {
     }
 
 
-    render_dispatch renderer::copy(const arma::Col<int>& source_rect) {
-        if(tar == NULL) throw input_exception("[renderer::copy] This function should only be called when a texture is being targeted, since a copy can not perform a copy when the target is the window. The default behavior under this condition is the renderer will draw to the window unconditionally.");
-        return render_dispatch(this, tar, source_rect);
+    void renderer::copy(texture* t, const arma::Col<int>& source_rect, const arma::Col<int>& dest_rect) {
+        if(t == NULL) throw input_exception("[renderer::copy] This function should only be called when a texture is being targeted, since a copy can not perform a copy when the target is the window. The default behavior under this condition is the renderer will draw to the window unconditionally.");
+
+        // Initialize source and destination rectangles to NULL. We do this
+        // since NULL is the default case, in which the entire of the source
+        // texture is copied into the entire of the destination location and is
+        // stretched where necessary. 
+        SDL_Rect *src = NULL, *dst = NULL;
+
+        if(!source_rect.is_empty()) {
+            src = new SDL_Rect();
+            src->x = source_rect(0);
+            src->y = source_rect(1);
+            src->w = source_rect(2);
+            src->h = source_rect(3);
+        }
+
+        if(!dest_rect.is_empty()) {
+            dst = new SDL_Rect();
+            dst->x = dest_rect(0);
+            dst->y = dest_rect(1);
+            dst->w = dest_rect(2);
+            dst->h = dest_rect(3);
+        }
+
+        int failure = SDL_RenderCopy(this->r, t->t, src, dst);
+
+
+        // Clean up before potential failures.
+        delete src;
+        delete dst;
+
+        if(failure) {
+            throw sdl_exception("[renderer::copy] Error in copying texture to target.");
+        }
     }
 
 
@@ -261,20 +302,37 @@ namespace zr {
     }
 
 
-    void renderer::target(texture* t) {
+    void renderer::target(target_texture* t) {
         if(t == NULL || t == nullptr) {
             throw input_exception("[renderer::set_target] Attempted to pass a null pointer as a target to the renderer. Make sure the texture has been initialized before sending it.");
-        } else if(t->access() != texture_access::target_access) {
-            throw input_exception("[renderer::set_target] Attempted to pass a texture with an invalid access type. Must have texture_access::target_access.");
-        }
+        } 
 
         this->tar = t;
         SDL_SetRenderTarget(r, t->t); 
     }
 
 
-    texture* renderer::target() {
+    target_texture* renderer::target() {
         return tar;
+    }
+
+    void renderer::render(renderable* r) {
+
+        // Get state information
+        auto b = blend();
+        auto d = draw_color();
+        auto s = scale();
+        auto v = viewport();
+
+        // Make render
+        r->render(this);
+
+        // Revert
+        blend(b);
+        draw_color(d);
+        scale(s);
+        viewport(v);
+
     }
 
 } /* zr  */ 

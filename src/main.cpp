@@ -5,31 +5,48 @@
 #include <cmath>
 
 #include <exceptions.h>
-#include <size.h>
+#include <underlying_types.h>
 
-#include<sdl_wrapper.h>
+#include <sdl_wrapper.h>
 
 #include <SDL.h>
+#include <SDL_image.h>
 
 #define SCREEN_WIDTH    800
 #define SCREEN_HEIGHT   600
 
+
+class test_drawing : public zr::renderable {
+    public: 
+        void render(zr::renderer* r) { 
+            r->draw_color({0, 0, 0, 255});
+            r->fill_rects({{500, 500, 100, 500}}); 
+        }
+};
+
+struct square : public zr::renderable {
+
+    zr::pos_m<float> pos;
+    float size;
+    zr::color color{255, 255, 255, 255};
+
+    square(zr::pos_m<float> pos, float s): pos(pos), size(s) {};
+
+    void render(zr::renderer*r) {
+        r->draw_color(color);
+        r->fill_rects({pos.x(), pos.y(), size, size});
+    }
+};
+
 int main(int argc, char* argv[]) {
 
     zr::window window = zr::window("Hello", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, { zr::opengl, zr::resizable });
-    window.title("Hello world");
-
-    window.rect({0, 0, 800, 800});
-
     zr::renderer renderer = zr::renderer(window, {zr::accelerated});
-    zr::texture texture = zr::texture(renderer, 
-            zr::pixel_format_specifier::argb_8888, 
-            zr::texture_access::target_access, 
-            {SCREEN_WIDTH, SCREEN_HEIGHT});
 
     int gameover = 0;
     SDL_Event event;
-    auto start = std::chrono::system_clock::now();
+
+    float size = 100;
 
     while(!gameover) {
         if(SDL_PollEvent(&event)) {
@@ -40,51 +57,27 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Calculate time differential
-        auto now = std::chrono::system_clock::now();
-        std::chrono::duration<float> elapsed_time = now - start;
-        float dt = elapsed_time.count();
-        
-        zr::size_m screen_size = window.size();
-        float x = screen_size.width() / 4.0;
-        float y = screen_size.height() / 4.0;
-        float w = screen_size.width() / 2.0;
-        float h = screen_size.height() / 2.0;
-
-        w *= cos(dt);
-        h *= cos(dt);
 
         // Clear the window
         renderer.target_window();
-        renderer.draw_color({ 0, 0, 0, 255 });
-        renderer.clear();
+        renderer.clear({ 0, 0, 0, 255 });
 
-        // Draw the lines
-        renderer.target(&texture);
-        renderer.draw_color({0, 0, 0, 0});
-        renderer.clear();
-        renderer.draw_color({ 255, 255, 255, 255 });
-
-        // Generate the random lines
-        auto s = window.size().size();
-        auto size = arma::conv_to<arma::fmat>::from(window.size().size());
-        arma::fmat A(100, 2, arma::fill::randu);
-        arma::fmat B = A * arma::diagmat(size);
-
-        renderer.draw_lines(B);
-        zr::render_dispatch rd = renderer.copy();
-
-        // Draw a square
-        renderer.target_window();
-        renderer.draw_color({ 255, 0, 0, 255 });
-        renderer.fill_rects({{x, y, w, h}});
-        rd.to_window({500, 0, 600, 900});
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                square s({i * size, j * size}, size);
+                int coloring = ((i + j) % 2) * 255;
+                s.color = {coloring, coloring, coloring, 255};
+                renderer.render(&s);
+            }
+        }
 
         // Copy the lines to the window
         renderer.present();
     }
 
     std::cout << window.max_size() << std::endl;
+
+    IMG_Quit();
     SDL_Quit();
     return 0;
 }

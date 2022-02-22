@@ -5,7 +5,8 @@
 #include "renderer.h"
 #include "pixel_format.h"
 #include "blend_mode.h"
-#include "../size.h"
+#include "renderable.h"
+#include "../underlying_types.h"
 
 namespace  zr {
 
@@ -30,38 +31,63 @@ namespace  zr {
     };
 
 
-    /**
+    /** Underlying class abstraction for a texture. The three derived class are
+     * notably static_texture, streaming_texture, and target_texture which all
+     * have different access rights depending on the use case.
      *
      * @todo Consider removing the public constructor in favor of a constructor
      * inside 'renderer'. I'm still unclear whether or not the texture needs to
      * be connected to a renderer, but it definitely needs a renderer for
      * construction. 
      * @todo Consider how to include the texture scaling methods.
-     * @todo Consider separating into several classes for dealing with the
-     * different access methods. This may be important since streaming textures
-     * have different methods while target_access is required for the renderer
-     * to be able to draw to this.
      */
     class texture : public size_i<int> {
         private:
 
-        friend class renderer;
-        friend class render_dispatch;
+            friend class renderer;
+            friend class render_drawer;
 
-        /** The underlying pixel format for this texture */
-        pixel_format pf;
-
-
-        /** The initalized access level for this texture. */
-        texture_access ta;
+            /** The underlying pixel format for this texture */
+            pixel_format pf;
 
 
-        /** Underlying SDL structure for the texture */
-        SDL_Texture* t;
+            /** The initalized access level for this texture. */
+            texture_access ta;
 
-        public:
 
-            /** Constructor for the class of textures. This creates a texture
+            /** Underlying SDL structure for the texture */
+            SDL_Texture* t = NULL;
+
+            /** Auxiliary Functions */
+
+            /** Initalization is a bitch and a half, but specifically parents
+             * HAVE to be initalized prior to any functions being run. This
+             * auxiliary function investigates the variables needed to
+             * initalized the parents when using the copy constructor (i.e. gets
+             * the size of the underlying texture prior to init so this texture
+             * can be init to the right size).
+             *
+             * @throw sdl_exception An error which can occur when SDL attempts
+             * to query the texture.
+             *
+             * @param te The texture to get the size from
+             * @return The width and height in column vector format of the given
+             * texture
+             */
+            arma::Col<int> pre_init_size(SDL_Texture *te);
+
+        protected:
+
+            /** Copy constructor for the texture class which just retrieves all
+             * its information from the underlying SDL_Texture.
+             *
+             * @throw sdl_exception An error which can occur when SDL attempts
+             * to query the texture.
+             *
+             */
+            texture(SDL_Texture* te);
+
+            /** Hidden constructor for the class of textures. This creates a texture
              * for which the given renderer can render to.
              *
              * @todo Firstly a question: can a texture only be drawn to by the
@@ -77,20 +103,25 @@ namespace  zr {
              *
              * @param renderer The renderer that will be used to create this
              * texture. 
-             * @param pixel_format_specifier The pixel format for which this
-             * texture should take on.
-             * @param texture_access The level of access this texture should
-             * have (which helps to specify its purpose.)
              * @param size The size of the texture (w, h).
+             * @param texture_access The level of access this texture should
+             * have (which helps to specify its purpose). Defaults to
+             * texture_access::target_access as we assume most operations where
+             * you manually initalize this will be to draw to it.
+             * @param pixel_format_specifier The pixel format for which this
+             * texture should take on. Defaults to ARGB 8888 as this is fairly
+             * standard and usually need not be messed with.
              */
             texture(const renderer& renderer, 
-                    const pixel_format_specifier& pixel_format_specifier, 
-                    const texture_access& texture_access, 
-                    const arma::Col<int>& size);
+                    const arma::Col<int>& size,
+                    const texture_access& texture_access = texture_access::target_access, 
+                    const pixel_format_specifier& pixel_format_specifier = pixel_format_specifier::rgba_8888
+                   );
 
+        public:
 
             /** Texture deconstructor.
-             */
+            */
             virtual ~texture();
 
 
@@ -138,7 +169,7 @@ namespace  zr {
              * @param bm Associate blend mode.
              */
             void mode(const blend_mode& bm);
-            
+
 
             /** Get the additional color value multiplied into render copy
              * operations.
@@ -192,7 +223,96 @@ namespace  zr {
              * @return The texture access level for this texture.
              */
             const texture_access& access();
-            
+
+
+
+    };
+
+
+    /** Class of textures that can be used as a render target. These textures
+     * can be drawn to by renderer and otherwise mutated.
+     */
+    class target_texture : public texture {
+
+        public:
+
+            /** Constructor for the class of target textures. This creates a
+             * texture for which the given renderer can render to.
+             *
+             * @throw sdl_exception An exception can occur either if the
+             * rendering context passed was inactive, if the pixel format is
+             * unsupported, or if one of the size arguments is out of bounds.
+             *
+             * @param renderer The renderer that will be used to create this
+             * texture. 
+             * @param size The size of the texture (w, h).
+             * @param pixel_format_specifier The pixel format for which this
+             * texture should take on. Defaults to ARGB 8888 as this is fairly
+             * standard and usually need not be messed with.
+             */
+            target_texture(const renderer& renderer, 
+                    const arma::Col<int>& size,
+                    const pixel_format_specifier& pcf = pixel_format_specifier::rgba_8888
+                   ) : texture(renderer, size, texture_access::target_access, pcf) {};
+    
+    };
+
+
+    /** Class of textures that involve infrequent changes and are not lockable.
+     */
+    class static_texture : public texture {
+
+        public:
+            /** Constructor for the static class of textures. This creates a texture
+             * for which the given renderer can render to.
+             *
+             * @throw sdl_exception An exception can occur either if the
+             * rendering context passed was inactive, if the pixel foramt is
+             * unsupported, or if one of the size arguments is out of bounds.
+             *
+             * @param renderer The renderer that will be used to create this
+             * texture. 
+             * @param size The size of the texture (w, h).
+             * @param pixel_format_specifier The pixel format for which this
+             * texture should take on. Defaults to ARGB 8888 as this is fairly
+             * standard and usually need not be messed with.
+             */
+            static_texture(const renderer& renderer, 
+                    const arma::Col<int>& size,
+                    const pixel_format_specifier& pcf = pixel_format_specifier::rgba_8888
+                   ) : texture(renderer, size, texture_access::static_access, pcf) {};
+    
+    };
+
+
+    /** Class of textures that are changed frequently and have a locking
+     * mechanism for such an occasion.
+     *
+     * @todo implement locking mechanism
+     *
+     */
+    class streaming_texture : public texture {
+
+        public:
+            /** Constructor for the streaming class of textures. This creates a texture
+             * for which the given renderer can render to.
+             *
+             * @throw sdl_exception An exception can occur either if the
+             * rendering context passed was inactive, if the pixel foramt is
+             * unsupported, or if one of the size arguments is out of bounds.
+             *
+             * @param renderer The renderer that will be used to create this
+             * texture. 
+             * @param size The size of the texture (w, h).
+             * @param pixel_format_specifier The pixel format for which this
+             * texture should take on. Defaults to ARGB 8888 as this is fairly
+             * standard and usually need not be messed with.
+             */
+            streaming_texture(const renderer& renderer, 
+                    const arma::Col<int>& size,
+                    const pixel_format_specifier& pcf = pixel_format_specifier::rgba_8888
+                   ) : texture(renderer, size, texture_access::streaming_access, pcf) {};
+    
 
             // TODO: The following still need to be implemented. It might be
             // more useful to separate this class into classes deriving from the
@@ -206,8 +326,8 @@ namespace  zr {
             // void lock();
             // void unlock();
             //
-
     };
+
 
 } /*  zr  */ 
 

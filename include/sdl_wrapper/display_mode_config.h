@@ -2,7 +2,7 @@
 #define DISPLAY_MODE_H
 
 #include "pixel_format.h"
-#include "../size.h"
+#include "../underlying_types.h"
 
 namespace zr {
 

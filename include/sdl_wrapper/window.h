@@ -6,7 +6,7 @@
 #include <vector>
 #include <armadillo>
 #include "display_mode_config.h"
-#include "../rect.h"
+#include "../underlying_types.h"
 
 namespace zr {
 

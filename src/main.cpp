@@ -40,6 +40,9 @@ struct square : public zr::renderable {
 
 // TODO: Need to combine the rendering architecture with ECS. It should be a prerequisite that if a component is to be rendered, it must at least have
 // both a position and renderable. Otherwise, how would it be rendered? Or like how else would we see it lol.
+//
+// I think what we NEED to do is pass the 'center' position as one parameter of the render function. That way, objects won't have to store this information
+// and the transform can be managed separately. That, and it can be up to the renderable object how its positioning is specified.
 
 int main(int argc, char* argv[]) {
 

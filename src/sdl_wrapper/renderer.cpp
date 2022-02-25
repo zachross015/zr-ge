@@ -316,7 +316,7 @@ namespace zr {
         return tar;
     }
 
-    void renderer::render(renderable* r) {
+    void renderer::render(renderable* r, pos_i<int> pos) {
 
         // Get state information
         auto b = blend();
@@ -325,7 +325,7 @@ namespace zr {
         auto v = viewport();
 
         // Make render
-        r->render(this);
+        r->render(this, pos);
 
         // Revert
         blend(b);

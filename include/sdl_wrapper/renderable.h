@@ -34,7 +34,7 @@ namespace zr {
              * @param r The renderer which should be used to curate render
              * commands
              */
-            virtual void render(renderer* r) = 0;
+            virtual void render(renderer* r, pos_i<int> pos) = 0;
 
     };
 

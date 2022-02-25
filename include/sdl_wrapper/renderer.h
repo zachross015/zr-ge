@@ -412,8 +412,9 @@ namespace zr {
              * render commands act as a sandbox.
              *
              * @param r The object to render.
+             * @param pos The position to render the object at, passed to the mediating function.
              */
-            void render(renderable* r);
+            void render(renderable* r, pos_i<int> pos);
 
 
 

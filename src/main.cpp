@@ -18,21 +18,20 @@
 
 class test_drawing : public zr::renderable {
     public: 
-        void render(zr::renderer* r) { 
+        void render(zr::renderer* r, pos_i<int> pos) { 
             r->draw_color({0, 0, 0, 255});
             r->fill_rects({{500, 500, 100, 500}}); 
         }
 };
 
 struct square : public zr::renderable {
-
-    zr::pos_m<float> pos;
+    
     float size;
     zr::color color{255, 255, 255, 255};
 
-    square(zr::pos_m<float> pos, float s): pos(pos), size(s) {};
+    square(float s): size(s) {};
 
-    void render(zr::renderer*r) {
+    void render(zr::renderer* r, pos_i<int> pos) {
         r->draw_color(color);
         r->fill_rects({pos.x(), pos.y(), size, size});
     }
@@ -70,10 +69,10 @@ int main(int argc, char* argv[]) {
 
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
-                square s({i * size, j * size}, size);
+                square s(size);
                 int coloring = ((i + j) % 2) * 255;
                 s.color = {coloring, coloring, coloring, 255};
-                renderer.render(&s);
+                renderer.render(&s, {i * size, j * size});
             }
         }
 

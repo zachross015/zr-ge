@@ -75,6 +75,10 @@ namespace zr {
 
             /** Support for SDL intialization using stronger typing. 
              *
+             * @todo Convert x, y, width, height to a rect and simplify the
+             * process of building windows that way (so that we don't need
+             * multiple constructors)
+             *
              * @param title  The title that should appear on the window.
              * @param x      The x coordinate the window should appear on the screen
              * @param y      The y coordinate the window should appear on the screen

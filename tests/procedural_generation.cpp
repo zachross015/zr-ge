@@ -147,7 +147,6 @@ int main(int argc, char* argv[]) {
         renderer.target(&t);
         renderer.clear({ 0, 0, 0, 255 });
         renderer.render(&pn);
-
         renderer.target_window();
         renderer.copy(&t);
 

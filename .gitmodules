@@ -10,3 +10,6 @@
 [submodule "doc/dox-awesome"]
 	path = doc/dox-awesome
 	url = https://github.com/jothepro/doxygen-awesome-css.git
+[submodule "lib/centurion"]
+	path = lib/centurion
+	url = https://github.com/albin-johansson/centurion

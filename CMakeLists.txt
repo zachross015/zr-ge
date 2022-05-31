@@ -11,15 +11,15 @@ add_subdirectory(lib)
 add_subdirectory(src)
 
 # Input all the cpp files
-file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp" "src/sdl_wrapper/*.cpp")
+file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 
 # Input all the includes
 include_directories(include)
 
-find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIR})
+# Centurion
+include_directories(${SDL2_INCLUDE_DIR})
+include_directories(lib/centurion/src)
 
 # Executable
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY})
+target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo)

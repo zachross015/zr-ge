@@ -7,7 +7,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 project(GameEngine VERSION 1.0)
 
 # Libaries
-add_subdirectory(lib)
+add_subdirectory(extlib)
 add_subdirectory(src)
 
 # Input all the cpp files

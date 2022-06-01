@@ -16,10 +16,8 @@ file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 # Input all the includes
 include_directories(include)
 
-# Centurion
-include_directories(${SDL2_INCLUDE_DIR})
-include_directories(lib/centurion/src)
 
 # Executable
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo)
+target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo centurion)
+

@@ -13,3 +13,6 @@
 [submodule "lib/centurion"]
 	path = lib/centurion
 	url = https://github.com/albin-johansson/centurion
+[submodule "lib/libSDL2pp"]
+	path = lib/libSDL2pp
+	url = https://github.com/libSDL2pp/libSDL2pp

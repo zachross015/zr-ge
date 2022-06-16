@@ -19,5 +19,5 @@ include_directories(include)
 
 # Executable
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo centurion)
+target_link_libraries(${PROJECT_NAME} EnTT::EnTT armadillo centurion effolkronium_random)
 

@@ -1,1 +1,1 @@
-add_subdirectory(sdl_wrapper)
+add_subdirectory(game-engine)

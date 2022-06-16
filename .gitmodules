@@ -11,3 +11,6 @@
 [submodule "extlib/armadillo"]
 	path = extlib/armadillo
 	url = https://gitlab.com/conradsnicta/armadillo-code
+[submodule "extlib/random"]
+	path = extlib/random
+	url = https://github.com/effolkronium/random

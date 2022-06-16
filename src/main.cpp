@@ -13,13 +13,13 @@
 
 /// Component for dictating entity position
 struct position {
-    float x, y;
+    double x, y;
 };
 
 
 /// Component for dictating entity velocity
 struct velocity {
-    float dx, dy;
+    double dx, dy;
 };
 
 
@@ -94,8 +94,8 @@ void build_ball(ge::registry &registry) {
     registry.emplace<ball>(entity);
 
     // Generate random x,y directions and normalize
-    float dx = ge::rand::get(-1.0, 1.0) * BALL_SPEED;
-    float dy = ge::rand::get(-1.0, 1.0) * BALL_SPEED;
+    double dx = ge::rand::get(-1.0, 1.0) * BALL_SPEED;
+    double dy = ge::rand::get(-1.0, 1.0) * BALL_SPEED;
     registry.emplace<velocity>(entity, dx, dy);
 }
 
@@ -113,7 +113,7 @@ void draw_paddles(ge::registry &registry, ge::renderer &renderer) {
         auto &pos = view.get<const position>(entity);
 
         // Build Rectangle
-        auto rect = ge::basic_rect<float>();
+        auto rect = ge::basic_rect<double>();
         rect.set_x(pos.x);
         rect.set_y(pos.y);
         rect.set_width(PADDLE_WIDTH);

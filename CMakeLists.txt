@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-# Configuration
+# Configuration and constants
 set(GE_PROJECT_NAME game-engine)
 project(${GE_PROJECT_NAME} VERSION 1.0)
 
@@ -14,15 +14,32 @@ set(GE_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 set(GE_EXTLIB_DIR "${PROJECT_SOURCE_DIR}/extlib")
 
 
+# Find SDL Packages
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_mixer REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+
+# Construct library
+add_library(${GE_PROJECT_NAME})
+
+# Include SDL headers
+target_include_directories(${GE_PROJECT_NAME} INTERFACE ${SDL2_INCLUDE_DIR})
+target_include_directories(${GE_PROJECT_NAME} INTERFACE ${SDL2_IMAGE_INCLUDE_DIR})
+target_include_directories(${GE_PROJECT_NAME} INTERFACE ${SDL2_MIXER_INCLUDE_DIR})
+target_include_directories(${GE_PROJECT_NAME} INTERFACE ${SDL2_TTF_INCLUDE_DIR})
+
+# Link SDL
+target_link_libraries(${GE_PROJECT_NAME} INTERFACE ${SDL2_LIBRARY})
+target_link_libraries(${GE_PROJECT_NAME} INTERFACE ${SDL2_IMAGE_LIBRARY})
+target_link_libraries(${GE_PROJECT_NAME} INTERFACE ${SDL2_MIXER_LIBRARY})
+target_link_libraries(${GE_PROJECT_NAME} INTERFACE ${SDL2_TTF_LIBRARY})
+
 # Libaries
 add_subdirectory(${GE_EXTLIB_DIR})
 
-# Executable
-add_library(${GE_PROJECT_NAME})
+# Include
 target_include_directories(${GE_PROJECT_NAME} PUBLIC ${GE_INCLUDE_DIR})
-target_link_libraries(${GE_PROJECT_NAME} EnTT::EnTT armadillo centurion effolkronium_random)
-
-
 add_subdirectory(${GE_SOURCE_DIR})
 
 # Options

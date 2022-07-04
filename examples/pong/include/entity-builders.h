@@ -25,4 +25,13 @@ void build_paddle(ge::registry &registry, position p, paddle_side side);
  */
 void build_new_ball(ge::registry &registry); 
 
+
+/** Builds the two paddles on either side of the screen and builds the center
+ * ball.
+ *
+ * @param registry The registry to place the paddles/balls in.
+ */
+void build_initial_registry(ge::registry &registry);
+
+
 #endif

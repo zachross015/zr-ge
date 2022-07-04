@@ -1,14 +1,11 @@
+#include <iostream>
 #include <cmath>
 #include <game-engine/initializer.hpp>
 
 #include "systems.h"
+#include "entity-builders.h"
 
 
-/** Updates all objects containing a position and a velocity.
- *
- * @param registry Registry containing all the elements with both a position and
- * a velocity.
- */
 void update_movables(ge::registry &registry) {
     auto view = registry.view<position, const velocity>();
     view.each([](auto &pos, const auto &vel) {
@@ -18,12 +15,6 @@ void update_movables(ge::registry &registry) {
 }
 
 
-/** Handles the collisions between the ball and the paddle
- *
- *  @TODO May have to maintain a position buffer for the ball
- *
- *  @param registry Registry containing the paddles and balls
- */
 void handle_collisions(ge::registry &registry) {
 
     // View for the paddles
@@ -58,11 +49,9 @@ void handle_collisions(ge::registry &registry) {
 
 
 
-/** Physics update for keeping the ball entities within the bounding box.
- *
- * @param registry The registry containing the balls.
- */
 void keep_balls_in_box(ge::registry &registry) {
+
+    // View for the balls
     auto view = registry.view<const position, velocity, const ball>();
     view.each([](const auto &pos, auto &vel, const auto &b) {
 
@@ -74,18 +63,47 @@ void keep_balls_in_box(ge::registry &registry) {
 }
 
 
-/** Holds the ball in place for the beginning of their lifetime (specified by
- * INITIAL_BALL_PAUSE).
- *
- * @param registry The registry containing the balls.
- */
-void hold_balls(ge::registry &registry) {
+void hold_baby_balls(ge::registry &registry) {
+    
+    // View containing the balls in registry
     auto view = registry.view<position, const velocity, ball>();
     view.each([](auto &pos, const auto &vel, auto &b) {
+
+        // Balls are held in place for the duration of the INITIAL_BALL_PAUSE by
+        // negating the velocity updates that occur in the `update_movables`
+        // call (happens in the main game loop.)
         if(b.lifetime < INITIAL_BALL_PAUSE) {
             b.lifetime++;
             pos.x -= vel.dx;
             pos.y -= vel.dy;
         }
+    });
+}
+
+
+void handle_ball_exit(ge::registry &registry) {
+
+    // Iterate through balls
+    auto view = registry.view<const position, const ball>();
+    view.each([&](const auto ball_entity, const auto &pos, const auto &b) {
+
+        // Iterate through the paddles
+        auto p_view = registry.view<paddle>();
+        p_view.each([&](auto &p) {
+
+            // Determine if ball has exited.
+            bool left_point = pos.x + BALL_RADIUS >= SCREEN_WIDTH && p.side == paddle_side::left;
+            bool right_point = pos.x - BALL_RADIUS <= 0 && p.side == paddle_side::right;
+
+            // Only one of the two conditions will be true, which partitions
+            // the event space into left and right paddle. So p will always
+            // contain the winning paddle, so we can just increment that
+            // entity's score.
+            if(left_point || right_point) {
+                p.score++; 
+                registry.destroy(ball_entity);
+                build_new_ball(registry);
+            }
+        });
     });
 }

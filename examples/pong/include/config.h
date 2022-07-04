@@ -12,4 +12,8 @@
 #define SCREEN_WIDTH  1000
 #define SCREEN_HEIGHT 1000
 
+#define RESOURCE_DIR "../examples/pong/resources"
+#define FONT_DIR RESOURCE_DIR "/fonts"
+#define FONT_SIZE 42
+
 #endif

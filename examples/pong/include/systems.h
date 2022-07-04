@@ -38,6 +38,15 @@ void keep_balls_in_box(ge::registry &registry);
  *
  * @param registry The registry containing the balls.
  */
-void hold_balls(ge::registry &registry); 
+void hold_baby_balls(ge::registry &registry); 
+
+
+/** Determines if the ball has exited either the right or left boundary. If so,
+ * gives a point to the corresponding side, deletes the ball, and adds a new
+ * one.
+ *
+ * @param regitry The registry containing the game elements.
+ */
+void handle_ball_exit(ge::registry &registry);
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef GAME_INITIALIZATION_H
-#define GAME_INITIALIZATION_H
+#ifndef GAME_INITIALIZER_H
+#define GAME_INITIALIZER_H
 
 
 #include <centurion.hpp>

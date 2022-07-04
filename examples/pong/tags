@@ -1,0 +1,63 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+BALL_RADIUS	include/config.h	/^#define BALL_RADIUS /;"	d
+BALL_SPEED	include/config.h	/^#define BALL_SPEED /;"	d
+CMAKE_BUILD_TYPE	CMakeLists.txt	/^set(CMAKE_BUILD_TYPE Debug)$/;"	v
+CMAKE_MODULE_PATH	CMakeLists.txt	/^set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}\/cmake\/examples\/pong")$/;"	v
+COMPONENTS_H	include/components.h	/^#define COMPONENTS_H$/;"	d
+CONFIG_H	include/config.h	/^#define CONFIG_H$/;"	d
+ENTITY_BUILDERS_H	include/entity-builders.h	/^#define ENTITY_BUILDERS_H$/;"	d
+FONT_DIR	include/config.h	/^#define FONT_DIR /;"	d
+FONT_SIZE	include/config.h	/^#define FONT_SIZE /;"	d
+INITIAL_BALL_PAUSE	include/config.h	/^#define INITIAL_BALL_PAUSE /;"	d
+KEYBINDS_H	include/keybinds.h	/^#define KEYBINDS_H$/;"	d
+PADDLE_HEIGHT	include/config.h	/^#define PADDLE_HEIGHT /;"	d
+PADDLE_SPEED	include/config.h	/^#define PADDLE_SPEED /;"	d
+PADDLE_WIDTH	include/config.h	/^#define PADDLE_WIDTH /;"	d
+PONG_H	include/pong.h	/^#define PONG_H$/;"	d
+RENDERS_H	include/renders.h	/^#define RENDERS_H$/;"	d
+RESOURCE_DIR	include/config.h	/^#define RESOURCE_DIR /;"	d
+SCREEN_HEIGHT	include/config.h	/^#define SCREEN_HEIGHT /;"	d
+SCREEN_WIDTH	include/config.h	/^#define SCREEN_WIDTH /;"	d
+SYSTEMS_H	include/systems.h	/^#define SYSTEMS_H$/;"	d
+__anon9bdb6dc50102	src/systems.cpp	/^    view.each([](auto &pos, const auto &vel) {$/;"	f	function:update_movables	file:
+__anon9bdb6dc50202	src/systems.cpp	/^    view.each([&](const auto &pos, const auto &p) {$/;"	f	function:handle_collisions	file:
+__anon9bdb6dc50302	src/systems.cpp	/^        b_view.each([&](const auto &b_pos, auto &b_vel, const auto &b) {$/;"	f	function:handle_collisions::__anon9bdb6dc50202	file:
+__anon9bdb6dc50402	src/systems.cpp	/^    view.each([](const auto &pos, auto &vel, const auto &b) {$/;"	f	function:keep_balls_in_box	file:
+__anon9bdb6dc50502	src/systems.cpp	/^    view.each([](auto &pos, const auto &vel, auto &b) {$/;"	f	function:hold_baby_balls	file:
+__anon9bdb6dc50602	src/systems.cpp	/^    view.each([&](const auto ball_entity, const auto &pos, const auto &b) {$/;"	f	function:handle_ball_exit	file:
+__anon9bdb6dc50702	src/systems.cpp	/^        p_view.each([&](auto &p) {$/;"	f	function:handle_ball_exit::__anon9bdb6dc50602	file:
+__anonc6c9aa000102	src/renders.cpp	/^    view.each([&](const auto &pos, const auto &b) {$/;"	f	function:draw_balls	file:
+__anonebb709a60102	src/keybinds.cpp	/^    view.each([=](const auto &pos, auto &vel, const auto &p) {$/;"	f	function:bind_paddle_movement_keys	file:
+ball	include/components.h	/^struct ball {$/;"	s
+bind_paddle_movement_keys	src/keybinds.cpp	/^void bind_paddle_movement_keys(ge::registry &registry, paddle_side side, ge::key_code up, ge::ke/;"	f	typeref:typename:void
+build_initial_registry	src/entity-builders.cpp	/^void build_initial_registry(ge::registry &registry) {$/;"	f	typeref:typename:void
+build_new_ball	src/entity-builders.cpp	/^void build_new_ball(ge::registry &registry) {$/;"	f	typeref:typename:void
+build_paddle	src/entity-builders.cpp	/^void build_paddle(ge::registry &registry, position p, paddle_side side) {$/;"	f	typeref:typename:void
+draw_balls	src/renders.cpp	/^void draw_balls(ge::registry &registry, ge::renderer &renderer) {$/;"	f	typeref:typename:void
+draw_paddles	src/renders.cpp	/^void draw_paddles(ge::registry &registry, ge::renderer &renderer) {$/;"	f	typeref:typename:void
+dx	include/components.h	/^    float dx, dy;$/;"	m	struct:velocity	typeref:typename:float
+dy	include/components.h	/^    float dx, dy;$/;"	m	struct:velocity	typeref:typename:float
+handle_ball_exit	src/systems.cpp	/^void handle_ball_exit(ge::registry &registry) {$/;"	f	typeref:typename:void
+handle_collisions	src/systems.cpp	/^void handle_collisions(ge::registry &registry) {$/;"	f	typeref:typename:void
+hold_baby_balls	src/systems.cpp	/^void hold_baby_balls(ge::registry &registry) {$/;"	f	typeref:typename:void
+keep_balls_in_box	src/systems.cpp	/^void keep_balls_in_box(ge::registry &registry) {$/;"	f	typeref:typename:void
+left	include/components.h	/^    left, right$/;"	e	enum:paddle_side
+lifetime	include/components.h	/^    int lifetime = 0;$/;"	m	struct:ball	typeref:typename:int
+main	main.cpp	/^int main(int, char**) {$/;"	f	typeref:typename:int
+paddle	include/components.h	/^struct paddle {$/;"	s
+paddle_side	include/components.h	/^enum paddle_side {$/;"	g
+pong	CMakeLists.txt	/^project(pong VERSION 1.0)$/;"	p
+position	include/components.h	/^struct position {$/;"	s
+right	include/components.h	/^    left, right$/;"	e	enum:paddle_side
+score	include/components.h	/^    int score = 0;$/;"	m	struct:paddle	typeref:typename:int
+side	include/components.h	/^    paddle_side side;$/;"	m	struct:paddle	typeref:typename:paddle_side
+update_movables	src/systems.cpp	/^void update_movables(ge::registry &registry) {$/;"	f	typeref:typename:void
+velocity	include/components.h	/^struct velocity {$/;"	s
+x	include/components.h	/^    float x, y;$/;"	m	struct:position	typeref:typename:float
+y	include/components.h	/^    float x, y;$/;"	m	struct:position	typeref:typename:float

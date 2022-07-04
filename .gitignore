@@ -2,5 +2,6 @@
 
 build/
 doc/dox-awesome/
-doc/html/
-doc/latex/
+
+html/
+latex/
